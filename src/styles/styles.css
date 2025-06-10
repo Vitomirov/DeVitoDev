@@ -1,15 +1,17 @@
 html {
   scroll-behavior: smooth;
 }
+.backroundBlack {
+  color: black;
+}
 
-
-/* HERO */
+/* HERO Section Styles */
 .hero-section {
   position: relative;
   display: flex;
   align-items: center;
   height: 100vh;
-  color: white;
+  color: rgb(255, 255, 255);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,6 +41,146 @@ html {
 .hero-content {
   position: relative;
   z-index: 3;
-  max-width: 700px;
+  max-width: 700px; /* Default max-width for larger screens */
   text-align: center;
+}
+
+/* SKILLS Section Styles */
+.scrolling-row {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  margin: 20px 0;
+}
+
+.scrolling-content {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: 60px; /* Default spacing for larger screens */
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px; /* Default min-width for larger screens */
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.skill-item p {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Target the SVG icons specifically to make them responsive */
+.skill-item svg {
+  font-size: 30px; /* Default size for icons. Overrides inline 'size' if smaller */
+}
+
+/* --- Responsive Adjustments --- */
+
+/* For screens up to 767.98px (typical tablet portrait / smaller desktops) */
+@media (max-width: 767.98px) {
+  .scrolling-content {
+    gap: 35px; /* Reduce horizontal gap */
+  }
+  .skill-item svg {
+    font-size: 28px; /* Slightly smaller icons */
+  }
+  /* Reduce vertical margin between sections */
+  .hero-content h4.mt-5 { /* Target h4 with mt-5 for responsiveness */
+    margin-top: 2.5rem !important; /* Smaller than Bootstrap's default mt-5 (3rem) */
+  }
+}
+
+/* For screens up to 575.98px (typical phone portrait) */
+@media (max-width: 575.98px) {
+  .scrolling-content {
+    gap: 20px; /* Further reduce horizontal gap */
+  }
+  .skill-item {
+    min-width: 70px; /* Make each item smaller */
+  }
+  .skill-item p {
+    font-size: 13px; /* Smaller font for labels */
+  }
+  .skill-item svg {
+    font-size: 25px; /* Smaller icons on phones */
+  }
+  /* Further reduce vertical margin between sections on small phones */
+  .hero-content h4.mt-5 {
+    margin-top: 1.5rem !important; /* Significantly smaller margin */
+  }
+  /* Also adjust initial margin for the first h2 if it's too much */
+  .hero-content h2.mb-4 {
+    margin-bottom: 1.5rem !important; /* Reduce margin below main heading */
+  }
+  .hero-content p.fs-5.mb-2 {
+    margin-bottom: 1rem !important; /* Reduce margin below description paragraph */
+  }
+}
+
+/* For very small screens (e.g., iPhone SE, older Androids) */
+@media (max-width: 400px) {
+  .scrolling-content {
+    gap: 12px; /* Very tight horizontal gap */
+  }
+  .skill-item {
+    min-width: 55px; /* Make each item even smaller */
+  }
+  .skill-item p {
+    font-size: 11px; /* Smallest font size */
+    margin-top: 5px; /* Reduce margin for labels */
+  }
+  .skill-item svg {
+    font-size: 20px; /* Smallest icons */
+  }
+  /* Even tighter vertical margins for very small screens */
+  .hero-content h4.mt-5 {
+    margin-top: 1rem !important; /* Minimal vertical margin */
+  }
+  .hero-content h2.mb-4 {
+    margin-bottom: 1rem !important;
+  }
+  .hero-content p.fs-5.mb-2 {
+    margin-bottom: 0.5rem !important;
+  }
+  /* Adjust padding around scrolling rows if needed */
+  .scrolling-row {
+      padding: 10px 0; /* Less vertical padding around the rows */
+      margin: 10px 0;   /* Less vertical margin around the rows */
+  }
+}
+
+
+/* Animations for Continuous Scrolling */
+@keyframes scrollLeft {
+  100% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.scroll-left .scrolling-content {
+  animation: scrollLeft 25s linear infinite;
+}
+
+.scroll-right .scrolling-content {
+  animation: scrollRight 25s linear infinite;
 }
