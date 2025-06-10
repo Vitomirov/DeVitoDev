@@ -4,20 +4,7 @@ import photo from "../images/photo.jpg";
 
 function Hero() {
   return (
-    <div
-      className="hero-section"
-      style={{
-        backgroundImage: `url(${photo})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-        position: "relative",
-      }}
-    >
-      {/* Overlay */}
-      <div className="hero-overlay"></div>
-
+    <div>
       {/* Main content */}
       <Container
         className="hero-content text-white text-center d-flex flex-column justify-content-center align-items-center"

@@ -46,20 +46,7 @@ const devopsSkills = [
 
 function Skills() {
   return (
-    <div
-      id="skills"
-      className="hero-section"
-      style={{
-        backgroundImage: `url(${photo})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-        position: "relative",
-      }}
-    >
-      <div className="hero-overlay"></div>
-
+    <div id="skills" className="hero-section text-center">
       {/* Adjust Container to be fluid up to 'md' breakpoint, then fixed */}
       <Container fluid="md" className="hero-content text-white text-center">
         <h2 className="display-sm-5 fw-bold mb-4">Skills & Technologies</h2>

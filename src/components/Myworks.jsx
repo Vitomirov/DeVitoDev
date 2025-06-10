@@ -5,21 +5,7 @@ import photoMirror from "../images/photoMirror.jpg";
 
 function MyWorks() {
   return (
-    <div
-      id="myWorks"
-      className="hero-section"
-      style={{
-        backgroundImage: `url(${photoMirror})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-        position: "relative",
-      }}
-    >
-      {/* Overlay */}
-      <div className="hero-overlay"></div>
-
+    <div id="myWorks" className="hero-section text-center">
       {/* Main Content */}
       <Container className="hero-content">
         <h2 className="display-5 fw-bold mb-4">My Works</h2>
@@ -48,7 +34,7 @@ function MyWorks() {
                 (e.target.style.backgroundColor = "rgba(255,255,255,0.1)")
               }
             >
-              Warranty Wallet App
+              Warranty Wallet
             </Link>
           </li>
         </ul>

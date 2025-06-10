@@ -5,8 +5,7 @@ function Footer() {
     <footer className="bg-dark text-white py-3 mt-auto">
       <div className="d-flex flex-column flex-md-row justify-content-between align-items-center px-5">
         <div className="mb-2 mb-md-0">
-          Designed & Developed by{" "}
-          <strong className="text-info">Dejan Vitomirov</strong>
+          &copy; Designed & Developed by Dejan Vitomirov
         </div>
 
         <div>

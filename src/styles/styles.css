@@ -1,8 +1,8 @@
 html {
   scroll-behavior: smooth;
 }
-.backroundBlack {
-  color: black;
+.backgroundBlack {
+  background-color: black; 
 }
 
 /* HERO Section Styles */
