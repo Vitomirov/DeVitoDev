@@ -1,11 +1,8 @@
-import React from "react";
 import { Container } from "react-bootstrap";
-import photo from "../images/photo.jpg";
 
 function Hero() {
   return (
     <div>
-      {/* Main content */}
       <Container
         className="hero-content text-white text-center d-flex flex-column justify-content-center align-items-center"
         style={{ minHeight: "100vh", position: "relative", zIndex: 3 }}

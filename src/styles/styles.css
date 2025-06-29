@@ -1,11 +1,18 @@
+/* Enable smooth scroll behavior for anchor links */
 html {
   scroll-behavior: smooth;
 }
+
+/* Simple black background utility class */
 .backgroundBlack {
   background-color: black; 
 }
 
-/* HERO Section Styles */
+/* 
+  HERO Section: 
+  Full-screen layout with background image, layered canvas animation, 
+  dark overlay for contrast, and centered content.
+*/
 .hero-section {
   position: relative;
   display: flex;
@@ -41,11 +48,14 @@ html {
 .hero-content {
   position: relative;
   z-index: 3;
-  max-width: 700px; /* Default max-width for larger screens */
+  max-width: 700px;
   text-align: center;
 }
 
-/* SKILLS Section Styles */
+/* 
+  SKILLS Section:
+  Horizontal scrolling layout for skill icons and labels.
+*/
 .scrolling-row {
   position: relative;
   width: 100%;
@@ -58,7 +68,7 @@ html {
   display: flex;
   flex-wrap: nowrap;
   white-space: nowrap;
-  gap: 60px; /* Default spacing for larger screens */
+  gap: 60px;
 }
 
 .skill-item {
@@ -66,7 +76,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 100px; /* Default min-width for larger screens */
+  min-width: 100px;
   color: #fff;
   flex-shrink: 0;
 }
@@ -77,92 +87,98 @@ html {
   font-weight: 500;
 }
 
-/* Target the SVG icons specifically to make them responsive */
 .skill-item svg {
-  font-size: 30px; /* Default size for icons. Overrides inline 'size' if smaller */
+  font-size: 30px;
 }
 
-/* --- Responsive Adjustments --- */
-
-/* For screens up to 767.98px (typical tablet portrait / smaller desktops) */
+/* 
+  Responsive adjustments for tablets and smaller screens.
+  Gradually reduce icon size, spacing, and text sizes.
+*/
 @media (max-width: 767.98px) {
   .scrolling-content {
-    gap: 35px; /* Reduce horizontal gap */
+    gap: 35px;
   }
+
   .skill-item svg {
-    font-size: 28px; /* Slightly smaller icons */
+    font-size: 28px;
   }
-  /* Reduce vertical margin between sections */
-  .hero-content h4.mt-5 { /* Target h4 with mt-5 for responsiveness */
-    margin-top: 2.5rem !important; /* Smaller than Bootstrap's default mt-5 (3rem) */
+
+  .hero-content h4.mt-5 {
+    margin-top: 2.5rem !important;
   }
 }
 
-/* For screens up to 575.98px (typical phone portrait) */
 @media (max-width: 575.98px) {
   .scrolling-content {
-    gap: 20px; /* Further reduce horizontal gap */
+    gap: 20px;
   }
+
   .skill-item {
-    min-width: 70px; /* Make each item smaller */
+    min-width: 70px;
   }
+
   .skill-item p {
-    font-size: 13px; /* Smaller font for labels */
+    font-size: 13px;
   }
+
   .skill-item svg {
-    font-size: 25px; /* Smaller icons on phones */
+    font-size: 25px;
   }
-  /* Further reduce vertical margin between sections on small phones */
+
   .hero-content h4.mt-5 {
-    margin-top: 1.5rem !important; /* Significantly smaller margin */
+    margin-top: 1.5rem !important;
   }
-  /* Also adjust initial margin for the first h2 if it's too much */
+
   .hero-content h2.mb-4 {
-    margin-bottom: 1.5rem !important; /* Reduce margin below main heading */
+    margin-bottom: 1.5rem !important;
   }
+
   .hero-content p.fs-5.mb-2 {
-    margin-bottom: 1rem !important; /* Reduce margin below description paragraph */
+    margin-bottom: 1rem !important;
   }
 }
 
-/* For very small screens (e.g., iPhone SE, older Androids) */
 @media (max-width: 400px) {
   .scrolling-content {
-    gap: 12px; /* Very tight horizontal gap */
+    gap: 12px;
   }
+
   .skill-item {
-    min-width: 55px; /* Make each item even smaller */
+    min-width: 55px;
   }
+
   .skill-item p {
-    font-size: 11px; /* Smallest font size */
-    margin-top: 5px; /* Reduce margin for labels */
+    font-size: 11px;
+    margin-top: 5px;
   }
+
   .skill-item svg {
-    font-size: 20px; /* Smallest icons */
+    font-size: 20px;
   }
-  /* Even tighter vertical margins for very small screens */
+
   .hero-content h4.mt-5 {
-    margin-top: 1rem !important; /* Minimal vertical margin */
+    margin-top: 1rem !important;
   }
+
   .hero-content h2.mb-4 {
     margin-bottom: 1rem !important;
   }
+
   .hero-content p.fs-5.mb-2 {
     margin-bottom: 0.5rem !important;
   }
-  /* Adjust padding around scrolling rows if needed */
+
   .scrolling-row {
-      padding: 10px 0; /* Less vertical padding around the rows */
-      margin: 10px 0;   /* Less vertical margin around the rows */
+    padding: 10px 0;
+    margin: 10px 0;
   }
 }
 
-
-/* Animations for Continuous Scrolling */
+/* 
+  Keyframe animations for infinite left/right scrolling effect.
+*/
 @keyframes scrollLeft {
-  100% {
-    transform: translateX(0%);
-  }
   100% {
     transform: translateX(-50%);
   }
@@ -183,4 +199,42 @@ html {
 
 .scroll-right .scrolling-content {
   animation: scrollRight 25s linear infinite;
+}
+
+.myWorkButton {
+  color: #fff;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.myWorkButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+  padding: 1rem 2rem; /* corresponds to py-3 px-4 */
+}
+
+.custom-brand {
+  color: #fff;
+  font-size: 2.5rem; /* similar to fs-1 */
+  text-decoration: none;
+}
+
+.custom-nav-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.custom-nav-link:hover {
+  color: #aaa;
 }

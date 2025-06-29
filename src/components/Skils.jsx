@@ -1,4 +1,3 @@
-import React from "react";
 import { Container } from "react-bootstrap";
 import {
   FaJs,
@@ -18,8 +17,6 @@ import {
   SiDigitalocean,
   SiMailgun,
 } from "react-icons/si";
-
-import photo from "../images/photo.jpg";
 
 const frontendSkills = [
   { icon: <FaJs size={30} />, label: "JavaScript" },
@@ -44,10 +41,28 @@ const devopsSkills = [
   { icon: <FaLinux size={30} />, label: "Linux" },
 ];
 
+// Helper component for rendering one skill category section
+function SkillSection({ title, skills, scrollDirection }) {
+  return (
+    <>
+      <h4 className="fw-bold mt-5">{title}</h4>
+      <div className={`scrolling-row ${scrollDirection} mt-0 mb-0`}>
+        <div className="scrolling-content">
+          {[...skills, ...skills].map(({ icon, label }, i) => (
+            <div key={i} className="skill-item">
+              {icon}
+              <p>{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
 function Skills() {
   return (
     <div id="skills" className="hero-section text-center">
-      {/* Adjust Container to be fluid up to 'md' breakpoint, then fixed */}
       <Container fluid="md" className="hero-content text-white text-center">
         <h2 className="display-sm-5 fw-bold mb-4">Skills & Technologies</h2>
         <p className="fs-sm-5 mb-2">
@@ -55,46 +70,23 @@ function Skills() {
           working across the full stack, and always open to learning more.
         </p>
 
-        {/* Frontend */}
-        <h4 className="fw-bold">Frontend</h4>
-        <div className="scrolling-row scroll-left mt-0 mb-0">
-          <div className="scrolling-content">
-            {[...frontendSkills, ...frontendSkills].map(
-              ({ icon, label }, i) => (
-                <div key={i} className="skill-item">
-                  {icon}
-                  <p>{label}</p>
-                </div>
-              )
-            )}
-          </div>
-        </div>
+        <SkillSection
+          title="Frontend"
+          skills={frontendSkills}
+          scrollDirection="scroll-left"
+        />
 
-        {/* Backend */}
-        <h4 className="fw-bold mt-5">Backend</h4>
-        <div className="scrolling-row scroll-right mt-0 mb-0">
-          <div className="scrolling-content">
-            {[...backendSkills, ...backendSkills].map(({ icon, label }, i) => (
-              <div key={i} className="skill-item">
-                {icon}
-                <p>{label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <SkillSection
+          title="Backend"
+          skills={backendSkills}
+          scrollDirection="scroll-right"
+        />
 
-        {/* DevOps */}
-        <h4 className="fw-bold mt-5">DevOps & Tools</h4>
-        <div className="scrolling-row scroll-left mt-0 mb-0">
-          <div className="scrolling-content">
-            {[...devopsSkills, ...devopsSkills].map(({ icon, label }, i) => (
-              <div key={i} className="skill-item">
-                {icon}
-                <p>{label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <SkillSection
+          title="DevOps & Tools"
+          skills={devopsSkills}
+          scrollDirection="scroll-left"
+        />
       </Container>
     </div>
   );

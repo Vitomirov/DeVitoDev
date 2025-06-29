@@ -1,11 +1,8 @@
-import React from "react";
 import { Container } from "react-bootstrap";
-import photoMirror from "../images/photoMirror.jpg";
 
 function About() {
   return (
     <div id="about" className="hero-section text-center">
-      {/* Main content */}
       <Container className="hero-content">
         <h2 className="display-5 fw-bold mb-3">About Me</h2>
         <p className="fs-5">

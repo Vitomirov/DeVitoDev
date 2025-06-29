@@ -1,4 +1,3 @@
-// src/components/MatrixCanvas.jsx
 import React, { useEffect, useRef } from "react";
 
 function MatrixCanvas({ start }) {
