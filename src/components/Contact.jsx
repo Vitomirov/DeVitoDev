@@ -7,7 +7,6 @@ function Contact() {
   const [messageType, setMessageType] = useState("");
   const [isEmailJsLoaded, setIsEmailJsLoaded] = useState(false);
 
-  // Helper function to display messages with a timeout
   const showMessage = (text, type) => {
     setMessage(text);
     setMessageType(type);
@@ -17,7 +16,6 @@ function Contact() {
     }, 5000);
   };
 
-  // Dynamically loads the EmailJS script if not already loaded
   const loadEmailJsScript = () => {
     return new Promise((resolve, reject) => {
       if (document.getElementById("emailjs-script")) {
@@ -38,12 +36,20 @@ function Contact() {
     });
   };
 
-  // Load the EmailJS script on initial render
   useEffect(() => {
     loadEmailJsScript()
       .then(() => {
         setIsEmailJsLoaded(true);
         console.log("EmailJS script loaded successfully.");
+        // Inicijalizuj EmailJS sa Public Key-em ovde
+        // Proveri da li je window.emailjs definisan pre inicijalizacije
+        if (window.emailjs && import.meta.env.VITE_EMAILJS_PUBLIC_KEY) {
+          window.emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+        } else {
+          console.error(
+            "EmailJS or Public Key not available for initialization."
+          );
+        }
       })
       .catch(() => {
         console.error("Failed to load EmailJS script.");
@@ -54,14 +60,12 @@ function Contact() {
       });
   }, []);
 
-  // Handles successful email submission
   const handleEmailSuccess = (result) => {
     console.log("Email successfully sent!", result.text);
     showMessage("Your message has been sent successfully!", "success");
     form.current.reset();
   };
 
-  // Handles error during email submission
   const handleEmailError = (error) => {
     console.error("EmailJS Error:", error.text);
     showMessage(
@@ -70,7 +74,6 @@ function Contact() {
     );
   };
 
-  // Called when the form is submitted
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -87,17 +90,34 @@ function Contact() {
       return;
     }
 
+    // Koristi promenljive okruženja
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    // Public Key se inicijalizuje u useEffect-u, ne šalje se u sendForm
+
+    if (!serviceId || !templateId) {
+      showMessage(
+        "Email service configuration missing. Please check settings.",
+        "danger"
+      );
+      console.error("EmailJS configuration missing:", {
+        serviceId,
+        templateId,
+      });
+      return;
+    }
+
     window.emailjs
       .sendForm(
-        "service_ez767xc",
-        "template_skk8o4o",
-        form.current,
-        "vQKEcsBiITvI1R4Jq"
+        serviceId,
+        templateId,
+        form.current
+        // Public Key se ne šalje ovde, već se inicijalizuje sa emailjs.init()
+        // "vQKEcsBiITvI1R4Jq" // <-- UKLONI OVU LINIJU
       )
       .then(handleEmailSuccess, handleEmailError);
   };
 
-  // Contact links to display (email, LinkedIn, GitHub)
   const contactLinks = [
     {
       icon: "bi-linkedin",
