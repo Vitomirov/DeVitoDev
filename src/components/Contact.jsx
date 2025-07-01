@@ -100,11 +100,6 @@ function Contact() {
   // Contact links to display (email, LinkedIn, GitHub)
   const contactLinks = [
     {
-      icon: "bi-envelope-fill",
-      label: "dejan.vitomirov@gmail.com",
-      href: "mailto:dejan.vitomirov@gmail.com",
-    },
-    {
       icon: "bi-linkedin",
       label: "LinkedIn Profile",
       href: "https://www.linkedin.com/in/dejan-vitomirov/",
