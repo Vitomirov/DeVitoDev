@@ -1,6 +1,6 @@
-import { Container } from "react-bootstrap";
-import photoMirror from "../../images/photoMirror.jpg";
+import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import videoWarrantyWallet from "../../DemoVideos/videoWarrantyWallet.mp4";
 
 function WarrantyWallet() {
   const navigate = useNavigate();
@@ -9,7 +9,6 @@ function WarrantyWallet() {
     <div
       className="py-5 text-white position-relative"
       style={{
-        backgroundImage: `url(${photoMirror})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -18,34 +17,70 @@ function WarrantyWallet() {
     >
       <Container>
         <h2 className="fw-bold mb-3">Warranty Wallet App</h2>
-        <p>
-          Full-stack web app for managing product warranties. Users can log in,
-          add new warranties with images, and view/edit/delete them. Built with
-          React, Node.js, MySQL, and JWT authentication.
-        </p>
-        <p>
-          <strong>Tech stack:</strong> React, Node.js, Express, MySQL, Multer,
-          JWT, Bootstrap 5.
-        </p>
-        <p>
-          <a
-            href="https://github.com/Vitomirov/warranty-wallet"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-info"
+
+        <Row className="align-items-center">
+          <Col md={7} className="mb-4 mb-md-0">
+            <p>
+              Warranty Wallet App is a full-stack web application designed for
+              straightforward product warranty management. It helps users avoid
+              lost papers and missed deadlines by providing a centralized,
+              digital solution. Key functionalities include user authentication,
+              adding new warranties with image uploads, and full CRUD (Create,
+              Read, Update, Delete) functionality for all records.
+            </p>
+            <p>
+              <strong>Technologies Used:</strong>
+            </p>
+            <ul className="list-unstyled ps-3">
+              <li>
+                <strong>• Frontend:</strong> React, Bootstrap, React Router DOM,
+                Axios
+              </li>
+              <li>
+                <strong>• Backend:</strong> Node JS, Express, MySQL, JWT
+              </li>
+            </ul>
+            <p>
+              <a
+                href="https://github.com/Vitomirov/warranty-wallet"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-info"
+              >
+                View on GitHub
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://devitowarranty.xyz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-info"
+              >
+                Live Demo
+              </a>
+            </p>
+          </Col>
+
+          {/* Dodajemo margin-top na COL div da spustimo video */}
+        </Row>
+      </Container>
+
+      <Container className="d-flex justify-content-center justify-content-md-end mt-4 mt-md-0">
+        <div className="video-demo-container">
+          <video
+            src={videoWarrantyWallet}
+            controls
+            muted
+            className="w-100 rounded shadow"
+            style={{
+              maxWidth: "650px",
+              height: "auto",
+              display: "block",
+            }}
           >
-            View on GitHub
-          </a>{" "}
-          |{" "}
-          <a
-            href="https://devitowarranty.xyz/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-info"
-          >
-            Live Demo
-          </a>
-        </p>
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </Container>
 
       <a

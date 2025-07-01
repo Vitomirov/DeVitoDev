@@ -238,3 +238,8 @@ html {
 .custom-nav-link:hover {
   color: #aaa;
 }
+
+
+.help {
+border: 2px solid red 
+}
