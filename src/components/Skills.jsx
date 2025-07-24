@@ -41,10 +41,28 @@ const devopsSkills = [
   { icon: <FaLinux size={30} />, label: "Linux" },
 ];
 
+const skillCategories = [
+  {
+    title: "Frontend",
+    skills: frontendSkills, // Corrected: removed curly braces
+    scrollDirection: "scroll-left",
+  },
+  {
+    title: "Backend",
+    skills: backendSkills, // Corrected: removed typo and curly braces
+    scrollDirection: "scroll-right", // Changed to 'scroll-right' as it was originally for Backend for variety
+  },
+  {
+    title: "DevOps",
+    skills: devopsSkills, // Corrected: removed curly braces
+    scrollDirection: "scroll-left",
+  },
+];
+
 // Helper component for rendering one skill category section
 function SkillSection({ title, skills, scrollDirection }) {
   return (
-    <>
+    <div className="font-color">
       <h4 className="fw-bold mt-5">{title}</h4>
       <div className={`scrolling-row ${scrollDirection} mt-0 mb-0`}>
         <div className="scrolling-content">
@@ -56,37 +74,33 @@ function SkillSection({ title, skills, scrollDirection }) {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
 function Skills() {
   return (
-    <div id="skills" className="hero-section text-center">
-      <Container fluid="md" className="hero-content text-white text-center">
-        <h2 className="display-sm-5 fw-bold mb-4">Skills & Technologies</h2>
-        <p className="fs-sm-5 mb-2">
+    <div id="skills" className="skils-section text-center ">
+      <Container
+        fluid="md"
+        className="component-content text-white text-center "
+      >
+        <h2 className="display-sm-5 fw-bold mb-4 font-color">
+          Skills & Technologies
+        </h2>
+        <p className="fs-sm-5 mb-2 font-color">
           These are the tools and technologies I use regularly. I'm confident
           working across the full stack, and always open to learning more.
         </p>
 
-        <SkillSection
-          title="Frontend"
-          skills={frontendSkills}
-          scrollDirection="scroll-left"
-        />
-
-        <SkillSection
-          title="Backend"
-          skills={backendSkills}
-          scrollDirection="scroll-right"
-        />
-
-        <SkillSection
-          title="DevOps & Tools"
-          skills={devopsSkills}
-          scrollDirection="scroll-left"
-        />
+        {skillCategories.map((category, index) => (
+          <SkillSection
+            key={index}
+            title={category.title}
+            skills={category.skills}
+            scrollDirection={category.scrollDirection}
+          />
+        ))}
       </Container>
     </div>
   );

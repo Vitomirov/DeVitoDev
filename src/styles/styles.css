@@ -5,27 +5,29 @@ html {
 
 /* Simple black background utility class */
 .backgroundBlack {
-  background-color: black; 
+  background-color: rgb(0, 0, 0);
 }
 
-/* 
-  HERO Section: 
-  Full-screen layout with background image, layered canvas animation, 
-  dark overlay for contrast, and centered content.
-*/
-.hero-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  color: rgb(255, 255, 255);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
+.font-color{
+  color: rgb(185, 185, 185);
 }
 
-.hero-canvas {
+/* --- NAVIGATION Section --- */
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1080;
+}
+
+.nav-link:hover {
+  font-size: large;
+}
+
+/* --- HERO Section --- */
+
+/* .matrix-canvas was commented out in your original, so it remains here */
+/* .matrix-canvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -33,29 +35,41 @@ html {
   height: 100%;
   z-index: 1;
   transition: opacity 2s ease-in-out;
-}
+} */
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(95, 93, 93, 0.6);
-  z-index: 2;
-}
 
-.hero-content {
+/* component-content appears to be a general content wrapper used across sections */
+.component-content {
   position: relative;
   z-index: 3;
-  max-width: 700px;
-  text-align: center;
+  max-width: 800px;
+  text-align: start;
 }
 
-/* 
-  SKILLS Section:
-  Horizontal scrolling layout for skill icons and labels.
-*/
+/* --- ABOUT Section --- */
+
+.about-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* --- SKILLS Section --- */
+.skils-section { 
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .scrolling-row {
   position: relative;
   width: 100%;
@@ -77,7 +91,6 @@ html {
   align-items: center;
   justify-content: center;
   min-width: 100px;
-  color: #fff;
   flex-shrink: 0;
 }
 
@@ -91,93 +104,7 @@ html {
   font-size: 30px;
 }
 
-/* 
-  Responsive adjustments for tablets and smaller screens.
-  Gradually reduce icon size, spacing, and text sizes.
-*/
-@media (max-width: 767.98px) {
-  .scrolling-content {
-    gap: 35px;
-  }
-
-  .skill-item svg {
-    font-size: 28px;
-  }
-
-  .hero-content h4.mt-5 {
-    margin-top: 2.5rem !important;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .scrolling-content {
-    gap: 20px;
-  }
-
-  .skill-item {
-    min-width: 70px;
-  }
-
-  .skill-item p {
-    font-size: 13px;
-  }
-
-  .skill-item svg {
-    font-size: 25px;
-  }
-
-  .hero-content h4.mt-5 {
-    margin-top: 1.5rem !important;
-  }
-
-  .hero-content h2.mb-4 {
-    margin-bottom: 1.5rem !important;
-  }
-
-  .hero-content p.fs-5.mb-2 {
-    margin-bottom: 1rem !important;
-  }
-}
-
-@media (max-width: 400px) {
-  .scrolling-content {
-    gap: 12px;
-  }
-
-  .skill-item {
-    min-width: 55px;
-  }
-
-  .skill-item p {
-    font-size: 11px;
-    margin-top: 5px;
-  }
-
-  .skill-item svg {
-    font-size: 20px;
-  }
-
-  .hero-content h4.mt-5 {
-    margin-top: 1rem !important;
-  }
-
-  .hero-content h2.mb-4 {
-    margin-bottom: 1rem !important;
-  }
-
-  .hero-content p.fs-5.mb-2 {
-    margin-bottom: 0.5rem !important;
-  }
-
-  .scrolling-row {
-    padding: 10px 0;
-    margin: 10px 0;
-  }
-}
-
-/* 
-  Keyframe animations for infinite left/right scrolling effect.
-*/
+/* Keyframe animations for infinite left/right scrolling effect. */
 @keyframes scrollLeft {
   100% {
     transform: translateX(-50%);
@@ -201,8 +128,88 @@ html {
   animation: scrollRight 25s linear infinite;
 }
 
+/* Responsive adjustments for tablets and smaller screens. */
+@media (max-width: 767.98px) {
+  .scrolling-content {
+    gap: 35px;
+  }
+
+  .skill-item svg {
+    font-size: 28px;
+  }
+
+  .hero-content h4.mt-5 { /* This class name was from your previous CSS and is kept as-is. */
+    margin-top: 2.5rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .scrolling-content {
+    gap: 20px;
+  }
+
+  .skill-item {
+    min-width: 70px;
+  }
+
+  .skill-item p {
+    font-size: 13px;
+  }
+
+  .skill-item svg {
+    font-size: 25px;
+  }
+
+  .hero-content h4.mt-5 { /* This class name was from your previous CSS and is kept as-is. */
+    margin-top: 1.5rem !important;
+  }
+
+  .hero-content h2.mb-4 { /* This class name was from your previous CSS and is kept as-is. */
+    margin-bottom: 1.5rem !important;
+  }
+
+  .hero-content p.fs-5.mb-2 { /* This class name was from your previous CSS and is kept as-is. */
+    margin-bottom: 1rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .scrolling-content {
+    gap: 12px;
+  }
+
+  .skill-item {
+    min-width: 55px;
+  }
+
+  .skill-item p {
+    font-size: 11px;
+    margin-top: 5px;
+  }
+
+  .skill-item svg {
+    font-size: 20px;
+  }
+
+  .scrolling-row {
+    padding: 10px 0;
+    margin: 10px 0;
+  }
+}
+
+/* --- MY WORKS Section --- */
+.myWorks-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
 .myWorkButton {
-  color: #fff;
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.1);
   padding: 1rem;
@@ -215,31 +222,9 @@ html {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.custom-navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1030;
-  padding: 1rem 2rem; /* corresponds to py-3 px-4 */
-}
-
-.custom-brand {
-  color: #fff;
-  font-size: 2.5rem; /* similar to fs-1 */
-  text-decoration: none;
-}
-
-.custom-nav-link {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.custom-nav-link:hover {
-  color: #aaa;
-}
 
 
+/* Helper Class (from original CSS) */
 .help {
-border: 2px solid red 
+  border: 2px solid red;
 }

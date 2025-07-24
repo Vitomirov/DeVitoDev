@@ -1,10 +1,9 @@
 import "./styles/styles.css";
 import { Routes, Route } from "react-router-dom";
-
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Skills from "./components/Skils";
+import Skills from "./components/Skills";
 import MyWorks from "./components/MyWorks";
 import WarrantyWallet from "./components/projects/WarrantyWallet";
 import Contact from "./components/Contact";

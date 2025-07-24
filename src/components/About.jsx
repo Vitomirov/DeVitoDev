@@ -2,8 +2,8 @@ import { Container } from "react-bootstrap";
 
 function About() {
   return (
-    <div id="about" className="hero-section text-center">
-      <Container className="hero-content">
+    <div id="about" className="about-section text-center">
+      <Container className="component-content font-color">
         <h2 className="display-5 fw-bold mb-3">About Me</h2>
         <p className="fs-5">
           I'm a self-taught full-stack developer with a passion for clean code,

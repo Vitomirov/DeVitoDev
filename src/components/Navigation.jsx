@@ -18,9 +18,9 @@ function Navigation() {
       expand="lg"
       variant="dark"
       bg="transparent"
-      className="custom-navbar"
+      className="custom-navbar py-3 px-5"
     >
-      <Navbar.Brand href="#" className="custom-brand">
+      <Navbar.Brand href="#" className="custom-brand fs-1">
         DeVitoDev
       </Navbar.Brand>
 
@@ -32,7 +32,7 @@ function Navigation() {
             <Nav.Link
               key={href}
               href={href}
-              className="custom-nav-link"
+              className="nav-link"
               onClick={() => setExpanded(false)}
             >
               {label}

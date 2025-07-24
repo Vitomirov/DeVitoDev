@@ -4,7 +4,7 @@ function Hero() {
   return (
     <div>
       <Container
-        className="hero-content text-white text-center d-flex flex-column justify-content-center align-items-center"
+        className="component-content text-white text-center d-flex flex-column justify-content-center align-items-center"
         style={{ minHeight: "100vh", position: "relative", zIndex: 3 }}
       >
         <h1 className="display-3 fw-bold mb-3">Dejan Vitomirov</h1>

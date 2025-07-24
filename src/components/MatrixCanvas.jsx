@@ -43,7 +43,7 @@ function MatrixCanvas({ start }) {
   return (
     <canvas
       ref={canvasRef}
-      className="hero-canvas"
+      className=""
       style={{ opacity: start ? 0.25 : 0 }}
     />
   );
