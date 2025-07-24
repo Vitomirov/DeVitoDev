@@ -96,17 +96,17 @@ function SkillSection({ title, skills, scrollDirection }) {
       className="font-color"
     >
       {/* Naslov kategorije - koristi itemVariants */}
-      <motion.h4 variants={itemVariants} className="fw-bold mt-5">
+      <motion.h4 variants={itemVariants} className="fw-bold mt-4">
         {title}
       </motion.h4>
-      <div className={`scrolling-row mt-2 ${scrollDirection} mt-0 mb-0`}>
+      <div className={`scrolling-row ${scrollDirection} mt-0 mb-0`}>
         <div className="scrolling-content ">
           {[...skills, ...skills].map(({ icon, label }, i) => (
             // Svaki skill-item se animira sa itemVariants
             <motion.div
               key={i}
               variants={itemVariants}
-              className="skill-item mt-4"
+              className="skill-item mt-3"
             >
               {icon}
               <p>{label}</p>
