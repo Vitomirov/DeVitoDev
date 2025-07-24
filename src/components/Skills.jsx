@@ -99,11 +99,15 @@ function SkillSection({ title, skills, scrollDirection }) {
       <motion.h4 variants={itemVariants} className="fw-bold mt-5">
         {title}
       </motion.h4>
-      <div className={`scrolling-row ${scrollDirection} mt-0 mb-0`}>
-        <div className="scrolling-content">
+      <div className={`scrolling-row mt-2 ${scrollDirection} mt-0 mb-0`}>
+        <div className="scrolling-content ">
           {[...skills, ...skills].map(({ icon, label }, i) => (
             // Svaki skill-item se animira sa itemVariants
-            <motion.div key={i} variants={itemVariants} className="skill-item">
+            <motion.div
+              key={i}
+              variants={itemVariants}
+              className="skill-item mt-4"
+            >
               {icon}
               <p>{label}</p>
             </motion.div>
