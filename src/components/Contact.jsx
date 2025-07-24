@@ -1,123 +1,17 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
+// src/components/Contact.jsx
+import React, { useRef } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { motion, useInView } from "framer-motion";
+import {
+  fadeIn,
+  containerVariants, // Available, but not directly used here for individual elements
+  itemVariants, // Used for the "Contact Me" title
+  createSlideUpVariant, // Key for sequential delays
+} from "./Animations";
+import EmailForm from "./EmailForm"; // EmailForm component, will handle its own animations independently
 
 function Contact() {
-  const form = useRef();
-  const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState("");
-  const [isEmailJsLoaded, setIsEmailJsLoaded] = useState(false);
-
-  const showMessage = (text, type) => {
-    setMessage(text);
-    setMessageType(type);
-    setTimeout(() => {
-      setMessage("");
-      setMessageType("");
-    }, 5000);
-  };
-
-  const loadEmailJsScript = () => {
-    return new Promise((resolve, reject) => {
-      if (document.getElementById("emailjs-script")) {
-        resolve();
-        return;
-      }
-
-      const script = document.createElement("script");
-      script.src =
-        "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
-      script.async = true;
-      script.id = "emailjs-script";
-
-      script.onload = resolve;
-      script.onerror = reject;
-
-      document.body.appendChild(script);
-    });
-  };
-
-  useEffect(() => {
-    loadEmailJsScript()
-      .then(() => {
-        setIsEmailJsLoaded(true);
-        console.log("EmailJS script loaded successfully.");
-        // Inicijalizuj EmailJS sa Public Key-em ovde
-        // Proveri da li je window.emailjs definisan pre inicijalizacije
-        if (window.emailjs && import.meta.env.VITE_EMAILJS_PUBLIC_KEY) {
-          window.emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-        } else {
-          console.error(
-            "EmailJS or Public Key not available for initialization."
-          );
-        }
-      })
-      .catch(() => {
-        console.error("Failed to load EmailJS script.");
-        showMessage(
-          "Error loading email service. Please try again later.",
-          "danger"
-        );
-      });
-  }, []);
-
-  const handleEmailSuccess = (result) => {
-    console.log("Email successfully sent!", result.text);
-    showMessage("Your message has been sent successfully!", "success");
-    form.current.reset();
-  };
-
-  const handleEmailError = (error) => {
-    console.error("EmailJS Error:", error.text);
-    showMessage(
-      "Failed to send your message. Please try again later.",
-      "danger"
-    );
-  };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    if (!isEmailJsLoaded || !window.emailjs) {
-      showMessage(
-        "Email service is not ready. Please wait a moment and try again.",
-        "danger"
-      );
-      return;
-    }
-
-    if (!form.current) {
-      showMessage("Form error. Please try again.", "danger");
-      return;
-    }
-
-    // Koristi promenljive okruženja
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    // Public Key se inicijalizuje u useEffect-u, ne šalje se u sendForm
-
-    if (!serviceId || !templateId) {
-      showMessage(
-        "Email service configuration missing. Please check settings.",
-        "danger"
-      );
-      console.error("EmailJS configuration missing:", {
-        serviceId,
-        templateId,
-      });
-      return;
-    }
-
-    window.emailjs
-      .sendForm(
-        serviceId,
-        templateId,
-        form.current
-        // Public Key se ne šalje ovde, već se inicijalizuje sa emailjs.init()
-        // "vQKEcsBiITvI1R4Jq" // <-- UKLONI OVU LINIJU
-      )
-      .then(handleEmailSuccess, handleEmailError);
-  };
-
+  // Define contact links data
   const contactLinks = [
     {
       icon: "bi-linkedin",
@@ -131,18 +25,95 @@ function Contact() {
     },
   ];
 
-  return (
-    <div className="py-5 bg-light" id="contact">
-      <Container>
-        <h2 className="text-center fw-bold mb-4">Contact Me</h2>
-        <Row className="align-items-stretch">
-          <Col md={6} className="mb-4 mb-md-0">
-            <div className="bg-white p-4 rounded shadow-sm h-100">
-              <h4 className="fw-bold mb-3">Get in Touch</h4>
+  // Ref to observe the entire section
+  const sectionRef = useRef(null);
+  // useInView to detect when the section enters the viewport
+  // Animates once when 10% of the section is visible.
+  // This controls the main "Contact Me" title and both columns as a whole.
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-              {/* Render contact links */}
+  // Variants for the entire Contact section, controlling its main animation
+  const contactSectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        staggerChildren: 0.1, // Staggering for direct children (h2, Row)
+      },
+    },
+  };
+
+  // Variants for the left column (contact links)
+  const leftColumnVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        // Individual P tags will have their own variants and delays
+      },
+    },
+  };
+
+  // Variants for the right column (EmailForm container)
+  const rightColumnVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.4, // Small delay for this column to appear after the left column
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  return (
+    <motion.div
+      ref={sectionRef} // Connect ref to the main div
+      variants={contactSectionVariants} // Apply main section animation
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"} // Animate based on viewport visibility
+      className="py-5 bg-light"
+      id="contact"
+    >
+      <Container>
+        {/* Main section title, animated as a child of contactSectionVariants */}
+        <motion.h2
+          className="text-center fw-bold mb-4"
+          variants={itemVariants} // Animation for the "Contact Me" title
+        >
+          Contact Me
+        </motion.h2>
+
+        <Row className="align-items-stretch">
+          {/* Left side column with contact links */}
+          <Col md={6} className="mb-4 mb-md-0">
+            <motion.div
+              className="bg-white p-4 rounded shadow-sm h-100"
+              variants={leftColumnVariants} // Apply animation for the entire left column
+              // Initial and Animate states are controlled by the parent (ContactSectionVariants)
+            >
+              <motion.h4
+                className="fw-bold mb-3"
+                variants={createSlideUpVariant(0.1)} // "Get in Touch" title appears first (0.1s delay)
+              >
+                Get in Touch
+              </motion.h4>
+
               {contactLinks.map(({ icon, label, href }, idx) => (
-                <p key={idx} className="mb-2">
+                <motion.p
+                  key={idx}
+                  className="mb-2"
+                  // Links appear sequentially with increasing delay (0.2s + idx * 0.1s)
+                  variants={createSlideUpVariant(0.2 + idx * 0.1)}
+                >
                   <i className={`bi ${icon} text-primary me-2`}></i>
                   <a
                     href={href}
@@ -152,51 +123,26 @@ function Contact() {
                   >
                     {label}
                   </a>
-                </p>
+                </motion.p>
               ))}
-            </div>
+            </motion.div>
           </Col>
 
+          {/* Right side column with the email form */}
           <Col md={6}>
-            <div className="bg-white p-4 rounded shadow-sm h-100">
-              {/* Show alert message if exists */}
-              {message && (
-                <Alert variant={messageType} className="mb-3">
-                  {message}
-                </Alert>
-              )}
-
-              {/* Contact form */}
-              <Form ref={form} onSubmit={sendEmail}>
-                <Form.Group className="mb-3" controlId="formName">
-                  <Form.Label>Your Name</Form.Label>
-                  <Form.Control type="text" name="name" required />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formEmail">
-                  <Form.Label>Your Email</Form.Label>
-                  <Form.Control type="email" name="email" required />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formMessage">
-                  <Form.Label>Message</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={4}
-                    name="message"
-                    required
-                  />
-                </Form.Group>
-
-                <Button variant="info" type="submit">
-                  Send
-                </Button>
-              </Form>
-            </div>
+            <motion.div
+              className="bg-white p-4 rounded shadow-sm h-100"
+              variants={rightColumnVariants} // Apply animation for the entire right column
+              // Initial and Animate states are controlled by the parent (ContactSectionVariants)
+            >
+              {/* EmailForm component is rendered inside this animated column.
+                  EmailForm will handle its own internal field animations. */}
+              <EmailForm />
+            </motion.div>
           </Col>
         </Row>
       </Container>
-    </div>
+    </motion.div>
   );
 }
 

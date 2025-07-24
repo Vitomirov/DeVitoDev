@@ -63,18 +63,19 @@ html {
 .skils-section { 
   position: relative;
   display: flex;
-  align-items: center;
-  height: 100vh;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  padding-top: 120px; /* DODATO: Dodaje gornji padding da sadržaj počne ispod navbara. Prilagodi ovu vrednost! */
+  padding-bottom: 40px;
 }
 
 .scrolling-row {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 20px 0;
+  padding: 40px 0;
   margin: 20px 0;
 }
 
@@ -91,6 +92,7 @@ html {
   align-items: center;
   justify-content: center;
   min-width: 100px;
+  min-height: 70px;
   flex-shrink: 0;
 }
 
@@ -202,7 +204,7 @@ html {
   position: relative;
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: 120vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
