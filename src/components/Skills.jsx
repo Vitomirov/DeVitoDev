@@ -142,7 +142,7 @@ function Skills() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"} // Animiraj kada je u vidnom polju
       id="skills"
-      className="skils-section text-center vh-70"
+      className="skils-section text-center vh-80"
     >
       <Container
         fluid="md"
@@ -151,19 +151,19 @@ function Skills() {
         {/* Naslov sekcije */}
         <motion.h2
           variants={itemVariants} // Koristi itemVariants za naslov
-          className="display-sm-5 fw-bold mb-4 font-color"
+          className="display-sm-5 mt-2 fw-bold font-color"
         >
           Skills & Technologies
         </motion.h2>
 
         {/* Uvodni paragraf */}
-        <motion.p
+        <motion.h4
           variants={itemVariants} // Koristi itemVariants za paragraf
           className="fs-sm-5 mb-2 font-color"
         >
           These are the tools and technologies I use regularly. I'm confident
           working across the full stack, and always open to learning more.
-        </motion.p>
+        </motion.h4>
 
         {/* Renderovanje kategorija veština */}
         {skillCategories.map((category, index) => (

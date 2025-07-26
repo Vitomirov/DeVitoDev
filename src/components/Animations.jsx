@@ -1,4 +1,4 @@
-import { easeInOut } from "framer-motion";
+import { easeInOut } from "framer-motion"; // easeInOut import se ne koristi direktno, ali može da stoji
 
 export const fadeIn = {
   hidden: { opacity: 0 },
@@ -46,6 +46,12 @@ export const containerVariants = {
 export const itemVariants = {
   hidden: { opacity: 0, y: 150 },
   visible: { opacity: 1, y: -30 },
+};
+
+// Nova varijanta za klizanje od dole - DODATO OVDE
+export const slideInFromBottom = {
+  hidden: { y: 100, opacity: 0 }, // Počinje 100px ispod i nevidljiv
+  visible: { y: 0, opacity: 1, transition: { duration: 4, ease: "easeOut" } }, // Klizi gore i postaje vidljiv
 };
 
 // You can also export functions for more dynamic animations
