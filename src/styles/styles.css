@@ -36,10 +36,6 @@ background: linear-gradient(174deg, rgba(209, 236, 237, 1) 3%, rgba(131, 199, 13
 
 }
 
-.nav-link{
-  padding-inline: 3px;
-}
-
 .nav-link:hover {
   font-size: large;
 }
