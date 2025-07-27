@@ -18,14 +18,14 @@ function Navigation() {
       variant="white"
       className="custom-navbar py-3 px-5 border-bottom border-black bg-light shadow-lg"
     >
-      <Navbar.Brand href="#" className="custom-brand fs-1 ps-md-5">
+      <Navbar.Brand href="#" className="custom-brand fs-1 ps-md-5 fw-bold">
         DeVitoDev
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="navbar-nav" />
 
       <Navbar.Collapse id="navbar-nav" className="justify-content-end pe-5">
-        <Nav className="text-end gap-4">
+        <Nav className="text-end gap-4 fs-5">
           {navLinks.map(({ href, label }) => (
             <Nav.Link
               key={href}

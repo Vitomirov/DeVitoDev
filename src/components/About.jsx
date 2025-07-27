@@ -74,28 +74,30 @@ function About() {
           {/* Left column for "Get to know me!" text */}
           <Col lg={6} md={12} className="text-start mb-5 mb-lg-0">
             {/* Subtitle for About Me section */}
-            <motion.h3 variants={itemVariants} className="fw-bold mb-3">
+            <motion.h3 variants={itemVariants} className="fw-bold mb-5">
               Get to know me!
             </motion.h3>
             {/* Paragraphs describing personal info */}
-            <motion.p variants={itemVariants} className="fs-5 mb-3">
+            <motion.p
+              variants={itemVariants}
+              className="about-paragraph fs-5 mb-3"
+            >
               I'm a passionate Full-Stack Web Developer, dedicated to building
               and managing robust web applications from concept to deployment.
               My goal is to create seamless digital experiences that contribute
               directly to the success of every product. Feel free to explore my
               work in the Projects section to see what I've been creating.
             </motion.p>
-            <motion.p variants={itemVariants} className="fs-5 mb-3">
-              Beyond coding, I believe in the power of shared knowledge and
-              continuous improvement within the Dev Community. You can connect
-              with me on LinkedIn to follow my journey and insights into web
-              development and programming.
-            </motion.p>
-            <motion.p variants={itemVariants} className="fs-5">
-              I am actively seeking job opportunities where I can contribute my
-              skills, learn from new challenges, and grow as a developer. If you
-              have a compelling opportunity that aligns with my experience and
-              passion, please don't hesitate to{" "}
+            <motion.p
+              variants={itemVariants}
+              className="about-paragraph fs-5 mb-3"
+            >
+              Beyond established methodologies, my commitment lies in the
+              relentless pursuit of knowledge and continuous skill enhancement.
+              I am perpetually expanding my expertise, integrating the latest
+              advancements and best practices to deliver cutting-edge solutions.
+              If you have a compelling opportunity that aligns with my
+              experience and passion, please don't hesitate to{" "}
               <a href="#contact" className="fw-bold font-color">
                 contact
               </a>{" "}
@@ -106,17 +108,20 @@ function About() {
           {/* Right column for "My Skills" section */}
           <Col lg={6} md={12} className="text-start">
             {/* Subtitle for My Skills section */}
-            <motion.h3 variants={itemVariants} className="fw-bold mb-5">
+            <motion.h3
+              variants={itemVariants}
+              className="fw-bold mb-5 d-flex justify-content-end"
+            >
               My Skills
             </motion.h3>
 
             {/* Renders all skills as a single, responsive block */}
-            <div className="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 pt-3">
+            <div className="d-flex flex-wrap justify-content-lg-end gap-3 pt-3">
               {allSkills.map((skill, i) => (
                 <motion.div
                   key={i}
                   variants={itemVariants}
-                  className="skill-tag bg-secondary text-dark rounded px-3 py-2"
+                  className="skill-tag bg-secondary text-white rounded px-3 py-2"
                 >
                   {skill.label}
                 </motion.div>
