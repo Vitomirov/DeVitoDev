@@ -162,7 +162,10 @@ function Contact() {
       id="contact"
     >
       <Container>
-        <motion.h2 className="text-center fw-bold mb-4" variants={itemVariants}>
+        <motion.h2
+          className="text-center text-dark fw-bold mb-4"
+          variants={itemVariants}
+        >
           Contact Me
         </motion.h2>
 
@@ -175,7 +178,7 @@ function Contact() {
 
         {/* Forma centrirana pomoću mx-auto i ograničene širine */}
         <motion.div
-          className="p-4 rounded shadow-lg mx-auto" // mx-auto za horizontalno centriranje
+          className="p-4 rounded shadow-lg mx-auto text-dark" // mx-auto za horizontalno centriranje
           style={{ maxWidth: "800px", width: "100%" }} // maxWidth za desktop, width: 100% za responsivnost
           variants={createSlideUpVariant(0.1)}
         >
@@ -223,7 +226,7 @@ function Contact() {
                   <Button
                     variant={field.variant}
                     type={field.buttonType}
-                    className="col-3"
+                    className="custom-button w-100"
                   >
                     {field.label}
                   </Button>

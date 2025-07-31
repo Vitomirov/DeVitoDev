@@ -37,22 +37,16 @@ function Hero() {
       <div className="inner-text-container text-center">
         <motion.h1
           variants={slideInFromLeft}
-          className="display-1 fw-bold mb-3" // text-center se sada primenjuje na inner-text-container
+          className="display-1 fw-bold mb-3"
         >
           Dejan Vitomirov
         </motion.h1>
 
-        <motion.h2
-          variants={slideInFromRight}
-          className="h4 mb-4 pb-4" // text-center se sada primenjuje na inner-text-container
-        >
+        <motion.h2 variants={slideInFromRight} className="h4 mb-4 pb-4">
           Full-stack Developer
         </motion.h2>
 
-        <motion.h2
-          variants={itemVariants}
-          className="fs-4 mt-4" // text-center se sada primenjuje na inner-text-container
-        >
+        <motion.h2 variants={itemVariants} className="fs-4 mt-4">
           Building elegant, responsive web applications with passion and
           precision.
         </motion.h2>

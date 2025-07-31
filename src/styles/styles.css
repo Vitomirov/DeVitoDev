@@ -5,11 +5,13 @@ html {
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh; 
-background: #d1eced;
-background: linear-gradient(174deg, rgba(209, 236, 237, 1) 3%, rgba(131, 199, 131, 0.46) 50%, rgba(46, 128, 42, 0.53) 100%);
+  min-height: 100vh;
 
-  background-attachment: fixed; 
+  /* NOVA moderna tamna pozadina */
+  background: linear-gradient(174deg, #0f0f0f 3%, #1a1a2e 50%, #202040 100%);
+  background-attachment: fixed;
+
+  color: #e1e1e1; /* svetla boja teksta da se bolje vidi na tamnoj pozadini */
 }
 
 #root {
@@ -18,13 +20,8 @@ background: linear-gradient(174deg, rgba(209, 236, 237, 1) 3%, rgba(131, 199, 13
   flex-direction: column;
 }
 
-/* Simple black background utility class */
-.backgroundBlack {
-  background-color: rgb(0, 0, 0);
-}
-
-.font-color{
-  color: rgb(20, 20, 20);
+.font-color {
+  color: #e1e1e1;
 }
 
 /* --- NAVIGATION Section --- */
@@ -33,32 +30,20 @@ background: linear-gradient(174deg, rgba(209, 236, 237, 1) 3%, rgba(131, 199, 13
   top: 0;
   width: 100%;
   z-index: 1080;
-
+  background-color: rgba(15, 15, 15, 0.95); /* tamna navbar pozadina */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .nav-link:hover {
-  font-size: large;
+  font-size: 1.5rem;
 }
 
 /* --- HERO Section --- */
-
 #hero {
-    position: relative;
-    z-index: 3;
+  position: relative;
+  z-index: 3;
+  color: #ffffff;
 }
-
-
-/* .matrix-canvas was commented out in your original, so it remains here */
-/* .matrix-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  transition: opacity 2s ease-in-out;
-} */
-
 
 /* component-content appears to be a general content wrapper used across sections */
 .component-content {
@@ -66,6 +51,65 @@ background: linear-gradient(174deg, rgba(209, 236, 237, 1) 3%, rgba(131, 199, 13
   z-index: 3;
   max-width: 800px;
   text-align: start;
+  color: #d1d1d1;
+}
+
+/* --- BACK TO TOP ARROW --- */
+.arrow {
+  position: fixed;
+  bottom: 55px;
+  right: 20px;
+  z-index: 1000;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease-out, opacity 0.3s ease; /* Dodaj tranziciju za opacity */
+
+  /* Podrazumevano sakrij strelicu i postavi je na 0 opacity */
+  opacity: 0;
+  pointer-events: none; /* Onemogući klikove kada je nevidljiva */
+}
+
+/* Klasa koja se dodaje kada je strelica vidljiva (isVisible = true) */
+.arrow.arrow-visible {
+  opacity: 1;
+  pointer-events: auto; /* Omogući klikove kada je vidljiva */
+}
+
+/* Styling for the Bootstrap Icons arrow */
+.back-to-top {
+  font-size: 2.5rem;
+  transition: color 0.3s ease;
+}
+
+/* Default color for dark sections (white) */
+.arrow-light {
+  color: #ffffff;
+}
+
+/* Color for light sections (dark blue) */
+.arrow-dark {
+  color: #202040;
+}
+
+/* Optional: Add a subtle hover effect for the arrow */
+.arrow:hover {
+  transform: translateY(-5px);
+}
+
+/* --- Responsive adjustments --- */
+/* Strelica se prikazuje samo na ekranima većim od 767.98px */
+@media (max-width: 767.98px) { /* Cilja ekrane manje od 768px (mobilni) */
+  .arrow {
+    display: none !important; /* Totalno sakrij strelicu na mobilnim uređajima */
+  }
+}
+
+/* Prikazuj strelicu na ekranima većim od 767.98px */
+@media (min-width: 768px) { /* Cilja ekrane šire od 768px (tableti i desktop) */
+  .arrow {
+    display: block; /* Prikaži strelicu na većim ekranima */
+  }
 }
 
 /* --- ABOUT & SKILLS Section (Combined) --- */
@@ -74,13 +118,17 @@ background: linear-gradient(174deg, rgba(209, 236, 237, 1) 3%, rgba(131, 199, 13
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-margin-top: 80px;
+  padding-bottom: 100px;
 
+  background-color: #1a1a2e;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
+
   padding-top: 80px;
   padding-bottom: 80px;
+  color: #dcdcdc;
 }
 
 /* Stilovi za individualne skill tagove (e.g., HTML, CSS, JavaScript) */
@@ -91,16 +139,22 @@ background: linear-gradient(174deg, rgba(209, 236, 237, 1) 3%, rgba(131, 199, 13
   white-space: nowrap;
   font-size: 1rem;
   font-weight: 500;
-  cursor: default;
+  color: #e0e0e0;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  margin: 0.3rem;
   transition: transform 0.2s ease-in-out;
 }
 
 .skill-tag:hover {
   transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
-.about-paragraph{
+.paragraph-justify {
   text-align: justify;
+  color: #cfcfcf;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -118,44 +172,47 @@ background: linear-gradient(174deg, rgba(209, 236, 237, 1) 3%, rgba(131, 199, 13
   }
 }
 
-
 /* --- MY WORKS Section --- */
 .myWorks-section {
   position: relative;
   display: flex;
   align-items: center;
   height: 120vh;
+  background-color: #202040;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
+  color: #efefef;
 }
 
-.myWorkButton {
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 12px;
-  display: inline-block;
-  transition: background-color 0.3s;
+.custom-button {
+  background-color: #FFA726; /* Static: Tirkizna pozadina */
+  color: #333333; /* Static: Beli tekst */
+  border: none; /* Ukloni podrazumevani border */
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px; /* Oblik pilule */
+  transition: all 0.3s ease; /* Glatka tranzicija za sve promene */
 }
 
-.myWorkButton:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.custom-button:hover {
+  background-color: #FB8C00; /* Hover: Svetlija tirkizna pozadina */
+  transform: scale(1.05); /* Hover: Malo se poveća */
+  box-shadow: 0 5px 15px rgba(0, 196, 184, 0.4); /* Hover: Senka koja se slaže sa bojom */
 }
 
 /*-------- FOOTER -----------*/
-
 .social-icon {
-    font-size: 2rem;
-    color: #E1E8EB;
-    transition: color 0.3s ease;
+  font-size: 2rem;
+  color: #e1e8eb;
+  transition: color 0.3s ease;
 }
 
 .social-icon:hover {
-    color: #000000; 
+  color: #00f5d4;
 }
-
 
 /* Helper Class (from original CSS) */
 .help {

@@ -19,7 +19,7 @@ function WarrantyWallet() {
         <h2 className="fw-bold mb-3 font-color">Warranty Wallet App</h2>
 
         <Row className="align-items-center">
-          <Col md={7} className="mb-4 mb-md-0 font-color">
+          <Col md={7} className="mb-4 mb-md-0 font-color paragraph-justify">
             <p>
               Warranty Wallet App is a full-stack web application designed for
               straightforward product warranty management. It helps users avoid
@@ -45,7 +45,7 @@ function WarrantyWallet() {
                 href="https://github.com/Vitomirov/warranty-wallet"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-dark"
+                className="text-white"
               >
                 View on GitHub
               </a>{" "}
@@ -54,7 +54,7 @@ function WarrantyWallet() {
                 href="https://devitowarranty.xyz/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-dark"
+                className="text-white"
               >
                 Live Demo
               </a>
@@ -85,7 +85,7 @@ function WarrantyWallet() {
 
       <a
         onClick={() => navigate(-1)}
-        className="position-absolute bottom-0 end-0 mb-5 me-5 text-dark"
+        className="position-absolute bottom-0 end-0 mb-5 me-5 text-white fs-5"
         style={{ cursor: "pointer", textDecoration: "none" }}
       >
         Back

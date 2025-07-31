@@ -40,9 +40,6 @@ const allSkills = [
   { label: "CI/CD" },
 ];
 
-// Removed SkillCategorySection as it's no longer needed for separate titles.
-// function SkillCategorySection({ title, skills }) { ... }
-
 // Main About component combining personal info and skills.
 function About() {
   // Ref for observing component's visibility in viewport.
@@ -72,60 +69,85 @@ function About() {
         {/* Row for two-column layout: About Me text on left, Skills on right */}
         <Row className="justify-content-center align-items-start gx-5 pt-5">
           {/* Left column for "Get to know me!" text */}
-          <Col lg={6} md={12} className="text-start mb-5 mb-lg-0">
-            {/* Subtitle for About Me section */}
-            <motion.h3 variants={itemVariants} className="fw-bold mb-5">
-              Get to know me!
-            </motion.h3>
-            {/* Paragraphs describing personal info */}
-            <motion.p
-              variants={itemVariants}
-              className="about-paragraph fs-5 mb-3"
-            >
-              I'm a passionate Full-Stack Web Developer, dedicated to building
-              and managing robust web applications from concept to deployment.
-              My goal is to create seamless digital experiences that contribute
-              directly to the success of every product. Feel free to explore my
-              work in the Projects section to see what I've been creating.
-            </motion.p>
-            <motion.p
-              variants={itemVariants}
-              className="about-paragraph fs-5 mb-3"
-            >
-              Beyond established methodologies, my commitment lies in the
-              relentless pursuit of knowledge and continuous skill enhancement.
-              I am perpetually expanding my expertise, integrating the latest
-              advancements and best practices to deliver cutting-edge solutions.
-              If you have a compelling opportunity that aligns with my
-              experience and passion, please don't hesitate to{" "}
-              <a href="#contact" className="fw-bold font-color">
-                contact
-              </a>{" "}
-              me.
-            </motion.p>
+          <Col
+            lg={6}
+            md={12}
+            // Uklonjeno justify-content-start jer je div unutra flex-column
+            className="text-start mb-5 mb-lg-0 d-flex justify-content-center justify-content-lg-start" // Dodao justify-content-center za mobilni
+          >
+            <div className="shadow p-4 w-100">
+              {" "}
+              {/* Dodao w-100 da popuni kolonu */}
+              <motion.h3 variants={itemVariants} className="fw-bold mb-5">
+                Get to know me!
+              </motion.h3>
+              <motion.p
+                variants={itemVariants}
+                className="paragraph-justify fs-5 mb-3"
+              >
+                I'm a passionate Full-Stack Web Developer, dedicated to building
+                and managing robust web applications from concept to deployment.
+                My goal is to create seamless digital experiences that
+                contribute directly to the success of every product. Feel free
+                to explore my work in the Projects section to see what I've been
+                creating.
+              </motion.p>
+              <motion.p
+                variants={itemVariants}
+                className="paragraph-justify fs-5 mb-3"
+              >
+                Beyond established methodologies, my commitment lies in the
+                relentless pursuit of knowledge and continuous skill
+                enhancement. I am perpetually expanding my expertise,
+                integrating the latest advancements and best practices to
+                deliver cutting-edge solutions. If you have a compelling
+                opportunity that aligns with my experience and passion, please
+                don't hesitate to{" "}
+                <a href="#contact" className="fw-bold font-color">
+                  contact
+                </a>{" "}
+                me.
+              </motion.p>
+            </div>
           </Col>
 
           {/* Right column for "My Skills" section */}
-          <Col lg={6} md={12} className="text-start">
-            {/* Subtitle for My Skills section */}
-            <motion.h3
-              variants={itemVariants}
-              className="fw-bold mb-5 d-flex justify-content-end"
-            >
-              My Skills
-            </motion.h3>
-
-            {/* Renders all skills as a single, responsive block */}
-            <div className="d-flex flex-wrap justify-content-lg-end gap-3 pt-3">
-              {allSkills.map((skill, i) => (
-                <motion.div
-                  key={i}
-                  variants={itemVariants}
-                  className="skill-tag bg-secondary text-white rounded px-3 py-2"
-                >
-                  {skill.label}
-                </motion.div>
-              ))}
+          <Col
+            lg={6}
+            md={12}
+            className="text-start d-flex justify-content-center justify-content-lg-end"
+          >
+            {/* NOVI WRAPPER DIV SA ISTIM STILOM KAO LEVA KOLONA */}
+            <div className="p-4 w-100 d-flex flex-column align-items-start align-items-lg-end">
+              {" "}
+              <motion.h3 variants={itemVariants} className="fw-bold mb-3">
+                {" "}
+                My Skills
+              </motion.h3>
+              <motion.p
+                variants={itemVariants}
+                className="fs-5 mt-4 pt-1 paragraph-justify"
+              >
+                {" "}
+                {/* text-lg-end za poravnanje desno na desktopu */}
+                These are the tools and technologies I use regularly. I'm
+                confident working across the full stack, and always open to
+                learning more.
+              </motion.p>
+              {/* Renders all skills as a single, responsive block */}
+              <div className="d-flex flex-wrap justify-content-center justify-content-lg-end gap-3 pt-3">
+                {" "}
+                {/* justify-content-lg-end za poravnanje tagova desno */}
+                {allSkills.map((skill, i) => (
+                  <motion.div
+                    key={i}
+                    variants={itemVariants}
+                    className="skill-tag rounded px-3 py-2"
+                  >
+                    {skill.label}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </Col>
         </Row>
