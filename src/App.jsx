@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import MyWorks from "./components/MyWorks";
+import MyWorks from "./components/Myworks";
 import WarrantyWallet from "./components/projects/WarrantyWallet";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -21,7 +21,8 @@ function App() {
               <Hero />
               <BackToTopArrow />
               <About />
-              <MyWorks />
+              <WarrantyWallet />
+              {/* <MyWorks /> */}
               <Contact />
               <Footer />
             </>

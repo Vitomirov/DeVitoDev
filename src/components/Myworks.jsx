@@ -39,21 +39,6 @@ function MyWorks() {
       image: warrantyWalletImage, // Uses the imported local image
       link: "/projects/WarrantyWallet",
     },
-    // Example of how to add another project:
-    // {
-    //   id: 2,
-    //   title: "My Second Project",
-    //   description: "This is a brief description of my second awesome project.",
-    //   image: "https://placehold.co/600x400/cccccc/333333?text=Project+2", // Placeholder for another project image
-    //   link: "/projects/second-project",
-    // },
-    // {
-    //   id: 3,
-    //   title: "Third Cool Project",
-    //   description: "Details about my third project, showcasing different skills.",
-    //   image: "https://placehold.co/600x400/cccccc/333333?text=Project+3", // Placeholder for another project image
-    //   link: "/projects/third-project",
-    // },
   ];
 
   return (
@@ -67,7 +52,7 @@ function MyWorks() {
     >
       {/* Container for the main content, ensuring it's responsive and has padding */}
       {/* Added ps-lg-5 for indentation on large screens for the whole container content */}
-      <Container className="component-content font-color ps-lg-5">
+      <Container className="font-color ps-lg-5 help">
         {/* Section title */}
         <motion.h2 variants={itemVariants} className="display-5 fw-bold mb-4">
           My Works
@@ -82,11 +67,6 @@ function MyWorks() {
         <Row className="justify-content-start g-4 mb-5">
           {/* Maps through the 'projects' array to render each project as a Card */}
           {projects.map((project) => (
-            // Column for each project card, defining responsive widths:
-            // lg={7}: For a single project, it takes 7 out of 12 columns (wider and centered).
-            // lg={4}: For multiple projects, each takes 4 columns (3 per row).
-            // md={6}: 2 cards per row on medium screens.
-            // sm={12}: 1 card per row on small screens.
             <Col
               key={project.id}
               lg={projects.length === 1 ? 7 : 4} // Dynamically set width for single vs multiple projects

@@ -33,10 +33,15 @@ body {
   background-color: rgba(15, 15, 15, 0.95); /* tamna navbar pozadina */
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-.nav-link:hover {
-  font-size: 1.5rem;
+.custom-navbar .nav-link.text-white:hover {
+  color: #FB8C00 !important; /* Koristimo !important da bismo nadjačali Bootstrap-ove stilove */
 }
+
+.custom-navbar .social-icon:hover {
+  color: #FB8C00;
+  transition: color 0.3s ease-in-out; /* Dodaje glatku tranziciju */
+}
+
 
 /* --- HERO Section --- */
 #hero {
@@ -113,29 +118,26 @@ body {
 }
 
 /* --- ABOUT & SKILLS Section (Combined) --- */
-.about-section {
+.section-layout {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   scroll-margin-top: 80px;
-  padding-bottom: 100px;
 
   background-color: #1a1a2e;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 150px;
+  padding-bottom: 150px;
   color: #dcdcdc;
 }
 
 /* Stilovi za individualne skill tagove (e.g., HTML, CSS, JavaScript) */
 .skill-tag {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
   white-space: nowrap;
   font-size: 1rem;
   font-weight: 500;
@@ -153,8 +155,8 @@ body {
 }
 
 .paragraph-justify {
-  text-align: justify;
-  color: #cfcfcf;
+  text-align: start;
+  color: #f1f1df;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -187,25 +189,33 @@ body {
 }
 
 .custom-button {
-  background-color: #FFA726; /* Static: Tirkizna pozadina */
-  color: #333333; /* Static: Beli tekst */
-  border: none; /* Ukloni podrazumevani border */
+  text-decoration: none;
+  width: 10rem;
+  background-color: #FFA726; 
+  color: #333333; 
+  border: none;
   padding: 10px 25px;
   font-size: 1.1rem;
   font-weight: bold;
-  border-radius: 50px; /* Oblik pilule */
-  transition: all 0.3s ease; /* Glatka tranzicija za sve promene */
+  transition: all 0.3s ease; 
 }
 
 .custom-button:hover {
-  background-color: #FB8C00; /* Hover: Svetlija tirkizna pozadina */
-  transform: scale(1.05); /* Hover: Malo se poveća */
-  box-shadow: 0 5px 15px rgba(0, 196, 184, 0.4); /* Hover: Senka koja se slaže sa bojom */
+  background-color: #FB8C00; 
+  transform: scale(1.05); 
+  box-shadow: 0 5px 15px rgba(0, 196, 184, 0.4); 
 }
+
+.video-element {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;}
 
 /*-------- FOOTER -----------*/
 .social-icon {
-  font-size: 2rem;
+  font-size: 3rem;
   color: #e1e8eb;
   transition: color 0.3s ease;
 }

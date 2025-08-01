@@ -158,28 +158,26 @@ function Contact() {
           },
         },
       }}
-      className="py-5 bg-light"
+      className="py-5 bg-light help" // bg-light ostaje
       id="contact"
     >
       <Container>
+        {" "}
+        {/* Container je već ispravno postavljen i on definiše margine */}
         <motion.h2
-          className="text-center text-dark fw-bold mb-4"
+          className="text-center text-dark fw-bold mb-4 help" // Boje teksta ostaju
           variants={itemVariants}
         >
           Contact Me
         </motion.h2>
-
         {/* Prikaz poruke ako postoji */}
         {message && (
           <Alert variant={messageType} className="mb-4 text-center">
             {message}
           </Alert>
         )}
-
-        {/* Forma centrirana pomoću mx-auto i ograničene širine */}
         <motion.div
-          className="p-4 rounded shadow-lg mx-auto text-dark" // mx-auto za horizontalno centriranje
-          style={{ maxWidth: "800px", width: "100%" }} // maxWidth za desktop, width: 100% za responsivnost
+          className="rounded shadow-lg mx-auto text-dark p-2 help"
           variants={createSlideUpVariant(0.1)}
         >
           <MotionBootstrapForm
@@ -226,7 +224,7 @@ function Contact() {
                   <Button
                     variant={field.variant}
                     type={field.buttonType}
-                    className="custom-button w-100"
+                    className="custom-button"
                   >
                     {field.label}
                   </Button>

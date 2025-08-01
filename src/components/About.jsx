@@ -52,81 +52,38 @@ function About() {
     <motion.div
       ref={ref}
       id="about"
-      className="about-section py-5 text-center"
+      className="section-layout text-center help"
       variants={sectionContainerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
-      <Container className="font-color">
+      <Container className="font-color help">
         {/* Main section title */}
         <motion.h2
           variants={itemVariants}
-          className="display-5 fw-bold mb-5 mt-5"
+          className="display-5 fw-bold mb-5 mt-3 text-start help"
         >
           About Me
         </motion.h2>
 
-        {/* Row for two-column layout: About Me text on left, Skills on right */}
-        <Row className="justify-content-center align-items-start gx-5 pt-5">
-          {/* Left column for "Get to know me!" text */}
-          <Col
-            lg={6}
-            md={12}
-            // Uklonjeno justify-content-start jer je div unutra flex-column
-            className="text-start mb-5 mb-lg-0 d-flex justify-content-center justify-content-lg-start" // Dodao justify-content-center za mobilni
-          >
-            <div className="shadow p-4 w-100">
-              {" "}
-              {/* Dodao w-100 da popuni kolonu */}
-              <motion.h3 variants={itemVariants} className="fw-bold mb-5">
-                Get to know me!
-              </motion.h3>
-              <motion.p
-                variants={itemVariants}
-                className="paragraph-justify fs-5 mb-3"
-              >
-                I'm a passionate Full-Stack Web Developer, dedicated to building
-                and managing robust web applications from concept to deployment.
-                My goal is to create seamless digital experiences that
-                contribute directly to the success of every product. Feel free
-                to explore my work in the Projects section to see what I've been
-                creating.
-              </motion.p>
-              <motion.p
-                variants={itemVariants}
-                className="paragraph-justify fs-5 mb-3"
-              >
-                Beyond established methodologies, my commitment lies in the
-                relentless pursuit of knowledge and continuous skill
-                enhancement. I am perpetually expanding my expertise,
-                integrating the latest advancements and best practices to
-                deliver cutting-edge solutions. If you have a compelling
-                opportunity that aligns with my experience and passion, please
-                don't hesitate to{" "}
-                <a href="#contact" className="fw-bold font-color">
-                  contact
-                </a>{" "}
-                me.
-              </motion.p>
-            </div>
-          </Col>
-
-          {/* Right column for "My Skills" section */}
+        {/* Row for two-column layout: About Me text on right, Skills on left */}
+        <Row className="justify-content-center align-items-start gx-5">
+          {/* Left column for "My Skills" section */}
           <Col
             lg={6}
             md={12}
             className="text-start d-flex justify-content-center justify-content-lg-end"
           >
             {/* NOVI WRAPPER DIV SA ISTIM STILOM KAO LEVA KOLONA */}
-            <div className="p-4 w-100 d-flex flex-column align-items-start align-items-lg-end">
+            <div className="w-100 d-flex flex-column align-items-start align-items-lg-end help">
               {" "}
-              <motion.h3 variants={itemVariants} className="fw-bold mb-3">
+              <motion.h3 variants={itemVariants} className="fw-bold mb-4 help">
                 {" "}
                 My Skills
               </motion.h3>
               <motion.p
                 variants={itemVariants}
-                className="fs-5 mt-4 pt-1 paragraph-justify"
+                className="fs-5 mt-4 pt-1 paragraph-justify help"
               >
                 {" "}
                 {/* text-lg-end za poravnanje desno na desktopu */}
@@ -135,19 +92,50 @@ function About() {
                 learning more.
               </motion.p>
               {/* Renders all skills as a single, responsive block */}
-              <div className="d-flex flex-wrap justify-content-center justify-content-lg-end gap-3 pt-3">
+              <div className="d-flex flex-wrap justify-content-start justify-content-lg-start gap-1 pt-3">
                 {" "}
                 {/* justify-content-lg-end za poravnanje tagova desno */}
                 {allSkills.map((skill, i) => (
                   <motion.div
                     key={i}
                     variants={itemVariants}
-                    className="skill-tag rounded px-3 py-2"
+                    className="skill-tag rounded px-1 py-2"
                   >
                     {skill.label}
                   </motion.div>
                 ))}
               </div>
+            </div>
+          </Col>
+          {/* Right column for "Get to know me!" text */}
+          <Col
+            lg={6}
+            md={12}
+            className="text-start mb-lg-0 d-flex justify-content-center justify-content-lg-start help" // Dodao justify-content-center za mobilni
+          >
+            <div className="shadow w-100 help">
+              {" "}
+              {/* Dodao w-100 da popuni kolonu */}
+              <motion.h3 variants={itemVariants} className="fw-bold mb-5">
+                Get to know me!
+              </motion.h3>
+              <motion.p
+                variants={itemVariants}
+                className="fs-5 mt-4 paragraph-justify help"
+              >
+                I am a passionate Full-Stack Web Developer, dedicated to
+                building and managing robust web applications from concept to
+                deployment, always striving to create seamless digital
+                experiences that contribute directly to product success. My
+                commitment extends to the relentless pursuit of knowledge,
+                continuously expanding my expertise with the latest advancements
+                to deliver cutting-edge solutions, and I invite you to explore
+                my work in the Projects section or{" "}
+                <a href="#contact" className="fw-bold font-color">
+                  contact
+                </a>{" "}
+                me regarding compelling opportunities.
+              </motion.p>
             </div>
           </Col>
         </Row>

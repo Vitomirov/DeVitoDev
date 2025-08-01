@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 // Uvozimo potrebne varijante
@@ -8,6 +8,8 @@ import {
   itemVariants,
   slideInFromRight,
 } from "./Animations";
+
+import profilePhoto from "../images/11zon_resized.png";
 
 function Hero() {
   const textContainerEntry = {
@@ -28,29 +30,51 @@ function Hero() {
       variants={textContainerEntry}
       initial="hidden"
       animate="visible"
-      // Centriramo sve sadržaje vertikalno i horizontalno unutar hero sekcije
       className="hero-section d-flex flex-column justify-content-center align-items-center"
       id="hero"
       style={{ minHeight: "100vh", position: "relative", zIndex: 2 }}
     >
-      {/* Dodajemo inner-text-container koji će kontrolisati maksimalnu širinu teksta */}
-      <div className="inner-text-container text-center">
-        <motion.h1
-          variants={slideInFromLeft}
-          className="display-1 fw-bold mb-3"
-        >
-          Dejan Vitomirov
-        </motion.h1>
+      <Container className="text-start help">
+        <Row className="justify-content-center align-items-center gx-5 pt-5 pb-5">
+          {/* Kolona za tekst - prva na velikim ekranima */}
+          <Col
+            lg={6}
+            md={12}
+            className="text-center text-lg-start mb-5 mb-lg-0"
+          >
+            <motion.h1
+              variants={slideInFromLeft}
+              className="display-1 fw-bold mb-3"
+            >
+              Hi, my name is Dejan Vitomirov
+            </motion.h1>
+            <motion.h2 variants={slideInFromRight} className="h4 mb-4 pb-4">
+              Web Developer
+            </motion.h2>
+            <a
+              type="button"
+              href="#contact"
+              className="custom-button text-center rounded d-inline-block px-5 py-3" // Dodao px-5 py-3 za bolji padding i d-inline-block za poravnanje
+            >
+              contact
+            </a>
+          </Col>
 
-        <motion.h2 variants={slideInFromRight} className="h4 mb-4 pb-4">
-          Full-stack Developer
-        </motion.h2>
-
-        <motion.h2 variants={itemVariants} className="fs-4 mt-4">
-          Building elegant, responsive web applications with passion and
-          precision.
-        </motion.h2>
-      </div>
+          {/* Kolona za sliku - druga na velikim ekranima */}
+          <Col
+            lg={6}
+            md={12}
+            className="order-first order-lg-last d-flex justify-content-center align-items-center" // Dodao order-first/order-lg-last za responsivnost
+          >
+            <motion.img
+              src={profilePhoto}
+              alt="Dejan Vitomirov Profile"
+              className="img-fluid rounded-pill hero-image" // Dodao novu klasu hero-image za custom CSS
+              variants={fadeIn}
+            />
+          </Col>
+        </Row>
+      </Container>
     </motion.div>
   );
 }
