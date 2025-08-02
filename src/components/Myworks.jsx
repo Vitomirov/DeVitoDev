@@ -48,7 +48,7 @@ function MyWorks() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       id="myWorks"
-      className="myWorks-section py-2 " // Adds vertical padding and aligns text to start
+      className="myWorks-section py-2 dark-bg" // Adds vertical padding and aligns text to start
     >
       {/* Container for the main content, ensuring it's responsive and has padding */}
       {/* Added ps-lg-5 for indentation on large screens for the whole container content */}

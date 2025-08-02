@@ -3,14 +3,14 @@ import React, { useRef, useState, useEffect } from "react";
 import {
   Container,
   Alert,
+  Row,
+  Col,
   Button,
   Form as BootstrapForm,
-  // Uklonjeni su Row i Col jer ih ne koristimo za centriranje forme na ovaj način
 } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
 import { itemVariants, createSlideUpVariant } from "./Animations";
 
-// Kreiramo Motion verziju Bootstrap forme
 const MotionBootstrapForm = motion(BootstrapForm);
 
 function Contact() {
@@ -18,12 +18,10 @@ function Contact() {
   const form = useRef();
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-  // EmailJS status i poruke
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
   const [isEmailJsLoaded, setIsEmailJsLoaded] = useState(false);
 
-  // Funkcija za prikaz poruke
   const showMessage = (text, type) => {
     setMessage(text);
     setMessageType(type);
@@ -33,7 +31,6 @@ function Contact() {
     }, 5000);
   };
 
-  // Učitavanje EmailJS skripte
   const loadEmailJsScript = () => {
     return new Promise((resolve, reject) => {
       if (document.getElementById("emailjs-script")) {
@@ -111,7 +108,7 @@ function Contact() {
   const formFields = [
     {
       type: "input",
-      label: "Your Name",
+      placeholder: "Name",
       controlId: "formName",
       name: "name",
       inputType: "text",
@@ -119,7 +116,7 @@ function Contact() {
     },
     {
       type: "input",
-      label: "Your Email",
+      placeholder: "Email",
       controlId: "formEmail",
       name: "email",
       inputType: "email",
@@ -127,7 +124,7 @@ function Contact() {
     },
     {
       type: "textarea",
-      label: "Message",
+      placeholder: "Enter your nessage...",
       controlId: "formMessage",
       name: "message",
       rows: 4,
@@ -135,7 +132,7 @@ function Contact() {
     },
     {
       type: "button",
-      label: "Send",
+      label: "Send Message",
       variant: "secondary",
       buttonType: "submit",
     },
@@ -158,81 +155,85 @@ function Contact() {
           },
         },
       }}
-      className="py-5 bg-light help" // bg-light ostaje
+      className="py-5  contact-gradient"
       id="contact"
     >
       <Container>
-        {" "}
-        {/* Container je već ispravno postavljen i on definiše margine */}
-        <motion.h2
-          className="text-center text-dark fw-bold mb-4 help" // Boje teksta ostaju
-          variants={itemVariants}
-        >
+        <motion.h2 className="text-center fw-bold mb-4" variants={itemVariants}>
           Contact Me
         </motion.h2>
-        {/* Prikaz poruke ako postoji */}
         {message && (
           <Alert variant={messageType} className="mb-4 text-center">
             {message}
           </Alert>
         )}
-        <motion.div
-          className="rounded shadow-lg mx-auto text-dark p-2 help"
-          variants={createSlideUpVariant(0.1)}
-        >
-          <MotionBootstrapForm
-            ref={form}
-            onSubmit={sendEmail}
-            initial="hidden"
-            animate="visible"
-          >
-            {formFields.map((field, idx) => (
-              <motion.div
-                key={field.controlId || field.label}
-                variants={createSlideUpVariant(0.1 + idx * 0.2)}
+        <Row className="d-flex justify-content-center text-white">
+          <Col md={8} lg={8}>
+            <motion.div
+              className="rounded mx-auto p-2 text-dark"
+              variants={createSlideUpVariant(0.1)}
+            >
+              <MotionBootstrapForm
+                ref={form}
+                onSubmit={sendEmail}
+                initial="hidden"
+                animate="visible"
               >
-                {field.type === "input" && (
-                  <BootstrapForm.Group
-                    className="mb-3"
-                    controlId={field.controlId}
+                {formFields.map((field, idx) => (
+                  <motion.div
+                    key={field.controlId || field.label}
+                    variants={createSlideUpVariant(0.1 + idx * 0.2)}
                   >
-                    <BootstrapForm.Label>{field.label}</BootstrapForm.Label>
-                    <BootstrapForm.Control
-                      type={field.inputType}
-                      name={field.name}
-                      required={field.required}
-                    />
-                  </BootstrapForm.Group>
-                )}
+                    {field.type === "input" && (
+                      <BootstrapForm.Group
+                        className="mb-3"
+                        controlId={field.controlId}
+                      >
+                        {/* Uklonjen Label */}
+                        <BootstrapForm.Control
+                          className="contact-form"
+                          type={field.inputType}
+                          name={field.name}
+                          required={field.required}
+                          placeholder={field.placeholder}
+                        />
+                      </BootstrapForm.Group>
+                    )}
 
-                {field.type === "textarea" && (
-                  <BootstrapForm.Group
-                    className="mb-3"
-                    controlId={field.controlId}
-                  >
-                    <BootstrapForm.Label>{field.label}</BootstrapForm.Label>
-                    <BootstrapForm.Control
-                      as="textarea"
-                      rows={field.rows}
-                      name={field.name}
-                      required={field.required}
-                    />
-                  </BootstrapForm.Group>
-                )}
-
-                {field.type === "button" && (
-                  <Button
-                    variant={field.variant}
-                    type={field.buttonType}
-                    className="custom-button"
-                  >
-                    {field.label}
-                  </Button>
-                )}
-              </motion.div>
-            ))}
-          </MotionBootstrapForm>
-        </motion.div>
+                    {field.type === "textarea" && (
+                      <BootstrapForm.Group
+                        className="mb-3"
+                        controlId={field.controlId}
+                      >
+                        {/* Uklonjen Label */}
+                        <BootstrapForm.Control
+                          className="contact-form"
+                          as="textarea"
+                          rows={field.rows}
+                          name={field.name}
+                          required={field.required}
+                          placeholder={field.placeholder}
+                        />
+                      </BootstrapForm.Group>
+                    )}
+                    <div className="text-center">
+                      {" "}
+                      {field.type === "button" && (
+                        <Button
+                          variant={field.variant}
+                          type={field.buttonType}
+                          className="custom-button"
+                        >
+                          {field.label}
+                        </Button>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </MotionBootstrapForm>
+            </motion.div>
+          </Col>
+        </Row>
       </Container>
     </motion.div>
   );

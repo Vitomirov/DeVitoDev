@@ -1,5 +1,3 @@
-import { easeInOut } from "framer-motion"; // easeInOut import se ne koristi direktno, ali može da stoji
-
 export const fadeIn = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 3 } },

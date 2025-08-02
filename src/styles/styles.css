@@ -1,56 +1,78 @@
+/* ==========================================================================
+   Base Styles and Global Utilities
+   ========================================================================== */
+
+/* Defines smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
 }
 
+/* Base styles for the body */
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  color: #e1e1e1; /* Light text color for better readability on dark backgrounds */
 
-  /* NOVA moderna tamna pozadina */
+  /* Modern dark gradient background */
   background: linear-gradient(174deg, #0f0f0f 3%, #1a1a2e 50%, #202040 100%);
   background-attachment: fixed;
-
-  color: #e1e1e1; /* svetla boja teksta da se bolje vidi na tamnoj pozadini */
 }
 
+/* Ensures the root element takes up at least the full viewport height */
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+/* Global utility class for font color */
 .font-color {
   color: #e1e1e1;
 }
 
-/* --- NAVIGATION Section --- */
+/* Helper Class for debugging layout issues */
+.help {
+  border: 2px solid red;
+}
+
+/* ==========================================================================
+   Navigation Section
+   ========================================================================== */
+
+/* Main navbar container styling */
 .custom-navbar {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1080;
-  background-color: rgba(15, 15, 15, 0.95); /* tamna navbar pozadina */
+  background-color: rgba(15, 15, 15, 0.95); /* Semi-transparent dark background */
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+/* Styles for navigation links on hover */
 .custom-navbar .nav-link.text-white:hover {
-  color: #FB8C00 !important; /* Koristimo !important da bismo nadjačali Bootstrap-ove stilove */
+  color: #FB8C00 !important; /* Overrides Bootstrap's default styles */
 }
 
+/* Styles for social icons on hover, with a smooth transition */
 .custom-navbar .social-icon:hover {
   color: #FB8C00;
-  transition: color 0.3s ease-in-out; /* Dodaje glatku tranziciju */
+  transition: color 0.3s ease-in-out;
 }
 
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
 
-/* --- HERO Section --- */
+/* Hero section container */
 #hero {
   position: relative;
   z-index: 3;
   color: #ffffff;
 }
 
-/* component-content appears to be a general content wrapper used across sections */
+/* General content wrapper for sections */
 .component-content {
   position: relative;
   z-index: 3;
@@ -59,65 +81,46 @@ body {
   color: #d1d1d1;
 }
 
-/* --- BACK TO TOP ARROW --- */
-.arrow {
-  position: fixed;
-  bottom: 55px;
-  right: 20px;
-  z-index: 1000;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  transition: transform 0.3s ease-out, opacity 0.3s ease; /* Dodaj tranziciju za opacity */
-
-  /* Podrazumevano sakrij strelicu i postavi je na 0 opacity */
-  opacity: 0;
-  pointer-events: none; /* Onemogući klikove kada je nevidljiva */
+/* Hero section specific gradient */
+.hero-gradient {
+    /* Ukloni background-color iz .section-layout, ali ga dodaj ovde */
+background: #0F0F0F;
+background: linear-gradient(124deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.46) 17%, rgba(0, 7, 27, 0.93) 56%);
 }
 
-/* Klasa koja se dodaje kada je strelica vidljiva (isVisible = true) */
-.arrow.arrow-visible {
-  opacity: 1;
-  pointer-events: auto; /* Omogući klikove kada je vidljiva */
+.gradient-text {
+  /* Set the background to a linear gradient. You can customize these colors. */
+  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  
+  /* Use a vendor-prefixed version for broader browser support. */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Make the text transparent so the background shows through. */
+  -webkit-text-fill-color: transparent;
+  
+  /* Fallback for browsers that don't support text-fill-color. */
+  color: transparent;
 }
 
-/* Styling for the Bootstrap Icons arrow */
-.back-to-top {
-  font-size: 2.5rem;
-  transition: color 0.3s ease;
+/* Hero image styling */
+.hero-image {
+  max-width: 400px;
+  width: 200%;
+  height: auto;
 }
-
-/* Default color for dark sections (white) */
-.arrow-light {
-  color: #ffffff;
-}
-
-/* Color for light sections (dark blue) */
-.arrow-dark {
-  color: #202040;
-}
-
-/* Optional: Add a subtle hover effect for the arrow */
-.arrow:hover {
-  transform: translateY(-5px);
-}
-
-/* --- Responsive adjustments --- */
-/* Strelica se prikazuje samo na ekranima većim od 767.98px */
-@media (max-width: 767.98px) { /* Cilja ekrane manje od 768px (mobilni) */
-  .arrow {
-    display: none !important; /* Totalno sakrij strelicu na mobilnim uređajima */
+/* Responsive adjustments for the hero image */
+@media (max-width: 767.98px) {
+  .hero-image {
+    max-width: 180px; /* Adjusted for smaller screens */
   }
 }
 
-/* Prikazuj strelicu na ekranima većim od 767.98px */
-@media (min-width: 768px) { /* Cilja ekrane šire od 768px (tableti i desktop) */
-  .arrow {
-    display: block; /* Prikaži strelicu na većim ekranima */
-  }
-}
+/* ==========================================================================
+   Section Layouts
+   ========================================================================== */
 
-/* --- ABOUT & SKILLS Section (Combined) --- */
+/* General layout for all main content sections */
 .section-layout {
   position: relative;
   display: flex;
@@ -125,17 +128,55 @@ body {
   align-items: center;
   scroll-margin-top: 80px;
 
-  background-color: #1a1a2e;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  padding-top: 150px;
-  padding-bottom: 150px;
   color: #dcdcdc;
 }
 
-/* Stilovi za individualne skill tagove (e.g., HTML, CSS, JavaScript) */
+/* Special styles for the My Works section */
+.myWorks-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #202040;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  color: #efefef;
+}
+
+/* ==========================================================================
+   Buttons and Form Elements
+   ========================================================================== */
+
+/* Custom button styling */
+.custom-button {
+  text-decoration: none;
+  width: 10rem;
+  background-color: #6c2eb4; 
+  color: #f8f1f1; 
+  border: white 2px solid;
+  padding: 8px 15px;
+  font-size: 1rem;
+  
+  transition: all 0.3s ease; 
+}
+
+/* Hover effect for the custom button */
+.custom-button:hover {
+  background-color: #FB8C00; 
+  transform: scale(1.05); 
+  box-shadow: 0 5px 15px rgba(0, 196, 184, 0.4); 
+}
+
+/* ==========================================================================
+   About & Skills Section Specifics
+   ========================================================================== */
+
+/* Styles for individual skill tags */
 .skill-tag {
   display: inline-flex;
   white-space: nowrap;
@@ -149,14 +190,20 @@ body {
   transition: transform 0.2s ease-in-out;
 }
 
+/* Hover effect for skill tags */
 .skill-tag:hover {
   transform: translateY(-2px);
   background-color: rgba(255, 255, 255, 0.15);
 }
 
+/* Justify paragraph text */
 .paragraph-justify {
   text-align: start;
   color: #f1f1df;
+}
+
+.dark-bg {
+  background: rgba(0, 7, 27, 0.93);
 }
 
 /* Responsive adjustments for smaller screens */
@@ -174,57 +221,125 @@ body {
   }
 }
 
-/* --- MY WORKS Section --- */
-.myWorks-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 120vh;
-  background-color: #202040;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  color: #efefef;
-}
+/* ==========================================================================
+   My Works Section Specifics
+   ========================================================================== */
 
-.custom-button {
-  text-decoration: none;
-  width: 10rem;
-  background-color: #FFA726; 
-  color: #333333; 
-  border: none;
-  padding: 10px 25px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  transition: all 0.3s ease; 
-}
-
-.custom-button:hover {
-  background-color: #FB8C00; 
-  transform: scale(1.05); 
-  box-shadow: 0 5px 15px rgba(0, 196, 184, 0.4); 
-}
-
+/* Styling for the video element */
 .video-element {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;}
+}
 
-/*-------- FOOTER -----------*/
+/* ==========================================================================
+   Back to Top Arrow
+   ========================================================================== */
+
+/* Styling for the back-to-top arrow button */
+.arrow {
+  position: fixed;
+  bottom: 55px;
+  right: 20px;
+  z-index: 1000;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease-out, opacity 0.3s ease;
+
+  /* Hide the arrow by default */
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Class to show the arrow when active */
+.arrow.arrow-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Styling for the Bootstrap Icons arrow */
+.back-to-top {
+  font-size: 2.5rem;
+  transition: color 0.3s ease;
+}
+
+/* Default color for the arrow on dark backgrounds */
+.arrow-light {
+  color: #ffffff;
+}
+
+/* Color for the arrow on light backgrounds */
+.arrow-dark {
+  color: #202040;
+}
+
+/* Hover effect for the arrow */
+.arrow:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive adjustments for the arrow */
+/* Hide arrow on screens smaller than 768px */
+@media (max-width: 767.98px) {
+  .arrow {
+    display: none !important;
+  }
+}
+
+/* Show arrow on screens larger than 768px */
+@media (min-width: 768px) {
+  .arrow {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   Footer Section
+   ========================================================================== */
+
+/* Social media icon styling */
 .social-icon {
   font-size: 3rem;
   color: #e1e8eb;
   transition: color 0.3s ease;
 }
 
+/* Social media icon hover effect */
 .social-icon:hover {
   color: #00f5d4;
 }
 
-/* Helper Class (from original CSS) */
-.help {
-  border: 2px solid red;
+/* Stilizacija za ekrane veće od 768px (md breakpoint) */
+@media (min-width: 768px) {
+  .vh-md-100 {
+    height: 100vh !important;
+  }
+}
+
+/* Stilizacija za ekrane manje od 768px (sm i xs) */
+@media (max-width: 767.98px) {
+  .vh-md-100-auto {
+    height: auto !important;
+  }
+}
+
+
+.contact-gradient {
+    /* Ukloni background-color iz .section-layout, ali ga dodaj ovde */
+background: #0F0F0F;
+background: linear-gradient(239deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.46) 17%, rgba(0, 7, 27, 0.93) 56%);
+}
+
+/* Stil za transparentna polja */
+.contact-form {
+  background-color: transparent !important;
+  color: white; /* Da bi ukucani tekst bio beo */
+  border-color: white !important; /* Opcija: bela ivica za bolji kontrast */
+}
+
+/* Stil za beli placeholder tekst */
+.contact-form::placeholder {
+  color: white !important;
+  opacity: 1; /* Neki pretraživači automatski smanjuju transparentnost, ovo je ispravlja */
 }
