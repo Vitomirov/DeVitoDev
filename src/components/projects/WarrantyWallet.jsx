@@ -28,7 +28,7 @@ function WarrantyWallet() {
     <motion.div
       ref={ref}
       id="warrantyWallet"
-      className="section-layout py-5 text-white vh-md-100 d-flex justify-content-between dark-bg"
+      className="section-layout py-5 text-white vh-md-100 d-flex justify-content-center dark-bg"
       variants={sectionContainerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}

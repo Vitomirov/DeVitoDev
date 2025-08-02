@@ -8,6 +8,7 @@ import WarrantyWallet from "./components/projects/WarrantyWallet";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BackToTopArrow from "./components/BackToTopArrow";
+import HeroAboutSection from "./components/HeroAboutSection";
 
 function App() {
   return (
@@ -18,9 +19,8 @@ function App() {
           element={
             <>
               <Navigation />
-              <Hero />
+              <HeroAboutSection />
               <BackToTopArrow />
-              <About />
               <WarrantyWallet />
               {/* <MyWorks /> */}
               <Contact />

@@ -44,7 +44,7 @@ function About() {
     <motion.div
       ref={ref}
       id="about"
-      className="section-layout text-center py-5 vh-md-100 d-flex align-items-center dark-bg"
+      className="section-layout text-center py-5 vh-md-100 d-flex align-items-center justify-content-center"
       variants={sectionContainerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -58,20 +58,20 @@ function About() {
         </motion.h2>
 
         <Row className="justify-content-center align-items-start gx-5">
-          <Col lg={6} md={12} className="text-start help">
-            <div className="w-100 d-flex flex-column align-items-start help">
-              <motion.h3 variants={itemVariants} className="fw-bold mb-4 help">
+          <Col lg={6} md={12} className="text-start">
+            <div className="w-100 d-flex flex-column align-items-start">
+              <motion.h3 variants={itemVariants} className="fw-bold mb-4">
                 My Skills
               </motion.h3>
               <motion.p
                 variants={itemVariants}
-                className="fs-5 mt-4 pt-1 paragraph-justify help"
+                className="fs-5 mt-4 pt-1 paragraph-justify"
               >
                 These are the tools and technologies I use regularly. I'm
                 confident working across the full stack, and always open to
                 learning more.
               </motion.p>
-              <div className="d-flex flex-wrap justify-content-start pt-3 mb-4 help">
+              <div className="d-flex flex-wrap justify-content-start pt-3 mb-4">
                 {allSkills.map((skill, i) => (
                   <motion.div
                     key={i}
@@ -84,14 +84,14 @@ function About() {
               </div>
             </div>
           </Col>
-          <Col lg={6} md={12} className="text-start help">
-            <div className="shadow w-100 d-flex flex-column align-items-start help">
-              <motion.h3 variants={itemVariants} className="fw-bold mb-4 help">
+          <Col lg={6} md={12} className="text-start">
+            <div className="shadow w-100 d-flex flex-column align-items-start">
+              <motion.h3 variants={itemVariants} className="fw-bold mb-4">
                 Get to know me!
               </motion.h3>
               <motion.p
                 variants={itemVariants}
-                className="fs-5 mt-4 pt-1 paragraph-justify help"
+                className="fs-5 mt-4 pt-1 paragraph-justify"
               >
                 I am a passionate Full-Stack Web Developer, dedicated to
                 building and managing robust web applications from concept to
