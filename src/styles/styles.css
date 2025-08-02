@@ -52,12 +52,12 @@ body {
 
 /* Styles for navigation links on hover */
 .custom-navbar .nav-link.text-white:hover {
-  color: #FB8C00 !important; /* Overrides Bootstrap's default styles */
+  color: #f1b91c !important; /* Overrides Bootstrap's default styles */
 }
 
 /* Styles for social icons on hover, with a smooth transition */
 .custom-navbar .social-icon:hover {
-  color: #FB8C00;
+  color: #f1b91c;
   transition: color 0.3s ease-in-out;
 }
 
@@ -157,7 +157,7 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1
 .custom-button {
   text-decoration: none;
   width: 12rem;
-  background-color: #ddcc2f; 
+  background-color: #f1b91c; 
   color: #11174e; 
   border: white 1px solid;
   padding: 8px 15px;
@@ -168,7 +168,8 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1
 
 /* Hover effect for the custom button */
 .custom-button:hover {
-  background-color: #FB8C00; 
+  background-color: #d1d5ec; 
+  color: black;
   transform: scale(1.05); 
   box-shadow: 0 5px 15px rgba(0, 196, 184, 0.4); 
 }
@@ -361,6 +362,6 @@ background: linear-gradient(124deg, rgba(15, 15, 15, 1) 0%, rgba(88, 153, 224, 1
 }
 
 .footer-color {
-background: #315170;
-background: linear-gradient(360deg, rgba(49, 81, 112, 1) 58%, rgba(105, 145, 219, 0.37) 98%);
+background: #000000;
+background: linear-gradient(360deg, rgba(0, 0, 0, 1) 82%, rgba(0, 0, 0, 1) 87%, rgba(81, 136, 184, 0.75) 97%);
 }
