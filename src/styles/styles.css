@@ -90,7 +90,8 @@ background: linear-gradient(124deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0
 
 .gradient-text {
   /* Set the background to a linear gradient. You can customize these colors. */
-  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  background: #833AB4;
+background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 17%, rgba(252, 176, 69, 1) 46%);
   
   /* Use a vendor-prefixed version for broader browser support. */
   -webkit-background-clip: text;
@@ -349,8 +350,17 @@ background: #0F0F0F;
   opacity: 1; /* Neki pretraživači automatski smanjuju transparentnost, ovo je ispravlja */
 }
 
+.contact-form:focus {
+  color: white !important;
+}
+
 
 .hero-about-gradient{
 background: #0F0F0F;
-background: linear-gradient(124deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.46) 17%, rgba(0, 7, 27, 0.93) 56%);
+background: linear-gradient(124deg, rgba(15, 15, 15, 1) 0%, rgba(88, 153, 224, 1) 11%, rgba(0, 7, 27, 1) 34%);
+}
+
+.footer-color {
+background: #315170;
+background: linear-gradient(360deg, rgba(49, 81, 112, 1) 58%, rgba(105, 145, 219, 0.37) 98%);
 }

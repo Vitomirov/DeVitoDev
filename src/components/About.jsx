@@ -52,15 +52,15 @@ function About() {
       <Container className="font-color">
         <motion.h2
           variants={itemVariants}
-          className="display-5 fw-bold mb-5 mt-3 text-start"
+          className="display-5 mb-5 fw-bold mt-3 text-start"
         >
           About Me
         </motion.h2>
 
         <Row className="justify-content-center align-items-start gx-5">
-          <Col lg={6} md={12} className="text-start">
+          <Col lg={6} md={12} className="text-starts">
             <div className="w-100 d-flex flex-column align-items-start">
-              <motion.h3 variants={itemVariants} className="fw-bold mb-4">
+              <motion.h3 variants={itemVariants} className=" mb-4">
                 My Skills
               </motion.h3>
               <motion.p
@@ -86,7 +86,7 @@ function About() {
           </Col>
           <Col lg={6} md={12} className="text-start">
             <div className="shadow w-100 d-flex flex-column align-items-start">
-              <motion.h3 variants={itemVariants} className="fw-bold mb-4">
+              <motion.h3 variants={itemVariants} className=" mb-4">
                 Get to know me!
               </motion.h3>
               <motion.p

@@ -39,13 +39,23 @@ function Hero() {
       animate={isInView ? "visible" : "hidden"}
     >
       <Container className="text-start">
-        <Row className="justify-content-center align-items-center ">
-          {/* Kolona za tekst - prva na velikim ekranima */}
+        <Row className="justify-content-center align-items-center">
+          {/* Kolona za sliku - prva na malim ekranima, poslednja na velikim */}
           <Col
             lg={6}
             md={12}
-            className="text-center text-lg-start mb-5 mb-lg-0"
+            className="order-first order-lg-last d-flex justify-content-center align-items-center mb-5"
           >
+            <motion.img
+              src={profilePhoto}
+              alt="Dejan Vitomirov Profile"
+              className="img-fluid hero-image"
+              variants={itemVariants}
+            />
+          </Col>
+
+          {/* Kolona za tekst - prva na velikim ekranima, druga na malim */}
+          <Col lg={6} md={12} className="text-center text-lg-start">
             <motion.h1 variants={itemVariants} className="display-5">
               Hi, my name is
             </motion.h1>
@@ -67,20 +77,6 @@ function Hero() {
                 Contact
               </a>
             </motion.div>
-          </Col>
-
-          {/* Kolona za sliku - druga na velikim ekranima */}
-          <Col
-            lg={6}
-            md={12}
-            className="order-first order-lg-last d-flex justify-content-end align-items-center"
-          >
-            <motion.img
-              src={profilePhoto}
-              alt="Dejan Vitomirov Profile"
-              className="img-fluid hero-image"
-              variants={itemVariants}
-            />
           </Col>
         </Row>
       </Container>
