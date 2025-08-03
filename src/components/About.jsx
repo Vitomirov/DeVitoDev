@@ -93,18 +93,16 @@ function About() {
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
               >
-                I am a passionate Full-Stack Web Developer, dedicated to
-                building and managing robust web applications from concept to
-                deployment, always striving to create seamless digital
-                experiences that contribute directly to product success. My
-                commitment extends to the relentless pursuit of knowledge,
-                continuously expanding my expertise with the latest advancements
-                to deliver cutting-edge solutions, and I invite you to explore
-                my work in the Projects section or{" "}
+                I am a Full-Stack Web Developer skilled in building and
+                maintaining modern web applications. I work across the full
+                development cycle to create efficient, user-friendly solutions
+                aligned with business needs. I’m always learning and improving
+                to keep up with new technologies. Feel free to explore my work
+                or{" "}
                 <a href="#contact" className="fw-bold font-color">
                   contact
                 </a>{" "}
-                me regarding compelling opportunities.
+                me regarding new opportunities.
               </motion.p>
             </div>
           </Col>

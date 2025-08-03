@@ -63,13 +63,13 @@ function WarrantyWallet() {
                 className="text-start paragraph-justify "
               >
                 <p className="fs-5 pt-1 paragraph-justify ">
-                  Warranty Wallet App is a full-stack web application designed
-                  for straightforward product warranty management. It helps
-                  users avoid lost papers and missed deadlines by providing a
-                  centralized, digital solution. Key functionalities include
-                  user authentication, adding new warranties with image uploads,
-                  and full CRUD (Create, Read, Update, Delete) functionality for
-                  all records.
+                  Warranty Wallet App is a full-stack web application built for
+                  easy and organized warranty tracking. It helps users keep
+                  receipts safe and avoid missed warranty expirations by storing
+                  everything digitally. Key features include secure user
+                  authentication, adding new warranties with image uploads, and
+                  browsing or deleting saved warranty entries from a
+                  personalized dashboard.
                 </p>
                 <p className="mt-4">
                   <strong>Technologies Used:</strong>
