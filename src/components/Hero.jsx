@@ -1,10 +1,8 @@
 import React, { useRef } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
+import profilePhoto from "../images/photo.png";
 
-// Uvozimo potrebne varijante
-// Napomena: U About.jsx fajlu su definisane itemVariants i sectionContainerVariants.
-// Prema vasem zahtevu, koristimo slicnu logiku.
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -21,8 +19,6 @@ const sectionContainerVariants = {
     },
   },
 };
-
-import profilePhoto from "../images/600x600_blue_background.png";
 
 function Hero() {
   const ref = useRef(null);

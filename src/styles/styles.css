@@ -1,6 +1,27 @@
 /* ==========================================================================
-   Base Styles and Global Utilities
+   Global (varijable i osnovni stilovi)
    ========================================================================== */
+
+/* CSS promenljive za boje i osnovne vrednosti */
+:root {
+  --color-text-light: #e1e1e1;
+  --color-text-muted: #dcdcdc;
+  --color-text-contrast: #11174e;
+
+  --color-bg-dark: #0f0f0f;
+  --color-bg-gradient-dark1: #1a1a2e;
+  --color-bg-gradient-dark2: #202040;
+
+  --color-button-bg: #f1b91c;
+  --color-button-bg-hover: #d1d5ec;
+  --color-button-text: #11174e;
+  --color-button-border: white;
+
+  --color-link-hover: #f1b91c;
+  --color-skill-bg: rgba(255, 255, 255, 0.08);
+  --color-skill-bg-hover: rgba(255, 255, 255, 0.15);
+  --color-skill-text: #e0e0e0;
+}
 
 /* Defines smooth scrolling for anchor links */
 html {
@@ -12,10 +33,10 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  color: #e1e1e1; /* Light text color for better readability on dark backgrounds */
+  color: var(--color-text-light);
 
   /* Modern dark gradient background */
-  background: linear-gradient(174deg, #0f0f0f 3%, #1a1a2e 50%, #202040 100%);
+  background: linear-gradient(174deg, var(--color-bg-dark) 3%, var(--color-bg-gradient-dark1) 50%, var(--color-bg-gradient-dark2) 100%);
   background-attachment: fixed;
 }
 
@@ -28,7 +49,7 @@ body {
 
 /* Global utility class for font color */
 .font-color {
-  color: #e1e1e1;
+  color: var(--color-text-light);
 }
 
 /* Helper Class for debugging layout issues */
@@ -36,8 +57,9 @@ body {
   border: 2px solid red;
 }
 
+
 /* ==========================================================================
-   Navigation Section
+   Navigation
    ========================================================================== */
 
 /* Main navbar container styling */
@@ -52,17 +74,18 @@ body {
 
 /* Styles for navigation links on hover */
 .custom-navbar .nav-link.text-white:hover {
-  color: #f1b91c !important; /* Overrides Bootstrap's default styles */
+  color: var(--color-link-hover) !important;
 }
 
 /* Styles for social icons on hover, with a smooth transition */
 .custom-navbar .social-icon:hover {
-  color: #f1b91c;
+  color: var(--color-link-hover);
   transition: color 0.3s ease-in-out;
 }
 
+
 /* ==========================================================================
-   Hero Section
+   Hero
    ========================================================================== */
 
 /* Hero section container */
@@ -83,24 +106,16 @@ body {
 
 /* Hero section specific gradient */
 .hero-gradient {
-    /* Ukloni background-color iz .section-layout, ali ga dodaj ovde */
-background: #0F0F0F;
-background: linear-gradient(124deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.46) 17%, rgba(0, 7, 27, 0.93) 56%);
+  background: var(--color-bg-dark);
+  background: linear-gradient(124deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.46) 17%, rgba(0, 7, 27, 0.93) 56%);
 }
 
 .gradient-text {
-  /* Set the background to a linear gradient. You can customize these colors. */
   background: #833AB4;
-background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 17%, rgba(252, 176, 69, 1) 46%);
-  
-  /* Use a vendor-prefixed version for broader browser support. */
+  background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 17%, rgba(252, 176, 69, 1) 46%);
   -webkit-background-clip: text;
   background-clip: text;
-
-  /* Make the text transparent so the background shows through. */
   -webkit-text-fill-color: transparent;
-  
-  /* Fallback for browsers that don't support text-fill-color. */
   color: transparent;
 }
 
@@ -110,12 +125,14 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1
   width: 200%;
   height: auto;
 }
+
 /* Responsive adjustments for the hero image */
 @media (max-width: 767.98px) {
   .hero-image {
-    max-width: 180px; /* Adjusted for smaller screens */
+    max-width: 180px;
   }
 }
+
 
 /* ==========================================================================
    Section Layouts
@@ -133,7 +150,7 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1
   background-position: center;
   background-repeat: no-repeat;
 
-  color: #dcdcdc;
+  color: var(--color-text-muted);
 }
 
 /* Special styles for the My Works section */
@@ -141,13 +158,14 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #202040;
+  background-color: var(--color-bg-gradient-dark2);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
   color: #efefef;
 }
+
 
 /* ==========================================================================
    Buttons and Form Elements
@@ -157,25 +175,26 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1
 .custom-button {
   text-decoration: none;
   width: 12rem;
-  background-color: #f1b91c; 
-  color: #11174e; 
-  border: white 1px solid;
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
+  border: var(--color-button-border) 1px solid;
   padding: 8px 15px;
   font-size: 1.2rem;
   font-weight: bold;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
 }
 
 /* Hover effect for the custom button */
 .custom-button:hover {
-  background-color: #d1d5ec; 
+  background-color: var(--color-button-bg-hover);
   color: black;
-  transform: scale(1.05); 
-  box-shadow: 0 5px 15px rgba(0, 196, 184, 0.4); 
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 196, 184, 0.4);
 }
 
+
 /* ==========================================================================
-   About & Skills Section Specifics
+   About & Skills
    ========================================================================== */
 
 /* Styles for individual skill tags */
@@ -184,8 +203,8 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1
   white-space: nowrap;
   font-size: 1rem;
   font-weight: 500;
-  color: #e0e0e0;
-  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-skill-text);
+  background-color: var(--color-skill-bg);
   border-radius: 8px;
   padding: 0.4rem 0.8rem;
   margin: 0.3rem;
@@ -195,7 +214,7 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1
 /* Hover effect for skill tags */
 .skill-tag:hover {
   transform: translateY(-2px);
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: var(--color-skill-bg-hover);
 }
 
 /* Justify paragraph text */
@@ -204,14 +223,14 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1
   color: #f1f1df;
 }
 
-.about-gradient{
-background: #0F0F0F;
-background: linear-gradient(131deg, rgba(15, 15, 15, 1) 0%, rgba(96, 162, 226, 0.46) 0%, rgba(0, 7, 27, 0.93) 29%);
+.about-gradient {
+  background: var(--color-bg-dark);
+  background: linear-gradient(131deg, rgba(15, 15, 15, 1) 0%, rgba(96, 162, 226, 0.46) 0%, rgba(0, 7, 27, 0.93) 29%);
 }
 
 .dark-bg {
-  background: #0F0F0F;
-background: linear-gradient(0deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.46) 17%, rgba(0, 7, 27, 0.93) 56%);
+  background: var(--color-bg-dark);
+  background: linear-gradient(0deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.46) 17%, rgba(0, 7, 27, 0.93) 56%);
 }
 
 /* Responsive adjustments for smaller screens */
@@ -229,8 +248,9 @@ background: linear-gradient(0deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.4
   }
 }
 
+
 /* ==========================================================================
-   My Works Section Specifics
+   My Works
    ========================================================================== */
 
 /* Styling for the video element */
@@ -239,6 +259,7 @@ background: linear-gradient(0deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.4
   height: auto;
   border-radius: 10px;
 }
+
 
 /* ==========================================================================
    Back to Top Arrow
@@ -279,7 +300,7 @@ background: linear-gradient(0deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.4
 
 /* Color for the arrow on light backgrounds */
 .arrow-dark {
-  color: #202040;
+  color: var(--color-bg-gradient-dark2);
 }
 
 /* Hover effect for the arrow */
@@ -302,8 +323,9 @@ background: linear-gradient(0deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.4
   }
 }
 
+
 /* ==========================================================================
-   Footer Section
+   Footer
    ========================================================================== */
 
 /* Social media icon styling */
@@ -333,22 +355,25 @@ background: linear-gradient(0deg, rgba(15, 15, 15, 1) 3%, rgba(96, 162, 226, 0.4
 }
 
 
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+
 .contact-gradient {
-    /* Ukloni background-color iz .section-layout, ali ga dodaj ovde */
-background: #0F0F0F;
+  background: var(--color-bg-dark);
 }
 
-/* Stil za transparentna polja */
+/* Stil za transparentna polja forme */
 .contact-form {
   background-color: transparent !important;
-  color: white; /* Da bi ukucani tekst bio beo */
-  border-color: white !important; /* Opcija: bela ivica za bolji kontrast */
+  color: white;
+  border-color: white !important;
 }
 
 /* Stil za beli placeholder tekst */
 .contact-form::placeholder {
   color: white !important;
-  opacity: 1; /* Neki pretraživači automatski smanjuju transparentnost, ovo je ispravlja */
+  opacity: 1;
 }
 
 .contact-form:focus {
@@ -356,12 +381,22 @@ background: #0F0F0F;
 }
 
 
-.hero-about-gradient{
-background: #0F0F0F;
-background: linear-gradient(124deg, rgba(15, 15, 15, 1) 0%, rgba(88, 153, 224, 1) 11%, rgba(0, 7, 27, 1) 34%);
+/* ==========================================================================
+   Hero-About Gradient (specijalni gradienti)
+   ========================================================================== */
+
+.hero-about-gradient {
+  background: var(--color-bg-dark);
+  background: linear-gradient(124deg, rgba(15, 15, 15, 1) 0%, rgba(88, 153, 224, 1) 11%, rgba(0, 7, 27, 1) 34%);
 }
 
+
+/* ==========================================================================
+   Footer Color Gradient
+   ========================================================================== */
+
 .footer-color {
-background: #000000;
-background: linear-gradient(360deg, rgba(0, 0, 0, 1) 82%, rgba(0, 0, 0, 1) 87%, rgba(81, 136, 184, 0.75) 97%);
+  background: #000000;
+  background: linear-gradient(360deg, rgba(0, 0, 0, 1) 82%, rgba(0, 0, 0, 1) 87%, rgba(81, 136, 184, 0.75) 97%);
 }
+

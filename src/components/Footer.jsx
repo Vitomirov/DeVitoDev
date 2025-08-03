@@ -1,11 +1,4 @@
 function Footer() {
-  const handleGitHubClick = () => {
-    window.open("https://github.com/Vitomirov", "_target");
-  };
-  const handleLinkedinClick = () => {
-    window.open("https://www.linkedin.com/in/dejan-vitomirov/", "_target");
-  };
-
   return (
     <footer className="border-top border-dark py-4 footer-color">
       <div className="container-fluid text-center">

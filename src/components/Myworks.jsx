@@ -1,3 +1,5 @@
+// Za sada se ne koristi. Kad bude vise projekta, ukljucice se. Trenutno ulogu MyWorks kompenente igra WarrantyWallet
+
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";

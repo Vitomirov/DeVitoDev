@@ -3,24 +3,22 @@ import React, { useEffect, useState } from "react";
 const BackToTopArrow = () => {
   const [isVisible, setIsVisible] = useState(false);
 
+  // Proverava da li treba prikazati strelicu na osnovu pozicije skrola
   const toggleVisibility = () => {
-    // Provera da li je 'hero' sekcija vidljiva
     const heroSection = document.getElementById("hero");
-
     if (!heroSection) return;
 
-    // Uzimamo visinu hero sekcije
     const heroHeight = heroSection.offsetHeight;
 
-    // Strelica se prikazuje samo ako je skrol pozicija veća od visine hero sekcije
+    // Strelica se prikazuje kad je skrol ispod hero sekcije (sa malim pomeranjem)
     if (window.pageYOffset > heroHeight - 800) {
-      // Oduzeto 100 da se strelica pojavi malo ranije
       setIsVisible(true);
     } else {
       setIsVisible(false);
     }
   };
 
+  // Skroluje stranicu na vrh glatko
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -28,14 +26,16 @@ const BackToTopArrow = () => {
     });
   };
 
+  // Dodaje i uklanja event listener za skrol
   useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
-    toggleVisibility(); // Provera pri prvom renderu
+    toggleVisibility(); // Provera odmah nakon rendera
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
 
+  // Prikazuje dugme strelice ako je isVisible true
   return (
     <button
       type="button"

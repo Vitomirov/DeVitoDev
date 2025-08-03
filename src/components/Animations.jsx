@@ -1,8 +1,10 @@
+// Fade-in animacija: postepeno pojavljivanje
 export const fadeIn = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 3 } },
 };
 
+// Klizanje sa leve strane sa "spring" efektom
 export const slideInFromLeft = {
   hidden: { x: -150, opacity: 0 },
   visible: {
@@ -17,6 +19,7 @@ export const slideInFromLeft = {
   },
 };
 
+// Klizanje sa desne strane sa "spring" efektom
 export const slideInFromRight = {
   hidden: { x: 150, opacity: 0 },
   visible: {
@@ -24,35 +27,37 @@ export const slideInFromRight = {
     opacity: 1,
     transition: {
       type: "spring",
-      stiffness: 150, // Tvrdoća opruge
-      damping: 5, // Kočenje opruge
+      stiffness: 150,
+      damping: 5,
       mass: 1,
     },
   },
 };
 
+// Kontejner sa efektom sekvencijalnog pojavljivanja dece
 export const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // Animate children with a delay
+      staggerChildren: 0.2, // Redom animira decu sa odloženjem
     },
   },
 };
 
+// Stavka koja klizi sa dna sa promenom opacity
 export const itemVariants = {
   hidden: { opacity: 0, y: 150 },
   visible: { opacity: 1, y: -30 },
 };
 
-// Nova varijanta za klizanje od dole - DODATO OVDE
+// Klizanje odozdo sa postepenim pojavljivanjem
 export const slideInFromBottom = {
-  hidden: { y: 100, opacity: 0 }, // Počinje 100px ispod i nevidljiv
-  visible: { y: 0, opacity: 1, transition: { duration: 4, ease: "easeOut" } }, // Klizi gore i postaje vidljiv
+  hidden: { y: 100, opacity: 0 }, // Start ispod i nevidljiv
+  visible: { y: 0, opacity: 1, transition: { duration: 4, ease: "easeOut" } }, // Klizi gore i pojavljuje se
 };
 
-// You can also export functions for more dynamic animations
+// Dinamična animacija klizanja gore sa podešenim kašnjenjem
 export const createSlideUpVariant = (delay = 0) => ({
   hidden: { y: 50, opacity: 0 },
   visible: {
@@ -65,17 +70,18 @@ export const createSlideUpVariant = (delay = 0) => ({
   },
 });
 
+// Efekat iskačućeg i pojavljivanja sa "spring" animacijom
 export const popUpAndFadeIn = {
-  hidden: { opacity: 0, scale: 0.9, y: 20 }, // Počinje malo manji, providan, i niže
+  hidden: { opacity: 0, scale: 0.9, y: 20 }, // Početno stanje: manji, providan i pomeren naniže
   visible: {
     opacity: 1,
     scale: 1,
     y: 0,
     transition: {
-      type: "spring", // Koristimo "spring" tranziciju za lepši "iskok" efekat
-      stiffness: 100, // Jačina opruge (veći broj = brže i "tvrđe")
-      damping: 10, // Prigušenje (manji broj = više oscilacija)
-      duration: 0.6, // Ukupno trajanje tranzicije
+      type: "spring", // Opruga za prirodniji efekat
+      stiffness: 100, // Jačina opruge
+      damping: 10, // Prigušenje oscilacija
+      duration: 0.6, // Trajanje animacije
       ease: "easeOut",
     },
   },
