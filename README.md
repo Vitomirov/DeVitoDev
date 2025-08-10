@@ -1,12 +1,46 @@
-# React + Vite
+Dejan Vitomirov – Web Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 **Live Demo:** [portfolio.devitowarranty.xyz](https://portfolio.devitowarranty.xyz)  
+💼 **LinkedIn:** [linkedin.com/in/dejan-vitomirov](https://www.linkedin.com/in/dejan-vitomirov/)  
+📂 **GitHub:** [github.com/Vitomirov](https://github.com/Vitomirov)
 
-Currently, two official plugins are available:
+📌 About
+This is my personal Web Developer Portfolio, showcasing my projects, skills, and experience in React.js, Node.js, and modern web technologies.
+The goal of this portfolio is to present my technical expertise, demonstrate UI/UX design skills, and provide potential employers or clients with a direct way to contact me.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🛠️ Built With
+This project is built using modern technologies and tools:
 
-## Expanding the ESLint configuration
+    • React 19 – Frontend library for building interactive user interfaces
+    • Vite – Fast development environment and build tool
+    • React Router DOM – Client-side routing for smooth navigation
+    • Bootstrap 5 & React-Bootstrap – Responsive design and components
+    • Framer Motion – Animations and transitions
+    • React Icons – Icon library for React
+    • @emailjs/browser – Email service integration
+    • @popperjs/core – Popper positioning engine
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+⚙️ Development Tools
+
+    • ESLint – Code linting and best practices
+    • @vitejs/plugin-react – React plugin for Vite
+    • TypeScript Types for React and React DOM
+
+📂 Project Structure
+plaintext
+Copy
+Edit
+portfolio/
+│── public/         # Static assets
+│── src/            # Source code
+│   ├── components/ # Reusable components
+│   ├── pages/      # Portfolio pages
+│   ├── styles/     # CSS / SCSS styling
+│   └── App.jsx     # Main application file
+│── package.json    # Dependencies and scripts
+│── README.md       # Project documentation
+📧 Contact
+
+If you are interested in working with me, feel free to reach out via:
+📩 Email: Available through my portfolio contact form
+💼 **LinkedIn:** [linkedin.com/in/dejan-vitomirov](https://www.linkedin.com/in/dejan-vitomirov/)
