@@ -11,7 +11,7 @@ import { motion, useInView } from "framer-motion";
 import {
   itemVariants,
   createSlideUpVariant,
-} from "../components/animations/Animations";
+} from "../components/animations/animations";
 
 const MotionBootstrapForm = motion(BootstrapForm);
 

@@ -1,33 +1,47 @@
 import "./styles/styles.css";
 import { Routes, Route } from "react-router-dom";
-import Navigation from "./components/layout/Navigation";
-import WarrantyWallet from "./components/projects/WarrantyWallet";
-import Contact from "./sections/Contact";
-import Footer from "./components/layout/Footer";
-import BackToTopArrow from "./components/common/BackToTopArrow";
+import { Suspense, lazy } from "react";
+import Header from "./components/layout/Header";
 import HeroAboutLayout from "./components/layout/HeroAboutLayout";
+
+// lazy load komponente
+const WarrantyWallet = lazy(() =>
+  import("./components/projects/WarrantyWallet")
+);
+const Contact = lazy(() => import("./sections/Contact"));
+const Footer = lazy(() => import("./components/layout/Footer"));
+const BackToTopArrow = lazy(() => import("./components/common/BackToTopArrow"));
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Navigation />
-              <HeroAboutLayout />
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            {/* uvek odmah vidljive */}
+            <Header />
+            <HeroAboutLayout />
+
+            {/* lazy deo */}
+            <Suspense fallback={<div>Loading...</div>}>
               <BackToTopArrow />
               <WarrantyWallet />
-              {/* <MyWorks /> */}
               <Contact />
               <Footer />
-            </>
-          }
-        />
-        <Route path="/projects/WarrantyWallet" element={<WarrantyWallet />} />
-      </Routes>
-    </>
+            </Suspense>
+          </>
+        }
+      />
+      <Route
+        path="/projects/WarrantyWallet"
+        element={
+          <Suspense fallback={<div>Loading Project...</div>}>
+            <WarrantyWallet />
+          </Suspense>
+        }
+      />
+    </Routes>
   );
 }
 

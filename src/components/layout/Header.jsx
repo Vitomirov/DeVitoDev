@@ -1,55 +1,29 @@
-import { useState, useEffect, useRef } from "react";
+import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
+import useHeader from "../../hooks/useHeader";
 
-function Navigation() {
-  const [expanded, setExpanded] = useState(false);
+function Header() {
+  const {
+    expanded,
+    navbarRef,
+    navLinks,
+    handleGitHubClick,
+    handleLinkedinClick,
+    toggleExpanded,
+  } = useHeader();
 
-  const navbarRef = useRef(null);
-
-  const handleGitHubClick = () => {
-    window.open("https://github.com/Vitomirov", "_blank");
-    setExpanded(false);
-  };
-
-  const handleLinkedinClick = () => {
-    window.open("https://www.linkedin.com/in/dejan-vitomirov/", "_blank");
-    setExpanded(false);
-  };
-
-  const navLinks = [
-    { href: "#about", label: "About Me" },
-    { href: "#warrantyWallet", label: "My Works" },
-  ];
-
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (
-        expanded &&
-        navbarRef.current &&
-        !navbarRef.current.contains(event.target)
-      ) {
-        setExpanded(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [expanded]);
   return (
     <Navbar
       ref={navbarRef}
       expanded={expanded}
-      onToggle={() => setExpanded((prev) => !prev)}
+      onToggle={toggleExpanded}
       expand="lg"
       variant="white"
       className="custom-navbar py-2 px-4 border-bottom border-black shadow-lg"
     >
       <Navbar.Brand
         href="#"
-        onClick={() => setExpanded(false)}
+        onClick={toggleExpanded}
         className="custom-brand text-white fs-1 ps-md-5 fw-bold"
       >
         DeVitoDev
@@ -57,31 +31,25 @@ function Navigation() {
 
       <Navbar.Toggle aria-controls="navbar-nav" />
 
-      <Navbar.Collapse
-        id="navbar-nav"
-        className="justify-content-end pe-5"
-        onClick={(event) => {
-          if (event.target === event.currentTarget) {
-            setExpanded(false);
-          }
-        }}
-      >
+      <Navbar.Collapse id="navbar-nav" className="justify-content-end pe-5">
         <Nav className="text-end gap-4 fs-5 align-items-end">
           {navLinks.map(({ href, label }) => (
             <Nav.Link
               key={href}
               href={href}
               className="nav-link text-white"
-              onClick={() => setExpanded(false)}
+              onClick={toggleExpanded}
             >
               {label}
             </Nav.Link>
           ))}
 
+          {/* Social ikone samo na velikim ekranima */}
           <Nav.Link
             onClick={handleLinkedinClick}
             className="nav-link text-white d-none d-lg-flex align-items-center"
             style={{ cursor: "pointer" }}
+            aria-label="Open LinkedIn profile"
           >
             <i className="bi bi-linkedin social-icon fs-3"></i>
           </Nav.Link>
@@ -90,6 +58,7 @@ function Navigation() {
             onClick={handleGitHubClick}
             className="nav-link text-white d-none d-lg-flex align-items-center"
             style={{ cursor: "pointer" }}
+            aria-label="Open GitHub profile"
           >
             <i className="bi bi-github social-icon fs-3"></i>
           </Nav.Link>
@@ -99,4 +68,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default React.memo(Header);
