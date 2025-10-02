@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Nav } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
 import profilePhoto from "../assets/images/photo.png";
 
@@ -23,6 +23,14 @@ const sectionContainerVariants = {
 function Hero() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });
+
+  const handleGitHubClick = () => {
+    window.open("https://github.com/Vitomirov", "_blank");
+  };
+
+  const handleLinkedinClick = () => {
+    window.open("https://www.linkedin.com/in/dejan-vitomirov/", "_blank");
+  };
 
   return (
     <motion.div
@@ -62,14 +70,46 @@ function Hero() {
             <motion.h2 variants={itemVariants} className="display-5 mb-4 pb-4">
               Web Developer
             </motion.h2>
-            <motion.div variants={itemVariants}>
+
+            {/* Dugme i social ikonice */}
+            <motion.div
+              variants={itemVariants}
+              className="d-flex flex-column align-items-center align-items-lg-start mt-3"
+            >
+              {/* Contact dugme */}
               <a
                 type="button"
                 href="#contact"
                 className="custom-button text-center rounded d-inline-block px-4 py-2"
+                id="contact-button"
               >
                 Contact
               </a>
+
+              {/* Social ikonice samo za sm/md ekrane */}
+              <div
+                className="d-flex d-lg-none justify-content-between mt-3"
+                style={{
+                  width: "fit-content",
+                  minWidth: "100px",
+                }}
+              >
+                <Nav.Link
+                  onClick={handleLinkedinClick}
+                  className="nav-link text-white"
+                  style={{ cursor: "pointer" }}
+                >
+                  <i className="bi bi-linkedin social-icon fs-1 pe-3 me-5"></i>
+                </Nav.Link>
+
+                <Nav.Link
+                  onClick={handleGitHubClick}
+                  className="nav-link text-white p-0"
+                  style={{ cursor: "pointer" }}
+                >
+                  <i className="bi bi-github social-icon fs-1"></i>
+                </Nav.Link>
+              </div>
             </motion.div>
           </Col>
         </Row>
