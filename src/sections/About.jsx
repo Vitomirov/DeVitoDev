@@ -2,13 +2,11 @@ import React, { useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
 
-// Varijante animacije za pojedinačne elemente (naslovi, paragrafi, tagovi veština)
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-// Varijante animacije za celu sekciju — koristi se za inicijalno prikazivanje sa kašnjenjem po elementima
 const sectionContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -21,7 +19,6 @@ const sectionContainerVariants = {
   },
 };
 
-// Lista svih veština koje će biti prikazane kao tagovi
 const allSkills = [
   { label: "HTML" },
   { label: "CSS" },
@@ -40,12 +37,10 @@ const allSkills = [
 ];
 
 function About() {
-  // Ref i detekcija da li je komponenta u viewportu radi animacije prilikom ulaska u prikaz
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });
 
   return (
-    // Glavni wrapper sa animacijom, koji pokreće prikaz kada sekcija uđe u viewport
     <motion.div
       ref={ref}
       id="about"
@@ -55,7 +50,6 @@ function About() {
       animate={isInView ? "visible" : "hidden"}
     >
       <Container className="font-color">
-        {/* Naslov sekcije "About Me" */}
         <motion.h2
           variants={itemVariants}
           className="display-5 mb-5 fw-bold mt-3 text-start"
@@ -63,9 +57,7 @@ function About() {
           About Me
         </motion.h2>
 
-        {/* Glavna podela na dve kolone: Skills i Bio */}
         <Row className="justify-content-center align-items-start gx-5">
-          {/* Leva kolona — prikaz veština */}
           <Col lg={6} md={12} className="text-starts">
             <div className="w-100 d-flex flex-column align-items-start">
               <motion.h3 variants={itemVariants} className=" mb-4">
@@ -80,7 +72,6 @@ function About() {
                 learning more.
               </motion.p>
 
-              {/* Prikaz svih veština kao tagovi */}
               <div className="d-flex flex-wrap justify-content-start pt-3 mb-4">
                 {allSkills.map((skill, i) => (
                   <motion.div
@@ -95,7 +86,6 @@ function About() {
             </div>
           </Col>
 
-          {/* Desna kolona — biografski deo sa kontakt pozivom */}
           <Col lg={6} md={12} className="text-start">
             <div className="shadow w-100 d-flex flex-column align-items-start">
               <motion.h3 variants={itemVariants} className=" mb-4">

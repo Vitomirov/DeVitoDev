@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
-import profilePhoto from "../images/photo.png";
+import profilePhoto from "../assets/images/photo.png";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -29,14 +29,13 @@ function Hero() {
       ref={ref}
       id="hero"
       className="section-layout d-flex flex-column justify-content-center align-items-center"
-      style={{ minHeight: "100vh" }} // Postavlja minimalnu visinu hero sekcije
+      style={{ minHeight: "100vh" }}
       variants={sectionContainerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
       <Container className="text-start">
         <Row className="justify-content-center align-items-center">
-          {/* Kolona za sliku - prva na malim ekranima, poslednja na velikim */}
           <Col
             lg={6}
             md={12}
@@ -50,7 +49,6 @@ function Hero() {
             />
           </Col>
 
-          {/* Kolona za tekst - prva na velikim ekranima, druga na malim */}
           <Col lg={6} md={12} className="text-center text-lg-start">
             <motion.h1 variants={itemVariants} className="display-5">
               Hi, my name is

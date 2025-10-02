@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
-import videoWarrantyWallet from "../../DemoVideos/videoWarrantyWallet.mp4";
+import videoWarrantyWallet from "../../assets/DemoVideos/videoWarrantyWallet.mp4";
 
 // Varijacije animacije za pojedinačne elemente (naslovi, tekst, itd.)
 const itemVariants = {

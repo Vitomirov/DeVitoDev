@@ -1,10 +1,10 @@
 import React from "react";
-import Hero from "./Hero";
-import About from "./About";
+import Hero from "../../sections/Hero";
+import About from "../../sections/About";
 
 // Ova komponenta služi kao omotač za Hero i About sekcije
 // Na nju se primenjuje jedinstveni gradijent
-function HeroAboutSection() {
+function HeroAboutLayout() {
   return (
     <div className="hero-about-gradient">
       <Hero />
@@ -13,4 +13,4 @@ function HeroAboutSection() {
   );
 }
 
-export default HeroAboutSection;
+export default HeroAboutLayout;

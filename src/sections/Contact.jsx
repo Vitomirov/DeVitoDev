@@ -8,26 +8,22 @@ import {
   Form as BootstrapForm,
 } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
-import { itemVariants, createSlideUpVariant } from "./Animations";
+import {
+  itemVariants,
+  createSlideUpVariant,
+} from "../components/animations/Animations";
 
 const MotionBootstrapForm = motion(BootstrapForm);
 
 function Contact() {
-  // Ref za praćenje vidljivosti sekcije na ekranu radi animacije
   const sectionRef = useRef(null);
-  // Ref za pristup HTML formi i manipulaciju sa njom (reset, slanje)
   const form = useRef();
-  // Detekcija da li je sekcija u viewportu, animacija se pokreće samo jednom
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-  // Stanje za prikaz poruke korisniku (uspeh, greška)
   const [message, setMessage] = useState("");
-  // Tip poruke (success, danger...)
   const [messageType, setMessageType] = useState("");
-  // Praćenje da li je EmailJS biblioteka učitana
   const [isEmailJsLoaded, setIsEmailJsLoaded] = useState(false);
 
-  // Funkcija za prikaz poruke korisniku i automatsko skrivanje nakon 5 sekundi
   const showMessage = (text, type) => {
     setMessage(text);
     setMessageType(type);
@@ -37,7 +33,6 @@ function Contact() {
     }, 5000);
   };
 
-  // Dinamičko učitavanje EmailJS skripte sa CDN-a, izbegava se višestruko učitavanje
   const loadEmailJsScript = () => {
     return new Promise((resolve, reject) => {
       if (document.getElementById("emailjs-script")) {
@@ -55,7 +50,6 @@ function Contact() {
     });
   };
 
-  // Efekat koji se izvršava jednom, učitava EmailJS skriptu i inicijalizuje je sa javnim ključem iz .env
   useEffect(() => {
     loadEmailJsScript()
       .then(() => {
@@ -73,13 +67,11 @@ function Contact() {
       });
   }, []);
 
-  // Handler za uspešno poslatu poruku: prikazuje poruku i resetuje formu
   const handleEmailSuccess = () => {
     showMessage("Your message has been sent successfully!", "success");
     form.current.reset();
   };
 
-  // Handler za grešku pri slanju poruke: prikazuje grešku u konzoli i korisniku
   const handleEmailError = (error) => {
     console.error("EmailJS Error:", error.text);
     showMessage(
@@ -88,7 +80,6 @@ function Contact() {
     );
   };
 
-  // Funkcija koja se poziva pri slanju forme: proverava spremnost EmailJS servisa i šalje formu
   const sendEmail = (e) => {
     e.preventDefault();
     if (!isEmailJsLoaded || !window.emailjs) {
@@ -116,7 +107,6 @@ function Contact() {
       .then(handleEmailSuccess, handleEmailError);
   };
 
-  // Definicija polja forme koja će biti renderovana, olakšava održavanje i proširenje
   const formFields = [
     {
       type: "input",
@@ -150,7 +140,6 @@ function Contact() {
     },
   ];
 
-  // Varijante animacije za celu sekciju kontakta
   const contactSectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -165,9 +154,7 @@ function Contact() {
   };
 
   return (
-    // Glavni wrapper div sa gradient pozadinom i id-jem za navigaciju
     <div className="py-5 contact-gradient" id="contact">
-      {/* motion.div koji obuhvata sav sadržaj i upravlja animacijom sekcije */}
       <motion.div
         ref={sectionRef}
         initial="hidden"
@@ -175,7 +162,6 @@ function Contact() {
         variants={contactSectionVariants}
       >
         <Container>
-          {/* Naslov sekcije Kontakt */}
           <motion.h2
             className="text-center fw-bold mb-1 mt-5"
             variants={itemVariants}
@@ -183,35 +169,29 @@ function Contact() {
             Contact Me
           </motion.h2>
 
-          {/* Prikaz poruke uspeha ili greške ako postoji */}
           {message && (
             <Alert variant={messageType} className="mb-4 text-center">
               {message}
             </Alert>
           )}
 
-          {/* Glavni red sa formom centriranom i belim tekstom */}
           <Row className="d-flex justify-content-center text-white">
             <Col md={8} lg={8}>
-              {/* Animirani kontejner oko forme za efekat pojavljivanja */}
               <motion.div
                 className="rounded mx-auto p-2 text-dark"
                 variants={createSlideUpVariant(0.1)}
               >
-                {/* Animirana Bootstrap forma */}
                 <MotionBootstrapForm
                   ref={form}
                   onSubmit={sendEmail}
                   initial="hidden"
                   animate="visible"
                 >
-                  {/* Renderovanje svih polja iz formFields niza sa animacijom */}
                   {formFields.map((field, idx) => (
                     <motion.div
                       key={field.controlId || field.label}
                       variants={createSlideUpVariant(0.1 + idx * 0.2)}
                     >
-                      {/* Input polja */}
                       {field.type === "input" && (
                         <BootstrapForm.Group
                           className="mb-3"
@@ -227,7 +207,6 @@ function Contact() {
                         </BootstrapForm.Group>
                       )}
 
-                      {/* Textarea polje */}
                       {field.type === "textarea" && (
                         <BootstrapForm.Group
                           className="mb-3"
@@ -244,7 +223,6 @@ function Contact() {
                         </BootstrapForm.Group>
                       )}
 
-                      {/* Dugme za slanje */}
                       <div className="text-center">
                         {" "}
                         {field.type === "button" && (

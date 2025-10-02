@@ -12,8 +12,8 @@ export const slideInFromLeft = {
     opacity: 1,
     transition: {
       type: "spring",
-      stiffness: 150, // Tvrdoća opruge
-      damping: 5, // Kočenje opruge
+      stiffness: 150,
+      damping: 5,
       mass: 1,
     },
   },
@@ -40,7 +40,7 @@ export const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // Redom animira decu sa odloženjem
+      staggerChildren: 0.2,
     },
   },
 };
@@ -53,8 +53,8 @@ export const itemVariants = {
 
 // Klizanje odozdo sa postepenim pojavljivanjem
 export const slideInFromBottom = {
-  hidden: { y: 100, opacity: 0 }, // Start ispod i nevidljiv
-  visible: { y: 0, opacity: 1, transition: { duration: 4, ease: "easeOut" } }, // Klizi gore i pojavljuje se
+  hidden: { y: 100, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 4, ease: "easeOut" } },
 };
 
 // Dinamična animacija klizanja gore sa podešenim kašnjenjem
@@ -72,16 +72,16 @@ export const createSlideUpVariant = (delay = 0) => ({
 
 // Efekat iskačućeg i pojavljivanja sa "spring" animacijom
 export const popUpAndFadeIn = {
-  hidden: { opacity: 0, scale: 0.9, y: 20 }, // Početno stanje: manji, providan i pomeren naniže
+  hidden: { opacity: 0, scale: 0.9, y: 20 },
   visible: {
     opacity: 1,
     scale: 1,
     y: 0,
     transition: {
-      type: "spring", // Opruga za prirodniji efekat
-      stiffness: 100, // Jačina opruge
-      damping: 10, // Prigušenje oscilacija
-      duration: 0.6, // Trajanje animacije
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+      duration: 0.6,
       ease: "easeOut",
     },
   },
