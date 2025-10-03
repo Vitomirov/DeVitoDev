@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
-import videoWarrantyWallet from "../../assets/DemoVideos/videoWarrantyWallet.mp4";
+import videoWarrantyWallet from "../../assets/DemoVideos/warrantyWallet.mp4";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -43,7 +43,7 @@ function WarrantyWallet() {
             My Works
           </motion.h1>
 
-          <Row className="justify-content-center gx-5">
+          <Row className="justify-content-start gx-5">
             <motion.h2
               variants={itemVariants}
               className="text-start  mb-5 font-color"
@@ -51,14 +51,10 @@ function WarrantyWallet() {
               Warranty Wallet App
             </motion.h2>
 
-            <Col
-              lg={6}
-              md={12}
-              className="order-2 order-md-1 font-color paragraph-justify "
-            >
+            <Col lg={8} md={12} className="font-color paragraph-justify">
               <motion.div
                 variants={itemVariants}
-                className="text-start paragraph-justify "
+                className="text-start paragraph-justify"
               >
                 <p className="fs-5 pt-1 paragraph-justify ">
                   Warranty Wallet App is a full-stack web application built for
@@ -106,16 +102,16 @@ function WarrantyWallet() {
             </Col>
 
             <Col
-              lg={6}
+              lg={3}
               md={12}
-              className="order-1 order-md-2 mb-4 mb-md-0 d-flex justify-content-start "
+              className="order-1 order-md-2 ms-5 mb-md-0 d-flex justify-content-start"
             >
               <motion.div variants={itemVariants}>
                 <video
                   src={videoWarrantyWallet}
                   controls
                   muted
-                  className="video-element "
+                  className="video-element"
                 >
                   Your browser does not support the video tag.
                 </video>

@@ -1,18 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-/>
-<link rel="icon" type="image/png" href="/src/images/favicon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>DeVitoDev</title>
+    <!-- SEO & PWA hints -->
+    <meta name="description" content="Dejan Vitomirov – Full-Stack Web Developer. Building efficient, user-friendly web applications." />
+    <meta name="author" content="Dejan Vitomirov" />
+    <meta name="theme-color" content="#0d6efd" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/src/images/favicon.png" />
+
+    <!-- Preconnect to CDN for faster icon load -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+    <!-- CSS: Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+
+    <!-- Title -->
+    <title>DeVitoDev | Full-Stack Web Developer</title>
+
+    <!-- Preload main script for faster first render -->
+    <link rel="modulepreload" href="/src/main.jsx" />
+
   </head>
-  <body class="">
+  <body class="bg-light text-dark">
+    <!-- Root element for React -->
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Main script -->
+    <script type="module" src="/src/main.jsx" defer></script>
+
+
   </body>
 </html>
