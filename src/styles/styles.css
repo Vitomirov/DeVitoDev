@@ -166,6 +166,20 @@ body {
   color: #efefef;
 }
 
+/* Special styles for the My Works section */
+.myJourney-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-gradient-dark2);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  color: #efefef;
+}
+
+
 
 /* ==========================================================================
    Buttons and Form Elements

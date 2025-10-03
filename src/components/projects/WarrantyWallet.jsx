@@ -3,13 +3,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
 import videoWarrantyWallet from "../../assets/DemoVideos/videoWarrantyWallet.mp4";
 
-// Varijacije animacije za pojedinačne elemente (naslovi, tekst, itd.)
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-// Varijacije animacije za celu sekciju sa kašnjenjem animacije po elementima
 const sectionContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -23,17 +21,14 @@ const sectionContainerVariants = {
 };
 
 function WarrantyWallet() {
-  // Ref za detekciju kada komponenta uđe u viewport (koristi se za animaciju)
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });
 
   return (
-    // Glavni kontejner sekcije sa tamnom pozadinom i identifikatorom za navigaciju
     <div
       id="warrantyWallet"
       className="section-layout py-5 text-white vh-md-100 d-flex justify-content-center dark-bg"
     >
-      {/* motion.div koji obuhvata ceo sadržaj sekcije i upravlja animacijom */}
       <motion.div
         ref={ref}
         variants={sectionContainerVariants}
@@ -41,7 +36,6 @@ function WarrantyWallet() {
         animate={isInView ? "visible" : "hidden"}
       >
         <Container className="font-color">
-          {/* Glavni naslov sekcije */}
           <motion.h1
             variants={itemVariants}
             className="display-5 fw-bold mb-5 font-color"
@@ -49,9 +43,7 @@ function WarrantyWallet() {
             My Works
           </motion.h1>
 
-          {/* Red koji sadrži tekst i video prikaz aplikacije */}
           <Row className="justify-content-center gx-5">
-            {/* Podnaslov projekta */}
             <motion.h2
               variants={itemVariants}
               className="text-start  mb-5 font-color"
@@ -59,7 +51,6 @@ function WarrantyWallet() {
               Warranty Wallet App
             </motion.h2>
 
-            {/* Leva kolona sa opisom aplikacije i listom tehnologija */}
             <Col
               lg={6}
               md={12}
@@ -69,7 +60,6 @@ function WarrantyWallet() {
                 variants={itemVariants}
                 className="text-start paragraph-justify "
               >
-                {/* Opis funkcionalnosti aplikacije */}
                 <p className="fs-5 pt-1 paragraph-justify ">
                   Warranty Wallet App is a full-stack web application built for
                   easy and organized warranty tracking. It helps users keep
@@ -80,7 +70,6 @@ function WarrantyWallet() {
                   personalized dashboard.
                 </p>
 
-                {/* Lista korišćenih tehnologija */}
                 <p className="mt-4">
                   <strong>Technologies Used:</strong>
                 </p>
@@ -94,7 +83,6 @@ function WarrantyWallet() {
                   </li>
                 </ul>
 
-                {/* Linkovi ka GitHub repozitorijumu i live demo verziji */}
                 <p className="mt-4">
                   <a
                     href="https://github.com/Vitomirov/warranty-wallet"
@@ -117,7 +105,6 @@ function WarrantyWallet() {
               </motion.div>
             </Col>
 
-            {/* Desna kolona sa prikazom demonstracionog videa */}
             <Col
               lg={6}
               md={12}
