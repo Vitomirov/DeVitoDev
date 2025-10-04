@@ -274,6 +274,18 @@ body {
   border-radius: 10px;
 }
 
+.videro-placeholder {
+  width: 100%;
+  height: 180px;
+  background-image: url("../assets/images/WarrantyWalletScreenshot.PNG");
+  background-size: 100% 99%;
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 
 /* ==========================================================================
    Back to Top Arrow

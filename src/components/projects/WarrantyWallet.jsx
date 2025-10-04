@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useRef, useState } from "react";
+import { Container, Row, Col, Modal } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
+import { BsPlayCircle } from "react-icons/bs";
 import videoWarrantyWallet from "../../assets/DemoVideos/warrantyWallet.mp4";
 
 const itemVariants = {
@@ -23,6 +24,7 @@ const sectionContainerVariants = {
 function WarrantyWallet() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div
@@ -43,20 +45,21 @@ function WarrantyWallet() {
             My Works
           </motion.h1>
 
-          <Row className="justify-content-start gx-5">
+          <Row className="justify-content-start d-flex justify-content-between">
             <motion.h2
               variants={itemVariants}
-              className="text-start  mb-5 font-color"
+              className="text-start mb-5 font-color"
             >
               Warranty Wallet App
             </motion.h2>
 
-            <Col lg={8} md={12} className="font-color paragraph-justify">
+            {/* Tekst */}
+            <Col lg={7} md={12} className="font-color paragraph-justify pe-5">
               <motion.div
                 variants={itemVariants}
                 className="text-start paragraph-justify"
               >
-                <p className="fs-5 pt-1 paragraph-justify ">
+                <p className="fs-5 pt-1 paragraph-justify">
                   Warranty Wallet App is a full-stack web application built for
                   easy and organized warranty tracking. It helps users keep
                   receipts safe and avoid missed warranty expirations by storing
@@ -101,25 +104,49 @@ function WarrantyWallet() {
               </motion.div>
             </Col>
 
-            <Col
-              lg={3}
-              md={12}
-              className="order-1 order-md-2 ms-5 mb-md-0 d-flex justify-content-start"
-            >
-              <motion.div variants={itemVariants}>
-                <video
-                  src={videoWarrantyWallet}
-                  controls
-                  muted
-                  className="video-element"
-                >
-                  Your browser does not support the video tag.
-                </video>
+            {/* Video placeholder */}
+            <Col lg={4} md={8} className="me-5">
+              <motion.div
+                variants={itemVariants}
+                onClick={() => setShowModal(true)}
+                className="videro-placeholder"
+              >
+                <BsPlayCircle size={60} color="black" />
               </motion.div>
             </Col>
           </Row>
         </Container>
       </motion.div>
+
+      <Modal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        centered
+        size="sm"
+      >
+        <Modal.Body
+          className="p-0"
+          style={{
+            backgroundColor: "transparent",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <video
+            src={videoWarrantyWallet}
+            controls
+            autoPlay
+            style={{
+              height: "600px",
+              width: "auto",
+              maxWidth: "90vw",
+              borderRadius: "6px",
+              objectFit: "contain",
+            }}
+          />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }
