@@ -380,6 +380,24 @@ body {
   }
 }
 
+/* ==========================================================================
+   My Journey
+   ========================================================================== */
+
+.text-gradient {
+background: linear-gradient(
+  90deg,
+  rgba(230, 230, 230, 1) 0%,
+  rgba(152, 202, 255, 1) 45%,
+  rgba(180, 255, 220, 1) 100%
+);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text; /* za moderne browsere */
+  color: transparent;
+}
+
 
 /* ==========================================================================
    Contact

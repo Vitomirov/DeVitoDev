@@ -163,7 +163,7 @@ function Contact() {
       >
         <Container>
           <motion.h2
-            className="text-center fw-bold mb-1 mt-5"
+            className="text-center fw-bold mb-1 mt-5 pb-4 text-white"
             variants={itemVariants}
           >
             Contact Me
