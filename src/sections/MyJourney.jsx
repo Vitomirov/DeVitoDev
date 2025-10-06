@@ -14,6 +14,15 @@ function MyJourney() {
         </h2>
 
         <Row className="justify-content-center align-items-start gx-5">
+          <Col lg={6} md={12} className="text-start">
+            <div className="shadow w-100 d-flex flex-column align-items-start pt-3">
+              <h4 className="fs-3 mt-2 paragraph-justify lh-sm">
+                I love turning ideas into visible, usable products. Seeing a
+                concept evolve from a simple thought into a fully functional
+                application is what motivates me every day as a developer.
+              </h4>
+            </div>
+          </Col>
           {/* Leva kolona */}
           <Col lg={6} md={12} className="text-start">
             <div className="w-100 d-flex flex-column align-items-start">
@@ -38,15 +47,6 @@ function MyJourney() {
           </Col>
 
           {/* Desna kolona */}
-          <Col lg={6} md={12} className="text-start">
-            <div className="shadow w-100 d-flex flex-column align-items-start pt-3">
-              <h3 className="fs-5 mt-2 paragraph-justify lh-lg">
-                I love turning ideas into visible, usable products. Seeing a
-                concept evolve from a simple thought into a fully functional
-                application is what motivates me every day as a developer.
-              </h3>
-            </div>
-          </Col>
         </Row>
       </Container>
     </section>
