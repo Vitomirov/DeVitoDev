@@ -24,7 +24,7 @@ function Header() {
       <Navbar.Brand
         href="#"
         onClick={toggleExpanded}
-        className="custom-brand text-white fs-1 ps-md-5 fw-bold"
+        className="custom-brand text-gradient fs-1 ps-md-5 fw-bold"
       >
         DeVitoDev
       </Navbar.Brand>
