@@ -12,9 +12,9 @@ const sectionContainerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.8,
+      duration: 0.6,
       ease: "easeOut",
-      staggerChildren: 1,
+      staggerChildren: 0.8,
     },
   },
 };
@@ -43,43 +43,41 @@ function MyJourney() {
 
         <Row className="justify-content-center align-items-start gx-5">
           <Col lg={6} md={12} className="text-start">
-            <div className="shadow w-100 d-flex flex-column align-items-start pt-3">
-              <motion.h3
-                variants={itemVariants}
-                className=" mt-2 paragraph-justify lh-sm"
-              >
-                I love turning ideas into visible, usable products. Seeing a
-                concept evolve from a simple thought into a fully functional
-                application is what motivates me every day as a developer.
-              </motion.h3>
-            </div>
-          </Col>
-
-          <Col lg={6} md={12} className="text-start">
             <div className="w-100 d-flex flex-column align-items-start">
               <motion.p
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
               >
-                I started coding out of curiosity, experimenting with ideas in
-                the console just to see them work. But I realized I wanted more.
-                I wanted to see my creations online, fully interactive,
-                something tangible that people could actually use. That
-                curiosity led me to dive into full-stack development, learning
-                both frontend and backend to turn ideas into complete,
-                real-world products.
+                Along the way, my work in market research and mortgage loan
+                processing exposed me to inefficient systems. Instead of just
+                accepting them, I aimed to create better solutions. That drive
+                led me to fully commit to web development, focusing on building
+                efficient, user-friendly applications that make a real impact
+                for users.
               </motion.p>
               <motion.p
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
               >
-                Along the way, my work in market research and mortgage loan
-                processing showed me firsthand how inefficient some systems can
-                be. Instead of just accepting them, I wanted to build better
-                solutions. That drive is what made me fully commit to web
-                development—and today, creating efficient, user-friendly
-                applications is what excites me every day.
+                I started coding out of curiosity, experimenting with ideas in
+                the console just to see them work. Soon, I realized I wanted
+                more—I wanted to build fully interactive projects that people
+                could actually use. This curiosity pushed me to dive into
+                full-stack development, learning both frontend and backend to
+                transform ideas into real-world applications.
               </motion.p>
+            </div>
+          </Col>
+          <Col lg={6} md={12} className="text-start">
+            <div className="shadow w-100 d-flex flex-column align-items-start pt-3">
+              <motion.h4
+                variants={itemVariants}
+                className=" mt-2 paragraph-justify lh-sm"
+              >
+                I love turning ideas into tangible products, seeing a simple
+                idea grow into a fully functional application motivates me every
+                day.
+              </motion.h4>
             </div>
           </Col>
         </Row>
