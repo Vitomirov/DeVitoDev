@@ -61,8 +61,8 @@ function MyJourney() {
               >
                 I started coding out of curiosity, experimenting with ideas in
                 the console just to see them work. Soon, I realized I wanted
-                more—I wanted to build fully interactive projects that people
-                could actually use. This curiosity pushed me to dive into
+                more. <br /> I wanted to build fully interactive projects that
+                people could actually use. This curiosity pushed me to dive into
                 full-stack development, learning both frontend and backend to
                 transform ideas into real-world applications.
               </motion.p>

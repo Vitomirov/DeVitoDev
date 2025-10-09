@@ -63,34 +63,41 @@ function Hero() {
             >
               <a
                 href="#contact"
-                className="custom-button text-center rounded d-inline-block px-4 py-2"
+                className="custom-button text-center rounded d-inline-block px-4 py-2 "
                 id="contact-button"
               >
                 Contact
               </a>
 
-              <div
-                className="d-flex d-lg-none justify-content-between mt-3"
-                style={{ width: "fit-content", minWidth: "100px" }}
+              <motion.div
+                variants={itemVariants}
+                className="d-lg-none clearfix pt-2"
+                style={{ width: "12rem" }}
               >
                 <Nav.Link
                   onClick={handleLinkedinClick}
                   aria-label="Open LinkedIn profile"
-                  className="nav-link text-white"
+                  className="nav-link text-white float-start p-0"
                   style={{ cursor: "pointer" }}
                 >
-                  <i className="bi bi-linkedin social-icon fs-1 pe-3 me-5"></i>
+                  <i
+                    className="bi bi-linkedin social-icon pe-5 me-5"
+                    style={{ fontSize: "2.2rem" }}
+                  ></i>
                 </Nav.Link>
 
                 <Nav.Link
                   onClick={handleGitHubClick}
                   aria-label="Open GitHub profile"
-                  className="nav-link text-white p-0"
+                  className="nav-link text-white p-0 float-end"
                   style={{ cursor: "pointer" }}
                 >
-                  <i className="bi bi-github social-icon fs-1"></i>
+                  <i
+                    className="bi bi-github social-icon"
+                    style={{ fontSize: "2.2rem" }}
+                  ></i>
                 </Nav.Link>
-              </div>
+              </motion.div>
             </motion.div>
           </Col>
         </Row>
