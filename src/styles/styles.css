@@ -126,10 +126,16 @@ body {
   height: auto;
 }
 
+@media (max-width: 992px) {
+  .hero-image {
+    max-width: 300px;
+  }
+}
+
 /* Responsive adjustments for the hero image */
 @media (max-width: 767.98px) {
   .hero-image {
-    max-width: 180px;
+    max-width: 200px;
   }
 }
 
