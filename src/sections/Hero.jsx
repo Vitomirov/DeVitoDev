@@ -71,17 +71,17 @@ function Hero() {
 
               <motion.div
                 variants={itemVariants}
-                className="d-lg-none clearfix pt-2"
-                style={{ width: "12rem" }}
+                className="d-lg-none pt-2 clearfix"
+                style={{ width: "8rem" }}
               >
                 <Nav.Link
                   onClick={handleLinkedinClick}
                   aria-label="Open LinkedIn profile"
-                  className="nav-link text-white float-start p-0"
+                  className="nav-link text-white float-start"
                   style={{ cursor: "pointer" }}
                 >
                   <i
-                    className="bi bi-linkedin social-icon pe-5 me-5"
+                    className="bi bi-linkedin social-icon"
                     style={{ fontSize: "2.2rem" }}
                   ></i>
                 </Nav.Link>
@@ -89,7 +89,7 @@ function Hero() {
                 <Nav.Link
                   onClick={handleGitHubClick}
                   aria-label="Open GitHub profile"
-                  className="nav-link text-white p-0 float-end"
+                  className="nav-link text-white float-end"
                   style={{ cursor: "pointer" }}
                 >
                   <i

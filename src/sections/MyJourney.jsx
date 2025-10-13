@@ -48,24 +48,25 @@ function MyJourney() {
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
               >
-                Along the way, my work in market research and mortgage loan
-                processing exposed me to inefficient systems. Instead of just
-                accepting them, I aimed to create better solutions. That drive
-                led me to fully commit to web development, focusing on building
-                efficient, user-friendly applications that make a real impact
-                for users.
+                As an archaeologist, I’ve spent years uncovering hidden patterns
+                and organizing complex data—skills I now bring to crafting
+                efficient, user-friendly web applications. Later, while working
+                in market research and mortgage loan processing, I often ran
+                into outdated systems that needed smarter solutions. Instead of
+                accepting them, I looked for ways to improve, which eventually
+                led me to fully commit to web development.
               </motion.p>
-              <motion.p
-                variants={itemVariants}
-                className="fs-5 mt-4 pt-1 paragraph-justify"
-              >
-                I started coding out of curiosity, experimenting with ideas in
-                the console just to see them work. Soon, I realized I wanted
-                more. <br /> I wanted to build fully interactive projects that
-                people could actually use. This curiosity pushed me to dive into
-                full-stack development, learning both frontend and backend to
-                transform ideas into real-world applications.
-              </motion.p>
+              <div className="shadow w-100 d-flex flex-column align-items-start">
+                <motion.h4
+                  variants={itemVariants}
+                  className="mt-0 paragraph-justify lh-sm text-blue"
+                >
+                  It may seem that archaeology and web development are worlds
+                  apart, but both require analyzing complex information and
+                  solving problems—skills I now apply to building impactful,
+                  user-focused applications.
+                </motion.h4>
+              </div>
             </div>
           </Col>
           <Col lg={6} md={12} className="text-start">
@@ -78,6 +79,17 @@ function MyJourney() {
                 idea grow into a fully functional application motivates me every
                 day.
               </motion.h4>
+              <motion.p
+                variants={itemVariants}
+                className="fs-5 paragraph-justify"
+              >
+                I started coding out of curiosity, experimenting with ideas in
+                the console just to see them work. Soon, I realized I wanted
+                more. <br /> I wanted to build fully interactive projects that
+                people could actually use. This curiosity pushed me to dive into
+                full-stack development, learning both frontend and backend to
+                transform ideas into real-world applications.
+              </motion.p>
             </div>
           </Col>
         </Row>
