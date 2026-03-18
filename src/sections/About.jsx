@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
+import { portfolioContent } from "../content/content";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -19,22 +20,23 @@ const sectionContainerVariants = {
   },
 };
 
-const allSkills = [
+/* const allSkills = [
   { label: "HTML" },
   { label: "CSS" },
   { label: "JavaScript" },
+  { label: "TypeScript" },
   { label: "React" },
   { label: "Bootstrap" },
   { label: "Node.js" },
   { label: "Express.js" },
   { label: "JWT" },
   { label: "MySQL" },
+  { label: "PostgreSQL" },
   { label: "Git" },
   { label: "Docker" },
   { label: "DigitalOcean" },
-  { label: "Linux" },
   { label: "CI/CD" },
-];
+]; */
 
 function About() {
   const ref = useRef(null);
@@ -54,26 +56,21 @@ function About() {
           variants={itemVariants}
           className="display-5 mb-5 fw-bold mt-3 text-start"
         >
-          About Me
+          {portfolioContent.about.title}
         </motion.h2>
 
         <Row className="justify-content-center align-items-start gx-5">
           <Col lg={6} md={12} className="text-starts">
             <div className="w-100 d-flex flex-column align-items-start">
               <motion.h3 variants={itemVariants} className=" mb-4">
-                My Skills
+                {portfolioContent.about.subtitleLeft}
               </motion.h3>
               <motion.p
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
-              >
-                These are the tools and technologies I use regularly. I'm
-                confident working across the full stack, and always open to
-                learning more.
-              </motion.p>
-
+              >{portfolioContent.about.quoteLeft}</motion.p>
               <div className="d-flex flex-wrap justify-content-start pt-3 mb-4">
-                {allSkills.map((skill, i) => (
+                {portfolioContent.about.skillsList.map((skill, i) => (
                   <motion.div
                     key={i}
                     variants={itemVariants}
@@ -89,22 +86,13 @@ function About() {
           <Col lg={6} md={12} className="text-start">
             <div className="shadow w-100 d-flex flex-column align-items-start">
               <motion.h3 variants={itemVariants} className=" mb-4">
-                Get to know me!
+                {portfolioContent.about.subtitleRight}
               </motion.h3>
               <motion.p
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
               >
-                I am a Full-Stack Web Developer skilled in building and
-                maintaining modern web applications. I work across the full
-                development cycle to create efficient, user-friendly solutions
-                aligned with business needs. I’m always learning and improving
-                to keep up with new technologies. Feel free to explore my work
-                or{" "}
-                <a href="#contact" className="fw-bold font-color">
-                  contact
-                </a>{" "}
-                me regarding new opportunities.
+                {portfolioContent.about.quoteRight}
               </motion.p>
             </div>
           </Col>

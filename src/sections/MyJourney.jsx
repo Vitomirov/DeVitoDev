@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
+import { portfolioContent } from "../content/content";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -38,7 +39,7 @@ function MyJourney() {
           variants={itemVariants}
           className="display-5 mb-5 fw-bold mt-3 text-start"
         >
-          My Journey
+          {portfolioContent.myJourney.title}
         </motion.h2>
 
         <Row className="justify-content-center align-items-start gx-5">
@@ -47,24 +48,13 @@ function MyJourney() {
               <motion.p
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
-              >
-                As an archaeologist, I’ve spent years uncovering hidden patterns
-                and organizing complex data—skills I now bring to crafting
-                efficient, user-friendly web applications. Later, while working
-                in market research and mortgage loan processing, I often ran
-                into outdated systems that needed smarter solutions. Instead of
-                accepting them, I looked for ways to improve, which eventually
-                led me to fully commit to web development.
-              </motion.p>
+              >{portfolioContent.myJourney.p1}
+              </motion.p> 
               <div className="shadow w-100 d-flex flex-column align-items-start">
                 <motion.h4
                   variants={itemVariants}
                   className="mt-0 paragraph-justify lh-sm text-blue"
-                >
-                  It may seem that archaeology and web development are worlds
-                  apart, but both require analyzing complex information and
-                  solving problems—skills I now apply to building impactful,
-                  user-focused applications.
+                >{portfolioContent.myJourney.quoteLeft}
                 </motion.h4>
               </div>
             </div>
@@ -74,21 +64,12 @@ function MyJourney() {
               <motion.h4
                 variants={itemVariants}
                 className=" mt-2 paragraph-justify lh-sm"
-              >
-                I love turning ideas into tangible products, seeing a simple
-                idea grow into a fully functional application motivates me every
-                day.
+              >{portfolioContent.myJourney.quoteRight}
               </motion.h4>
               <motion.p
                 variants={itemVariants}
                 className="fs-5 paragraph-justify"
-              >
-                I started coding out of curiosity, experimenting with ideas in
-                the console just to see them work. Soon, I realized I wanted
-                more. <br /> I wanted to build fully interactive projects that
-                people could actually use. This curiosity pushed me to dive into
-                full-stack development, learning both frontend and backend to
-                transform ideas into real-world applications.
+              >{portfolioContent.myJourney.p2}
               </motion.p>
             </div>
           </Col>

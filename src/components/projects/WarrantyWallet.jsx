@@ -1,8 +1,9 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Container, Row, Col, Modal } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
 import { BsPlayCircle } from "react-icons/bs";
 import videoWarrantyWallet from "../../assets/DemoVideos/warrantyWallet.mp4";
+import { portfolioContent } from "../../content/content";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -42,7 +43,7 @@ function WarrantyWallet() {
             variants={itemVariants}
             className="display-5 fw-bold mb-5 font-color"
           >
-            My Works
+            {portfolioContent.warrantyWallet.title}
           </motion.h1>
 
           <Row className="justify-content-start d-flex justify-content-between">
@@ -50,7 +51,7 @@ function WarrantyWallet() {
               variants={itemVariants}
               className="text-start mb-5 font-color"
             >
-              Warranty Wallet App
+              {portfolioContent.warrantyWallet.subtitle}
             </motion.h2>
 
             {/* Tekst */}
@@ -60,26 +61,22 @@ function WarrantyWallet() {
                 className="text-start paragraph-justify"
               >
                 <p className="fs-5 pt-1 paragraph-justify">
-                  Warranty Wallet App is a full-stack web application built for
-                  easy and organized warranty tracking. It helps users keep
-                  receipts safe and avoid missed warranty expirations by storing
-                  everything digitally. Key features include secure user
-                  authentication, adding new warranties with image uploads, and
-                  browsing or deleting saved warranty entries from a
-                  personalized dashboard.
+                  {portfolioContent.warrantyWallet.description}
                 </p>
 
                 <p className="mt-4">
-                  <strong>Technologies Used:</strong>
+                  <strong>
+                    {portfolioContent.warrantyWallet.technologiesSubtitle}
+                  </strong>
                 </p>
                 <ul className="list-unstyled ps-3">
-                  <li className="mb-2">
-                    <strong>• Frontend:</strong> React, Bootstrap, React Router
-                    DOM, Axios
-                  </li>
-                  <li className="mb-2">
-                    <strong>• Backend:</strong> Node JS, Express, MySQL, JWT
-                  </li>
+                  {portfolioContent.warrantyWallet.technologies.map(
+                    (tech, index) => (
+                      <li key={index} className="mb-2">
+                        <strong>• {tech.label}:</strong> {tech.tools}
+                      </li>
+                    ),
+                  )}
                 </ul>
 
                 <p className="mt-4">
