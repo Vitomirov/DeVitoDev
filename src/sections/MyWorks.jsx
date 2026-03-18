@@ -1,4 +1,5 @@
-// Za sada se ne koristi. Kad bude vise projekta, ukljucice se. Trenutno ulogu MyWorks kompenente igra src\components\projects\WarrantyWallet.jsx
+// Za sada se ne koristi. Kad bude vise projekta, ukljucice se. 
+// Trenutno ulogu MyWorks kompenente igra src\components\projects\WarrantyWallet.jsx
 
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";

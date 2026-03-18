@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Header from "./components/layout/Header";
 import HeroAboutLayout from "./components/layout/HeroAboutLayout";
-import MyJourney from "./sections/MyJourney";
 
 // lazy load komponente
 const WarrantyWallet = lazy(() =>
