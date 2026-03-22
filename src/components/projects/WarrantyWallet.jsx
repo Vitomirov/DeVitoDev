@@ -27,6 +27,8 @@ function WarrantyWallet() {
   const isInView = useInView(ref, { once: true, amount: 0.4 });
   const [showModal, setShowModal] = useState(false);
 
+  const { warrantyWallet } = portfolioContent;
+
   return (
     <div
       id="warrantyWallet"
@@ -43,7 +45,7 @@ function WarrantyWallet() {
             variants={itemVariants}
             className="display-5 fw-bold mb-5 font-color"
           >
-            {portfolioContent.warrantyWallet.title}
+            {warrantyWallet.title}
           </motion.h1>
 
           <Row className="justify-content-start d-flex justify-content-between">
@@ -51,34 +53,34 @@ function WarrantyWallet() {
               variants={itemVariants}
               className="text-start mb-5 font-color"
             >
-              {portfolioContent.warrantyWallet.subtitle}
+              {warrantyWallet.subtitle}
             </motion.h2>
 
-            {/* Tekst */}
+            {/* TEXT */}
             <Col lg={7} md={12} className="font-color paragraph-justify pe-5">
               <motion.div
                 variants={itemVariants}
                 className="text-start paragraph-justify"
               >
-                <p className="fs-5 pt-1 paragraph-justify">
-                  {portfolioContent.warrantyWallet.description}
+                {/* description */}
+                  <p className="fs-5 pt-1 paragraph-justify">
+                    {warrantyWallet.description}
+                  </p>
+                  
+                {/* technologies */}
+                <p className="mt-4">
+                  <strong>{warrantyWallet.technologiesSubtitle}</strong>
                 </p>
 
-                <p className="mt-4">
-                  <strong>
-                    {portfolioContent.warrantyWallet.technologiesSubtitle}
-                  </strong>
-                </p>
                 <ul className="list-unstyled ps-3">
-                  {portfolioContent.warrantyWallet.technologies.map(
-                    (tech, index) => (
-                      <li key={index} className="mb-2">
-                        <strong>• {tech.label}:</strong> {tech.tools}
-                      </li>
-                    ),
-                  )}
+                  {warrantyWallet.technologies.map((tech, index) => (
+                    <li key={index} className="mb-2">
+                      <strong>• {tech.label}:</strong> {tech.tools}
+                    </li>
+                  ))}
                 </ul>
 
+                {/* links */}
                 <p className="mt-4">
                   <a
                     href="https://github.com/Vitomirov/warranty-wallet"
@@ -101,7 +103,7 @@ function WarrantyWallet() {
               </motion.div>
             </Col>
 
-            {/* Video placeholder */}
+            {/* VIDEO */}
             <Col lg={4} md={8} className="me-5">
               <motion.div
                 variants={itemVariants}

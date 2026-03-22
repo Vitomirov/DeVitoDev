@@ -20,27 +20,11 @@ const sectionContainerVariants = {
   },
 };
 
-/* const allSkills = [
-  { label: "HTML" },
-  { label: "CSS" },
-  { label: "JavaScript" },
-  { label: "TypeScript" },
-  { label: "React" },
-  { label: "Bootstrap" },
-  { label: "Node.js" },
-  { label: "Express.js" },
-  { label: "JWT" },
-  { label: "MySQL" },
-  { label: "PostgreSQL" },
-  { label: "Git" },
-  { label: "Docker" },
-  { label: "DigitalOcean" },
-  { label: "CI/CD" },
-]; */
-
 function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });
+
+  const { about } = portfolioContent;
 
   return (
     <motion.div
@@ -56,21 +40,28 @@ function About() {
           variants={itemVariants}
           className="display-5 mb-5 fw-bold mt-3 text-start"
         >
-          {portfolioContent.about.title}
+          {about.title}
         </motion.h2>
 
         <Row className="justify-content-center align-items-start gx-5">
-          <Col lg={6} md={12} className="text-starts">
+          {/* LEFT */}
+          <Col lg={6} md={12} className="text-start">
             <div className="w-100 d-flex flex-column align-items-start">
-              <motion.h3 variants={itemVariants} className=" mb-4">
-                {portfolioContent.about.subtitleLeft}
+              <motion.h3 variants={itemVariants} className="mb-4">
+                {about.subtitleLeft}
               </motion.h3>
+
+              {/* quoteLeft - single block */}
               <motion.p
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
-              >{portfolioContent.about.quoteLeft}</motion.p>
+              >
+                {about.quoteLeft}
+              </motion.p>
+
+              {/* skills */}
               <div className="d-flex flex-wrap justify-content-start pt-3 mb-4">
-                {portfolioContent.about.skillsList.map((skill, i) => (
+                {about.skillsList.map((skill, i) => (
                   <motion.div
                     key={i}
                     variants={itemVariants}
@@ -83,16 +74,38 @@ function About() {
             </div>
           </Col>
 
+          {/* RIGHT */}
           <Col lg={6} md={12} className="text-start">
             <div className="shadow w-100 d-flex flex-column align-items-start">
-              <motion.h3 variants={itemVariants} className=" mb-4">
-                {portfolioContent.about.subtitleRight}
+              <motion.h3 variants={itemVariants} className="mb-4">
+                {about.subtitleRight}
               </motion.h3>
+
+              {/* quoteRight - single block */}
               <motion.p
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
               >
-                {portfolioContent.about.quoteRight}
+                {about.quoteRight.map((item, i) => {
+                  if (typeof item === "string") return item;
+
+                  if (item.type === "linkText") {
+                    return (
+                      <span key={i}>
+                        {item.textBefore}
+                        <a
+                          href={item.href}
+                          className="fw-bold font-color"
+                        >
+                          {item.linkText}
+                        </a>
+                        {item.textAfter}
+                      </span>
+                    );
+                  }
+
+                  return null;
+                })}
               </motion.p>
             </div>
           </Col>

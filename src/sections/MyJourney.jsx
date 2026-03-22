@@ -24,6 +24,8 @@ function MyJourney() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });
 
+  const { myJourney } = portfolioContent;
+
   return (
     <motion.div
       id="myJourney"
@@ -34,42 +36,50 @@ function MyJourney() {
       className="section-layout text-center py-5 vh-md-100 d-flex align-items-center justify-content-center"
     >
       <Container className="font-color">
-        {/* Naslov */}
         <motion.h2
           variants={itemVariants}
           className="display-5 mb-5 fw-bold mt-3 text-start"
         >
-          {portfolioContent.myJourney.title}
+          {myJourney.title}
         </motion.h2>
 
         <Row className="justify-content-center align-items-start gx-5">
+          {/* LEFT */}
           <Col lg={6} md={12} className="text-start">
             <div className="w-100 d-flex flex-column align-items-start">
               <motion.p
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
-              >{portfolioContent.myJourney.p1}
-              </motion.p> 
+              >
+                {myJourney.p1}
+              </motion.p>
+
               <div className="shadow w-100 d-flex flex-column align-items-start">
                 <motion.h4
                   variants={itemVariants}
                   className="mt-0 paragraph-justify lh-sm text-blue"
-                >{portfolioContent.myJourney.quoteLeft}
+                >
+                  {myJourney.quoteLeft}
                 </motion.h4>
               </div>
             </div>
           </Col>
+
+          {/* RIGHT */}
           <Col lg={6} md={12} className="text-start">
             <div className="shadow w-100 d-flex flex-column align-items-start pt-3">
               <motion.h4
                 variants={itemVariants}
-                className=" mt-2 paragraph-justify lh-sm"
-              >{portfolioContent.myJourney.quoteRight}
+                className="mt-2 paragraph-justify lh-sm"
+              >
+                {myJourney.quoteRight}
               </motion.h4>
+
               <motion.p
                 variants={itemVariants}
                 className="fs-5 paragraph-justify"
-              >{portfolioContent.myJourney.p2}
+              >
+                {myJourney.p2}
               </motion.p>
             </div>
           </Col>
