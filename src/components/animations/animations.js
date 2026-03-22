@@ -4,36 +4,6 @@ export const fadeIn = {
   visible: { opacity: 1, transition: { duration: 3 } },
 };
 
-// Klizanje sa leve strane sa "spring" efektom
-export const slideInFromLeft = {
-  hidden: { x: -150, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 150,
-      damping: 5,
-      mass: 1,
-    },
-  },
-};
-
-// Klizanje sa desne strane sa "spring" efektom
-export const slideInFromRight = {
-  hidden: { x: 150, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 150,
-      damping: 5,
-      mass: 1,
-    },
-  },
-};
-
 // Kontejner sa efektom sekvencijalnog pojavljivanja dece
 export const containerVariants = {
   hidden: { opacity: 0 },
@@ -51,12 +21,6 @@ export const containerVariants = {
 export const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-// Klizanje odozdo sa postepenim pojavljivanjem
-export const slideInFromBottom = {
-  hidden: { y: 100, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 4, ease: "easeOut" } },
 };
 
 // Dinamična animacija klizanja gore sa podešenim kašnjenjem
