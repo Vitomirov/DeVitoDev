@@ -56,7 +56,7 @@ function WarrantyWallet() {
               {warrantyWallet.subtitle}
             </motion.h2>
 
-            {/* TEXT */}
+            {/* Tekst */}
             <Col lg={7} md={12} className="font-color paragraph-justify pe-5">
               <motion.div
                 variants={itemVariants}
@@ -67,7 +67,7 @@ function WarrantyWallet() {
                     {warrantyWallet.description}
                   </p>
                   
-                {/* technologies */}
+                {/* Tehnologije */}
                 <p className="mt-4">
                   <strong>{warrantyWallet.technologiesSubtitle}</strong>
                 </p>
@@ -80,7 +80,7 @@ function WarrantyWallet() {
                   ))}
                 </ul>
 
-                {/* links */}
+                {/* Linkovi */}
                 <p className="mt-4">
                   <a
                     href="https://github.com/Vitomirov/warranty-wallet"
@@ -103,7 +103,7 @@ function WarrantyWallet() {
               </motion.div>
             </Col>
 
-            {/* VIDEO */}
+            {/* Video */}
             <Col lg={4} md={8} className="me-5">
               <motion.div
                 variants={itemVariants}

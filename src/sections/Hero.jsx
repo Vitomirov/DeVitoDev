@@ -41,7 +41,7 @@ function Hero() {
             />
           </Col>
 
-          {/* Tekstualni deo */}
+          {/* Tekst */}
           <Col lg={6} md={12} className="text-center text-lg-start">
             <motion.h1 variants={itemVariants} className="display-5">
               Hi, my name is

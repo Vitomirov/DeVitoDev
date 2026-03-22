@@ -44,7 +44,7 @@ function MyJourney() {
         </motion.h2>
 
         <Row className="justify-content-center align-items-start gx-5">
-          {/* LEFT */}
+          {/* Leva strana */}
           <Col lg={6} md={12} className="text-start">
             <div className="w-100 d-flex flex-column align-items-start">
               <motion.p
@@ -65,7 +65,7 @@ function MyJourney() {
             </div>
           </Col>
 
-          {/* RIGHT */}
+          {/* Desna Strana */}
           <Col lg={6} md={12} className="text-start">
             <div className="shadow w-100 d-flex flex-column align-items-start pt-3">
               <motion.h4

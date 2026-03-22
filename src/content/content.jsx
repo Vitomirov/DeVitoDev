@@ -1,30 +1,5 @@
 export const portfolioContent = {
-  myJourney: {
-    title: "My Journey",
-
-    p1: [
-      "As an archaeologist, I’ve spent years uncovering hidden patterns and organizing complex data—skills I now bring to crafting efficient, user-friendly web applications.",
-      "Later, while working in market research and mortgage loan processing, I often ran into outdated systems that needed smarter solutions.",
-      "Instead of accepting them, I looked for ways to improve, which eventually led me to fully commit to web development."
-    ],
-
-    quoteLeft: [
-      "It may seem that archaeology and web development are worlds apart, but both require analyzing complex information and solving problems—skills I now apply to building impactful, user-focused applications."
-    ],
-
-    quoteRight: [
-      "I love turning ideas into tangible products. Seeing a simple idea grow into a fully functional application motivates me every day."
-    ],
-
-    p2: [
-      "I started coding out of curiosity, experimenting with ideas in the console just to see them work.",
-      "Soon, I realized I wanted more.",
-      "I wanted to build fully interactive projects that people could actually use.",
-      "This curiosity pushed me to dive into full-stack development, learning both frontend and backend to transform ideas into real-world applications."
-    ]
-  },
-
-  about: {
+    about: {
     title: "About Me",
 
     subtitleLeft: "My Skills",
@@ -67,7 +42,30 @@ export const portfolioContent = {
       { label: "CI/CD" }
     ]
   },
+  myJourney: {
+    title: "My Journey",
 
+    p1: [
+      "As an archaeologist, I’ve spent years uncovering hidden patterns and organizing complex data—skills I now bring to crafting efficient, user-friendly web applications.",
+      "Later, while working in market research and mortgage loan processing, I often ran into outdated systems that needed smarter solutions.",
+      "Instead of accepting them, I looked for ways to improve, which eventually led me to fully commit to web development."
+    ],
+
+    quoteLeft: [
+      "It may seem that archaeology and web development are worlds apart, but both require analyzing complex information and solving problems—skills I now apply to building impactful, user-focused applications."
+    ],
+
+    quoteRight: [
+      "I love turning ideas into tangible products. Seeing a simple idea grow into a fully functional application motivates me every day."
+    ],
+
+    p2: [
+      "I started coding out of curiosity, experimenting with ideas in the console just to see them work.",
+      "Soon, I realized I wanted more.",
+      "I wanted to build fully interactive projects that people could actually use.",
+      "This curiosity pushed me to dive into full-stack development, learning both frontend and backend to transform ideas into real-world applications."
+    ]
+  },
   warrantyWallet: {
     title: "My Works",
     subtitle: "Warranty Wallet App",

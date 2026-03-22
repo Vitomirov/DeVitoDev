@@ -24,7 +24,6 @@ This project is built using modern technologies and tools:
 
     • ESLint – Code linting and best practices
     • @vitejs/plugin-react – React plugin for Vite
-    • TypeScript Types for React and React DOM
 
 📂 Project Structure
 plaintext

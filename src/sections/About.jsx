@@ -44,14 +44,14 @@ function About() {
         </motion.h2>
 
         <Row className="justify-content-center align-items-start gx-5">
-          {/* LEFT */}
+          {/* Leva strana */}
           <Col lg={6} md={12} className="text-start">
             <div className="w-100 d-flex flex-column align-items-start">
               <motion.h3 variants={itemVariants} className="mb-4">
                 {about.subtitleLeft}
               </motion.h3>
 
-              {/* quoteLeft - single block */}
+              {/* quoteLeft*/}
               <motion.p
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
@@ -74,14 +74,14 @@ function About() {
             </div>
           </Col>
 
-          {/* RIGHT */}
+          {/* Desna Strana */}
           <Col lg={6} md={12} className="text-start">
             <div className="shadow w-100 d-flex flex-column align-items-start">
               <motion.h3 variants={itemVariants} className="mb-4">
                 {about.subtitleRight}
               </motion.h3>
 
-              {/* quoteRight - single block */}
+              {/* quoteRight */}
               <motion.p
                 variants={itemVariants}
                 className="fs-5 mt-4 pt-1 paragraph-justify"
