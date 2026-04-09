@@ -92,7 +92,7 @@ function WarrantyWallet() {
                   </a>{" "}
                   |{" "}
                   <a
-                    href="https://devitowarranty.xyz/"
+                    href="https://dejanvitomirov.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white ms-3"
