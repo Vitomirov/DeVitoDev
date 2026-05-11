@@ -82,5 +82,21 @@ export const portfolioContent = {
       { label: "Frontend", tools: "React, Bootstrap, React Router DOM, Axios" },
       { label: "Backend", tools: "Node.js, Express, MySQL, JWT" }
     ]
-  }
+  },
+shopifyAnalyzer: {
+  subtitle: "Shopify AI Analyzer",
+
+  description: [
+    "Shopify AI Analyzer is a specialized tool designed to audit e-commerce storefronts using automated web scraping and AI analysis.", " ",
+    "The app validates Shopify-specific signatures and extracts structured data from HTML, stylesheets, and theme metadata to identify optimization gaps.", " ",
+    "It delivers actionable, AI-generated insights across key performance areas: Conversion Rate (CRO), SEO, User Experience (UX), and Trust signals, helping merchants improve their store's professional impact."
+  ],
+
+  technologiesSubtitle: "Technologies Used:",
+
+  technologies: [
+    { label: "Frontend", tools: "Next.js 16 (App Router), Tailwind CSS 4, React 19" },
+    { label: "Backend", tools: "Node.js, Cheerio (Web Scraping), Zod (Validation)" }
+  ]
+},
 };

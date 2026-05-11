@@ -8,6 +8,7 @@ import HeroAboutLayout from "./components/layout/HeroAboutLayout";
 const WarrantyWallet = lazy(() =>
   import("./components/projects/WarrantyWallet")
 );
+const ShopifyAnalyzer = lazy(() => import("./components/projects/ShopifyAnalyzer"));
 const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./components/layout/Footer"));
 const BackToTopArrow = lazy(() => import("./components/common/BackToTopArrow"));
@@ -27,6 +28,7 @@ function App() {
             <Suspense fallback={<div>Loading...</div>}>
               <BackToTopArrow />
               <WarrantyWallet />
+              <ShopifyAnalyzer />
               <Contact />
               <Footer />
             </Suspense>
@@ -38,6 +40,14 @@ function App() {
         element={
           <Suspense fallback={<div>Loading Project...</div>}>
             <WarrantyWallet />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/projects/ShopifyAnalyzer"
+        element={
+          <Suspense fallback={<div>Loading Project...</div>}>
+            <ShopifyAnalyzer />
           </Suspense>
         }
       />

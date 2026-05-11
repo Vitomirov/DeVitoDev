@@ -92,7 +92,7 @@ function WarrantyWallet() {
                   </a>{" "}
                   |{" "}
                   <a
-                    href="https://dejanvitomirov.com/"
+                    href="https://dejanvitomirov.com/warrantywallet"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white ms-3"
@@ -108,7 +108,7 @@ function WarrantyWallet() {
               <motion.div
                 variants={itemVariants}
                 onClick={() => setShowModal(true)}
-                className="videro-placeholder"
+                className="warrantyWallet-video-placeholder"
               >
                 <BsPlayCircle size={60} color="black" />
               </motion.div>
