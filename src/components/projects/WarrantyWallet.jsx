@@ -4,84 +4,58 @@ import { motion, useInView } from "framer-motion";
 import { BsPlayCircle } from "react-icons/bs";
 import videoWarrantyWallet from "../../assets/DemoVideos/warrantyWallet.mp4";
 import { portfolioContent } from "../../content/content";
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const sectionContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-      staggerChildren: 0.1,
-    },
-  },
-};
-
+import {
+  containerVariants,
+  itemVariants,
+} from "../animations/animations";
 function WarrantyWallet() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.4 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
   const [showModal, setShowModal] = useState(false);
 
   const { warrantyWallet } = portfolioContent;
 
   return (
-    <div
-      id="warrantyWallet"
-      className="section-layout py-5 text-white vh-md-100 d-flex justify-content-center dark-bg"
-    >
-      <motion.div
-        ref={ref}
-        variants={sectionContainerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <Container className="font-color">
+    <section id="warrantyWallet" className="project-detail text-white">
+      <Container className="font-color section-container pt-5">
+        <motion.div
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           <motion.h1
             variants={itemVariants}
-            className="display-5 fw-bold mb-5 font-color"
+            className="project-detail-title fw-bold font-color"
           >
             {warrantyWallet.title}
           </motion.h1>
 
-          <Row className="justify-content-start d-flex justify-content-between">
-            <motion.h2
-              variants={itemVariants}
-              className="text-start mb-5 font-color"
-            >
-              {warrantyWallet.subtitle}
-            </motion.h2>
+          <motion.h2
+            variants={itemVariants}
+            className="project-detail-subtitle font-color"
+          >
+            {warrantyWallet.subtitle}
+          </motion.h2>
 
-            {/* Tekst */}
-            <Col lg={7} md={12} className="font-color paragraph-justify pe-5">
-              <motion.div
-                variants={itemVariants}
-                className="text-start paragraph-justify"
-              >
-                {/* description */}
-                  <p className="fs-5 pt-1 paragraph-justify">
-                    {warrantyWallet.description}
-                  </p>
-                  
-                {/* Tehnologije */}
-                <p className="mt-4">
+          <Row className="project-detail-grid g-3 g-lg-4 align-items-center">
+            <Col lg={7} md={12} className="project-detail-body">
+              <motion.div variants={itemVariants} className="paragraph-justify">
+                <p className="paragraph-justify">{warrantyWallet.description}</p>
+
+                <p className="mt-2 mb-1">
                   <strong>{warrantyWallet.technologiesSubtitle}</strong>
                 </p>
 
-                <ul className="list-unstyled ps-3">
+                <ul className="list-unstyled ps-3 mb-2">
                   {warrantyWallet.technologies.map((tech, index) => (
-                    <li key={index} className="mb-2">
+                    <li key={index}>
                       <strong>• {tech.label}:</strong> {tech.tools}
                     </li>
                   ))}
                 </ul>
 
-                {/* Linkovi */}
-                <p className="mt-4">
+                <p className="mb-0">
                   <a
                     href="https://github.com/Vitomirov/warranty-wallet"
                     target="_blank"
@@ -89,8 +63,8 @@ function WarrantyWallet() {
                     className="text-white me-3"
                   >
                     View on GitHub
-                  </a>{" "}
-                  |{" "}
+                  </a>
+                  |
                   <a
                     href="https://dejanvitomirov.com/warrantywallet"
                     target="_blank"
@@ -103,50 +77,44 @@ function WarrantyWallet() {
               </motion.div>
             </Col>
 
-            {/* Video */}
-            <Col lg={4} md={8} className="me-5">
+            <Col lg={5} md={12}>
               <motion.div
                 variants={itemVariants}
                 onClick={() => setShowModal(true)}
                 className="warrantyWallet-video-placeholder"
+                role="button"
+                tabIndex={0}
+                aria-label="Play Warranty Wallet demo video"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setShowModal(true);
+                  }
+                }}
               >
-                <BsPlayCircle size={60} color="black" />
+                <BsPlayCircle size={48} color="black" />
               </motion.div>
             </Col>
           </Row>
-        </Container>
-      </motion.div>
+        </motion.div>
+      </Container>
 
       <Modal
         show={showModal}
         onHide={() => setShowModal(false)}
         centered
-        size="sm"
+        size="lg"
       >
-        <Modal.Body
-          className="p-0"
-          style={{
-            backgroundColor: "transparent",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <Modal.Body className="p-0 bg-transparent d-flex justify-content-center">
           <video
             src={videoWarrantyWallet}
             controls
             autoPlay
-            style={{
-              height: "600px",
-              width: "auto",
-              maxWidth: "90vw",
-              borderRadius: "6px",
-              objectFit: "contain",
-            }}
+            className="project-modal-video"
           />
         </Modal.Body>
       </Modal>
-    </div>
+    </section>
   );
 }
 

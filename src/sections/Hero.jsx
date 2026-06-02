@@ -21,7 +21,7 @@ function Hero() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
-      <Container>
+      <Container className="section-container">
         <Row className="justify-content-center align-items-center">
           {/* Slika sa lazy load */}
           <Col

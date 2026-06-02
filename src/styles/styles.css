@@ -12,6 +12,11 @@
   --color-bg-gradient-dark1: #1a1a2e;
   --color-bg-gradient-dark2: #202040;
 
+  /* Bridge tones between hero-about (My Journey) and contact */
+  --color-hero-navy: rgba(0, 7, 27, 1);
+  --color-hero-blue: rgba(88, 153, 224, 1);
+  --color-hero-blue-soft: rgba(88, 153, 224, 0.18);
+
   --color-button-bg: #f1b91c;
   --color-button-bg-hover: #d1d5ec;
   --color-button-text: #11174e;
@@ -36,9 +41,8 @@ body {
   color: var(--color-text-light);
 
   /* Modern dark gradient background */
-  background: linear-gradient(174deg, var(--color-bg-dark) 3%, var(--color-bg-gradient-dark1) 50%, var(--color-bg-gradient-dark2) 100%);
-  background-attachment: fixed;
-}
+  background: linear-gradient(80deg, var(--color-bg-dark) 3%, var(--color-bg-gradient-dark1) 70%, var(--color-bg-gradient-dark2) 100%);
+  background-attachment: fixed;}
 
 /* Ensures the root element takes up at least the full viewport height */
 #root {
@@ -151,44 +155,75 @@ body {
 /* General layout for all main content sections */
 .section-layout {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   scroll-margin-top: 80px;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
   color: var(--color-text-muted);
+  background: transparent;
 }
 
-/* Special styles for the My Works section */
-.myWorks-section {
+/* One continuous scroll gradient: Hero → About → Journey → Works → Contact */
+.portfolio-gradient-flow {
   position: relative;
-  display: flex;
-  align-items: center;
-  background-color: var(--color-bg-gradient-dark2);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  color: #efefef;
+  isolation: isolate;
+  min-height: 100vh;
+  background-color: var(--color-bg-dark);
+  background-image:
+    linear-gradient(
+      124deg,
+      var(--color-bg-dark) 1%,
+      var(--color-hero-blue) 8%,
+      var(--color-hero-navy) 27%,
+      transparent 72%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      var(--color-bg-gradient-dark1) 18%,
+      var(--color-bg-gradient-dark2) 30%,
+      var(--color-bg-gradient-dark1) 42%,
+      var(--color-bg-gradient-dark2) 52%,
+      var(--color-hero-navy) 60%,
+      var(--color-bg-gradient-dark2) 68%,
+      var(--color-bg-gradient-dark1) 76%,
+      var(--color-bg-dark) 86%,
+      var(--color-bg-dark) 100%
+    );
 }
 
-/* Special styles for the My Works section */
-.myJourney-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background-color: var(--color-bg-gradient-dark2);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  color: #efefef;
+.portfolio-gradient-flow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    124deg,
+    transparent 0%,
+    var(--color-hero-blue-soft) 38%,
+    transparent 68%
+  );
+  animation: section-ambient-glow 12s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
+@keyframes section-ambient-glow {
+  0% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0.85;
+    transform: translateY(-1.5%);
+  }
+}
+
+/* Shared content width and horizontal alignment across sections */
+.section-container {
+  width: 100%;
+}
 
 
 /* ==========================================================================
@@ -277,6 +312,287 @@ body {
    My Works
    ========================================================================== */
 
+.myWorks-header {
+  margin-bottom: 3rem;
+}
+
+.works-list {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.works-list-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.works-link {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.25rem 1.75rem;
+  align-items: center;
+  padding: 1.75rem 0;
+  text-decoration: none;
+  color: inherit;
+  transition: padding 0.35s ease;
+}
+
+.works-link:hover,
+.works-link:focus-visible {
+  padding-left: 0.75rem;
+  outline: none;
+}
+
+.works-link:focus-visible {
+  box-shadow: inset 3px 0 0 var(--color-link-hover);
+}
+
+.works-index {
+  min-width: 2.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-hero-blue);
+  transition: color 0.3s ease;
+}
+
+.works-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.works-name {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text-light);
+  transition: color 0.3s ease, transform 0.35s ease;
+}
+
+.works-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f1f1df;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(0.35rem);
+  transition:
+    opacity 0.35s ease,
+    max-height 0.35s ease,
+    transform 0.35s ease;
+}
+
+.works-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background-color: var(--color-skill-bg);
+  color: var(--color-text-light);
+  white-space: nowrap;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.works-action-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.works-action-icon {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.works-link:hover .works-name,
+.works-link:focus-visible .works-name {
+  color: var(--color-text-light);
+  transform: translateX(0.15rem);
+}
+
+.works-link:hover .works-index,
+.works-link:focus-visible .works-index {
+  color: var(--color-link-hover);
+}
+
+.works-link:hover .works-description,
+.works-link:focus-visible .works-description {
+  opacity: 1;
+  max-height: 8rem;
+  transform: translateY(0);
+}
+
+.works-link:hover .works-action,
+.works-link:focus-visible .works-action {
+  background-color: var(--color-skill-bg-hover);
+  border-color: rgba(241, 185, 28, 0.45);
+  transform: translateX(0.2rem);
+}
+
+.works-link:hover .works-action-icon,
+.works-link:focus-visible .works-action-icon {
+  transform: translate(0.15rem, -0.15rem);
+}
+
+.myWorks-footer {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 767.98px) {
+  .myWorks-header {
+    margin-bottom: 2rem;
+  }
+
+  .works-link {
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem 1rem;
+    padding: 1.35rem 0;
+  }
+
+  .works-action {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 0.35rem;
+  }
+
+  .works-description {
+    opacity: 1;
+    max-height: none;
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Project detail pages
+   ========================================================================== */
+
+.project-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-page-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding-top: 5.5rem;
+  overflow: hidden;
+}
+
+.project-page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 1.25rem 0 0.75rem;
+  overflow-y: auto;
+}
+
+.project-page > .footer-color {
+  flex-shrink: 0;
+}
+
+.project-detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0 0 0.5rem;
+  overflow: visible;
+}
+
+.project-back-link {
+  position: fixed;
+  left: clamp(1rem, 3vw, 1.75rem);
+  bottom: 6.5rem;
+  z-index: 1040;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.project-back-link:hover,
+.project-back-link:focus-visible {
+  color: var(--color-link-hover);
+  transform: translateX(-3px);
+}
+
+@media (max-width: 767.98px) {
+  .project-back-link {
+    bottom: 7.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+.project-detail-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0.35rem;
+}
+
+.project-detail-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: 1rem;
+  color: var(--color-text-muted);
+}
+
+.project-detail-grid {
+  --project-media-height: min(200px, 26vh);
+}
+
+.project-detail .warrantyWallet-video-placeholder,
+.project-detail .shopifyAnalyzer-screenshot {
+  height: var(--project-media-height);
+  max-height: 32vh;
+}
+
+.project-detail-body {
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  line-height: 1.55;
+}
+
+.project-detail-body p {
+  margin-bottom: 0.65rem;
+}
+
+.project-detail-body ul {
+  margin-bottom: 0.5rem;
+}
+
+.project-detail-body li {
+  margin-bottom: 0.35rem !important;
+}
+
+@media (max-width: 991.98px) {
+  .project-page-main {
+    padding-top: 5rem;
+    overflow-y: auto;
+  }
+
+  .project-page-content {
+    padding-top: 1rem;
+  }
+
+  .project-detail-grid {
+    --project-media-height: min(180px, 24vh);
+  }
+}
+
 /* Styling for the video element */
 .video-element {
   width: 100%;
@@ -311,6 +627,22 @@ body {
 .shopifyAnalyzer-screenshot:hover {
   transform: scale(1.02); /* Blagi zoom */
   filter: brightness(1.1); /* Blago posvetli */
+}
+
+.project-modal-video {
+  width: auto;
+  max-width: min(90vw, 960px);
+  max-height: 80vh;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.project-modal-image {
+  width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================================================
@@ -429,10 +761,6 @@ background: linear-gradient(
    Contact
    ========================================================================== */
 
-.contact-gradient {
-  background: var(--color-bg-dark);
-}
-
 /* Stil za transparentna polja forme */
 .contact-form {
   background-color: transparent !important;
@@ -448,16 +776,6 @@ background: linear-gradient(
 
 .contact-form:focus {
   color: white !important;
-}
-
-
-/* ==========================================================================
-   Hero-About Gradient (specijalni gradienti)
-   ========================================================================== */
-
-.hero-about-gradient {
-  background: var(--color-bg-dark);
-  background: linear-gradient(124deg, rgba(15, 15, 15, 1) 0%, rgba(88, 153, 224, 1) 11%, rgba(0, 7, 27, 1) 34%);
 }
 
 

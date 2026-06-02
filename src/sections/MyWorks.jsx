@@ -1,137 +1,94 @@
-// Za sada se ne koristi. Kad bude vise projekta, ukljucice se. 
-// Trenutno ulogu MyWorks kompenente igra src\components\projects\WarrantyWallet.jsx
-
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { useRef } from "react";
+import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import warrantyWalletImage from "../images/WarrantyWalletScreenshot.PNG";
-
-const popUpAndFadeIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
+import {
+  containerVariants,
+  itemVariants,
+} from "../components/animations/animations";
+import { portfolioContent } from "../content/content";
 
 function MyWorks() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-
-  const myWorksSectionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const projects = [
-    {
-      id: 1,
-      title: "Warranty Wallet",
-      description:
-        "A full-stack application for managing product warranties and receipts digitally. Built with React, Node.js, Express, and MySQL.",
-      image: warrantyWalletImage,
-      link: "/projects/WarrantyWallet",
-    },
-  ];
+  const isInView = useInView(ref, { once: true, amount: 0.25 });
+  const { myWorks } = portfolioContent;
 
   return (
-    <div
+    <motion.section
       id="myWorks"
-      className="myWorks-section py-5 vh-md-100 d-flex flex-column justify-content-center"
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      className="section-layout py-5 vh-md-100 d-flex align-items-center justify-content-center"
+      aria-labelledby="myWorks-heading"
     >
-      <motion.div
-        ref={ref}
-        variants={myWorksSectionVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className="dark-bg"
-      >
-        <Container className="font-color ps-lg-5">
-          <motion.h2 variants={itemVariants} className="display-5 fw-bold mb-4">
-            My Works
-          </motion.h2>
-          <motion.p variants={itemVariants} className="fs-5 mb-5">
-            The ones I'm most proud of — and just the start of what’s coming
-            next.
-          </motion.p>
+      <Container className="font-color section-container">
+        <motion.header variants={itemVariants} className="myWorks-header">
+          <h2
+            id="myWorks-heading"
+            className="display-5 mb-4 fw-bold mt-3 text-start font-color"
+          >
+            {myWorks.title}
+          </h2>
+          <p className="fs-5 mb-0 text-start paragraph-justify">
+            {myWorks.subtitle}
+          </p>
+        </motion.header>
 
-          <Row className="justify-content-start g-4 mb-5">
-            {projects.map((project) => (
-              <Col
-                key={project.id}
-                lg={projects.length === 1 ? 7 : 4}
-                md={6}
-                sm={12}
+        <motion.ul
+          variants={itemVariants}
+          className="works-list list-unstyled mb-0"
+          role="list"
+        >
+          {myWorks.projects.map((project, index) => (
+            <motion.li
+              key={project.slug}
+              variants={itemVariants}
+              className="works-list-item"
+            >
+              <Link
+                to={`/projects/${project.slug}`}
+                className="works-link"
+                aria-label={`View ${project.title} project details`}
               >
-                <motion.div variants={popUpAndFadeIn} className="h-100">
-                  <Card className="project-card shadow-lg border-0 rounded-3 h-100">
-                    <Card.Img
-                      variant="top"
-                      src={project.image}
-                      alt={project.title}
-                      className="project-card-image"
-                    />
-                    <Card.Body className="d-flex flex-column">
-                      <Card.Title className="h4 fw-bold mb-2">
-                        {project.title}
-                      </Card.Title>
-                      <Card.Text className="text-muted mb-3 flex-grow-1">
-                        {project.description}
-                      </Card.Text>
-                      <Button
-                        as={Link}
-                        to={project.link}
-                        variant=""
-                        className="custom-button w-100 mt-auto"
-                      >
-                        View Project
-                      </Button>
-                    </Card.Body>
-                  </Card>
-                </motion.div>
-              </Col>
-            ))}
-          </Row>
+                <span className="works-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
-          <motion.div variants={itemVariants} className="mt-5">
-            <p className="fs-5">
-              More projects are currently under development. Stay tuned for
-              updates!
-            </p>
-            <p className="fs-5">
-              In the meantime, feel free to explore my code on{" "}
-              <a
-                href="https://github.com/Vitomirov"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="fw-bold font-color"
-              >
-                GitHub
-              </a>
-              .
-            </p>
-          </motion.div>
-        </Container>
-      </motion.div>
-    </div>
+                <span className="works-body">
+                  <span className="works-name">{project.title}</span>
+                  <span className="works-description paragraph-justify">
+                    {project.description}
+                  </span>
+                </span>
+
+                <span className="works-action" aria-hidden="true">
+                  <span className="works-action-label">Explore</span>
+                  <i className="bi bi-arrow-up-right works-action-icon" />
+                </span>
+              </Link>
+            </motion.li>
+          ))}
+        </motion.ul>
+
+        <motion.footer variants={itemVariants} className="myWorks-footer">
+          <p className="fs-5 mb-0 text-start paragraph-justify">
+            {myWorks.githubLink.textBefore}
+            <a
+              href={myWorks.githubLink.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="fw-bold font-color"
+            >
+              {myWorks.githubLink.linkText}
+              <i className="bi bi-arrow-up-right ms-1" aria-hidden="true" />
+            </a>
+            {myWorks.githubLink.textAfter}
+          </p>
+        </motion.footer>
+      </Container>
+    </motion.section>
   );
 }
 

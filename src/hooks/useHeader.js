@@ -7,7 +7,7 @@ export default function useHeader() {
   const navLinks = [
     { href: "#about", label: "About Me" },
     { href: "#myJourney", label: "My Journey" },
-    { href: "#warrantyWallet", label: "My Works" },
+    { href: "#myWorks", label: "My Works" },
   ];
 
   const handleGitHubClick = () => {

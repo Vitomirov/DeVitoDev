@@ -66,9 +66,34 @@ export const portfolioContent = {
       "This curiosity pushed me to dive into full-stack development, learning both frontend and backend to transform ideas into real-world applications."
     ]
   },
-  warrantyWallet: {
+  myWorks: {
     title: "My Works",
-    subtitle: "Warranty Wallet App",
+    subtitle:
+      "Those are some of the projects I've worked on. Feel free to explore them!",
+
+    githubLink: {
+      textBefore: "In the meantime, feel free to explore my code on ",
+      linkText: "GitHub",
+      href: "https://github.com/Vitomirov",
+      textAfter: ".",
+    },
+    projects: [
+      {
+        slug: "WarrantyWallet",
+        title: "Warranty Wallet",
+        description:
+          "A full-stack application for managing product warranties and receipts digitally.",
+      },
+      {
+        slug: "ShopifyAnalyzer",
+        title: "Shopify AI Analyzer",
+        description:
+          "An AI-powered Shopify storefront auditor that scrapes store data and delivers actionable insights across CRO, SEO, UX, and trust signals.",
+      },
+    ],
+  },
+  warrantyWallet: {
+    title: "Warranty Wallet",
 
     description: [
       "Warranty Wallet App is a full-stack web application built for easy and organized warranty tracking.", " ",
@@ -84,7 +109,7 @@ export const portfolioContent = {
     ]
   },
 shopifyAnalyzer: {
-  subtitle: "Shopify AI Analyzer",
+  title: "Shopify AI Analyzer",
 
   description: [
     "Shopify AI Analyzer is a specialized tool designed to audit e-commerce storefronts using automated web scraping and AI analysis.", " ",

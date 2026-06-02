@@ -1,16 +1,14 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, Fragment } from "react";
 import Hero from "../../sections/Hero";
 
-// Lazy load sekcije
 const About = lazy(() => import("../../sections/About"));
 const MyJourney = lazy(() => import("../../sections/MyJourney"));
 
 function HeroAboutLayout() {
   return (
-    <div className="hero-about-gradient">
+    <Fragment>
       <Hero />
 
-      {/* Lazy-loaded sekcije */}
       <Suspense
         fallback={<div className="text-center py-5">Loading About...</div>}
       >
@@ -22,7 +20,7 @@ function HeroAboutLayout() {
       >
         <MyJourney />
       </Suspense>
-    </div>
+    </Fragment>
   );
 }
 

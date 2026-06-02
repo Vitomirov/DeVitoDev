@@ -35,7 +35,7 @@ function MyJourney() {
       animate={isInView ? "visible" : "hidden"}
       className="section-layout text-center py-5 vh-md-100 d-flex align-items-center justify-content-center"
     >
-      <Container className="font-color">
+      <Container className="font-color section-container">
         <motion.h2
           variants={itemVariants}
           className="display-5 mb-5 fw-bold mt-3 text-start"

@@ -35,7 +35,7 @@ function About() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
-      <Container className="font-color">
+      <Container className="font-color section-container">
         <motion.h2
           variants={itemVariants}
           className="display-5 mb-5 fw-bold mt-3 text-start"
