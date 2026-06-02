@@ -31,13 +31,6 @@ function WarrantyWallet() {
             {warrantyWallet.title}
           </motion.h1>
 
-          <motion.h2
-            variants={itemVariants}
-            className="project-detail-subtitle font-color"
-          >
-            {warrantyWallet.subtitle}
-          </motion.h2>
-
           <Row className="project-detail-grid g-3 g-lg-4 align-items-center">
             <Col lg={7} md={12} className="project-detail-body">
               <motion.div variants={itemVariants} className="paragraph-justify">

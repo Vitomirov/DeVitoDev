@@ -154,7 +154,7 @@ function Contact() {
   };
 
   return (
-    <div className="py-5 contact-gradient" id="contact">
+    <div className="py-5" id="contact">
       <motion.div
         ref={sectionRef}
         initial="hidden"

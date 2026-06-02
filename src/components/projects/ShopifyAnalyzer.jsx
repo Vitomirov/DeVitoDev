@@ -30,13 +30,6 @@ function ShopifyAnalyzer() {
             {shopifyAnalyzer.title}
           </motion.h1>
 
-          <motion.h2
-            variants={itemVariants}
-            className="project-detail-subtitle font-color"
-          >
-            {shopifyAnalyzer.subtitle}
-          </motion.h2>
-
           <Row className="project-detail-grid g-3 g-lg-4 align-items-center">
             <Col lg={5} md={12} className="order-lg-last">
               <motion.div
