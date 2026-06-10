@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import useHeader from "../../hooks/useHeader";
 
@@ -22,7 +23,8 @@ function Header() {
       className="custom-navbar py-2 px-4 border-bottom border-black shadow-lg"
     >
       <Navbar.Brand
-        href="#"
+        as={Link}
+        to="/"
         onClick={toggleExpanded}
         className="text-white fs-1 ps-md-5 fw-bold"
       >
@@ -33,10 +35,11 @@ function Header() {
 
       <Navbar.Collapse id="navbar-nav" className="justify-content-end pe-5">
         <Nav className="text-end gap-4 fs-5 align-items-end">
-          {navLinks.map(({ href, label }) => (
+          {navLinks.map(({ hash, label }) => (
             <Nav.Link
-              key={href}
-              href={href}
+              key={hash}
+              as={Link}
+              to={{ pathname: "/", hash }}
               className="nav-link text-white"
               onClick={toggleExpanded}
             >

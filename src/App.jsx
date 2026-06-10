@@ -21,8 +21,28 @@ function HashScrollHandler() {
   useEffect(() => {
     if (!hash) return;
     const id = hash.replace("#", "");
-    const element = document.getElementById(id);
-    if (element) element.scrollIntoView({ behavior: "smooth" });
+
+    const scrollToSection = () => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        return true;
+      }
+      return false;
+    };
+
+    if (scrollToSection()) return;
+
+    const interval = setInterval(() => {
+      if (scrollToSection()) clearInterval(interval);
+    }, 100);
+
+    const timeout = setTimeout(() => clearInterval(interval), 3000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
   }, [pathname, hash]);
 
   return null;
