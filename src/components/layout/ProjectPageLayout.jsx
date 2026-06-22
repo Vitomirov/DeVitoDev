@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import ProjectBackLink from "../projects/ProjectBackLink";
+import ProjectBackLink from "../common/ProjectBackLink";
 
 function ProjectPageLayout({ children }) {
   return (

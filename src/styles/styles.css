@@ -504,7 +504,8 @@ body {
 }
 
 .project-detail .warrantyWallet-video-placeholder,
-.project-detail .shopifyAnalyzer-screenshot {
+.project-detail .shopifyAnalyzer-screenshot,
+.project-detail .aiCrateDigger-screenshot {
   height: var(--project-media-height);
   max-height: 32vh;
 }
@@ -568,6 +569,22 @@ body {
 .shopifyAnalyzer-screenshot:hover {
   transform: scale(1.02); /* Blagi zoom */
   filter: brightness(1.1); /* Blago posvetli */
+}
+
+.aiCrateDigger-screenshot {
+  width: 100%;
+  height: 180px;
+  background-image: url("../assets/images/AiCrateDiggerScreenshot.PNG");
+  background-size: 100% 99%;
+  background-position: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.aiCrateDigger-screenshot:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
 }
 
 .project-modal-video {

@@ -68,8 +68,6 @@ export const portfolioContent = {
   },
   myWorks: {
     title: "My Works",
-    subtitle:
-      "Those are some of the projects I've worked on. Feel free to explore them!",
 
     githubLink: {
       textBefore: "In the meantime, feel free to explore my code on ",
@@ -89,6 +87,12 @@ export const portfolioContent = {
         title: "Shopify AI Analyzer",
         description:
           "An AI-powered Shopify storefront auditor that scrapes store data and delivers actionable insights across CRO, SEO, UX, and trust signals.",
+      },
+      {
+        slug: "AiCrateDigger",
+        title: "AiCrateDigger",
+        description:
+          "An AI-powered crate digger that scrapes crate data and delivers actionable insights across CRO, SEO, UX, and trust signals.",
       },
     ],
   },
@@ -122,6 +126,22 @@ shopifyAnalyzer: {
   technologies: [
     { label: "Frontend", tools: "Next.js 16 (App Router), Tailwind CSS 4, React 19" },
     { label: "Backend", tools: "Node.js, Cheerio (Web Scraping), Zod (Validation)" }
+  ]
+},
+aiCrateDigger: {
+  title: "AiCrateDigger",
+
+  description: [
+    "AiCrateDigger is an advanced full-stack application designed for intelligent, geo-aware discovery of physical music formats including vinyl, CDs, and cassettes.", " ",
+    "The app utilizes natural language LLM parsing to extract precise musical entities and search intents from loose user queries, routing them through a dynamic local store discovery mechanism.", " ",
+    "Operating through an end-to-end async pipeline, it enforces strict geographical pre-filtering and smart Redis caching to transform raw web snippets into structured, actionable listings with price hints and availability signals."
+  ],
+
+  technologiesSubtitle: "Technologies Used:",
+
+  technologies: [
+    { label: "Frontend", tools: "Next.js 14 (App Router), TypeScript, Tailwind CSS 3" },
+    { label: "Backend", tools: "Python, FastAPI, Pydantic v2, PostgreSQL, Redis, Docker, Tavily API" }
   ]
 },
 };

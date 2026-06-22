@@ -11,6 +11,7 @@ const WarrantyWallet = lazy(() =>
   import("./components/projects/WarrantyWallet")
 );
 const ShopifyAnalyzer = lazy(() => import("./components/projects/ShopifyAnalyzer"));
+const AiCrateDigger = lazy(() => import("./components/projects/AiCrateDigger"));
 const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./components/layout/Footer"));
 const BackToTopArrow = lazy(() => import("./components/common/BackToTopArrow"));
@@ -88,6 +89,16 @@ function App() {
           <ProjectPageLayout>
             <Suspense fallback={<div>Loading Project...</div>}>
               <ShopifyAnalyzer />
+            </Suspense>
+          </ProjectPageLayout>
+        }
+      />
+      <Route
+        path="/projects/AiCrateDigger"
+        element={
+          <ProjectPageLayout>
+            <Suspense fallback={<div>Loading Project...</div>}>
+              <AiCrateDigger />
             </Suspense>
           </ProjectPageLayout>
         }
