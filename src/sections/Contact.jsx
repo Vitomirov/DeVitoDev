@@ -224,7 +224,6 @@ function Contact() {
                       )}
 
                       <div className="text-center">
-                        {" "}
                         {field.type === "button" && (
                           <Button
                             variant={field.variant}

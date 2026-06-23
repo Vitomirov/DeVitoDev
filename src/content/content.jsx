@@ -68,14 +68,13 @@ export const portfolioContent = {
   },
   myWorks: {
     title: "My Works",
-
-    githubLink: {
-      textBefore: "In the meantime, feel free to explore my code on ",
-      linkText: "GitHub",
-      href: "https://github.com/Vitomirov",
-      textAfter: ".",
-    },
     projects: [
+      {
+        slug: "AiCrateDigger",
+        title: "AiCrateDigger",
+        description:
+          "An AI-powered crate digger that scrapes crate data and delivers actionable insights across CRO, SEO, UX, and trust signals.",
+      },
       {
         slug: "WarrantyWallet",
         title: "Warranty Wallet",
@@ -88,60 +87,88 @@ export const portfolioContent = {
         description:
           "An AI-powered Shopify storefront auditor that scrapes store data and delivers actionable insights across CRO, SEO, UX, and trust signals.",
       },
-      {
-        slug: "AiCrateDigger",
-        title: "AiCrateDigger",
-        description:
-          "An AI-powered crate digger that scrapes crate data and delivers actionable insights across CRO, SEO, UX, and trust signals.",
-      },
+
     ],
   },
   warrantyWallet: {
     title: "Warranty Wallet",
 
     description: [
-      "Warranty Wallet App is a full-stack web application built for easy and organized warranty tracking.", " ",
-      "It helps users keep receipts safe and avoid missed warranty expirations by storing everything digitally.", " ",
-      "Key features include secure user authentication, adding new warranties with image uploads, and browsing or deleting saved warranty entries from a personalized dashboard."
+      "Warranty Wallet App is a full-stack web application built for easy and organized warranty tracking.",
+      "It helps users keep receipts safe and avoid missed warranty expirations by storing everything digitally.",
+      "Key features include secure user authentication, adding new warranties with image uploads, and browsing or deleting saved warranty entries from a personalized dashboard.",
     ],
 
     technologiesSubtitle: "Technologies Used:",
 
     technologies: [
       { label: "Frontend", tools: "React, Bootstrap, React Router DOM, Axios" },
-      { label: "Backend", tools: "Node.js, Express, MySQL, JWT" }
-    ]
+      { label: "Backend", tools: "Node.js, Express, MySQL, JWT" },
+    ],
+
+    links: [
+      {
+        label: "View on GitHub",
+        href: "https://github.com/Vitomirov/warranty-wallet",
+      },
+      {
+        label: "Live Demo",
+        href: "https://dejanvitomirov.com/warrantywallet",
+      },
+    ],
   },
-shopifyAnalyzer: {
-  title: "Shopify AI Analyzer",
+  shopifyAnalyzer: {
+    title: "Shopify AI Analyzer",
 
-  description: [
-    "Shopify AI Analyzer is a specialized tool designed to audit e-commerce storefronts using automated web scraping and AI analysis.", " ",
-    "The app validates Shopify-specific signatures and extracts structured data from HTML, stylesheets, and theme metadata to identify optimization gaps.", " ",
-    "It delivers actionable, AI-generated insights across key performance areas: Conversion Rate (CRO), SEO, User Experience (UX), and Trust signals, helping merchants improve their store's professional impact."
-  ],
+    description: [
+      "Shopify AI Analyzer is a specialized tool designed to audit e-commerce storefronts using automated web scraping and AI analysis.",
+      "The app validates Shopify-specific signatures and extracts structured data from HTML, stylesheets, and theme metadata to identify optimization gaps.",
+      "It delivers actionable, AI-generated insights across key performance areas: Conversion Rate (CRO), SEO, User Experience (UX), and Trust signals, helping merchants improve their store's professional impact.",
+    ],
 
-  technologiesSubtitle: "Technologies Used:",
+    technologiesSubtitle: "Technologies Used:",
 
-  technologies: [
-    { label: "Frontend", tools: "Next.js 16 (App Router), Tailwind CSS 4, React 19" },
-    { label: "Backend", tools: "Node.js, Cheerio (Web Scraping), Zod (Validation)" }
-  ]
-},
-aiCrateDigger: {
-  title: "AiCrateDigger",
+    technologies: [
+      { label: "Frontend", tools: "Next.js 16 (App Router), Tailwind CSS 4, React 19" },
+      { label: "Backend", tools: "Node.js, Cheerio (Web Scraping), Zod (Validation)" },
+    ],
 
-  description: [
-    "AiCrateDigger is an advanced full-stack application designed for intelligent, geo-aware discovery of physical music formats including vinyl, CDs, and cassettes.", " ",
-    "The app utilizes natural language LLM parsing to extract precise musical entities and search intents from loose user queries, routing them through a dynamic local store discovery mechanism.", " ",
-    "Operating through an end-to-end async pipeline, it enforces strict geographical pre-filtering and smart Redis caching to transform raw web snippets into structured, actionable listings with price hints and availability signals."
-  ],
+    links: [
+      {
+        label: "View on GitHub",
+        href: "https://github.com/UkisAI-Academy/nedelja-3-vas-app-Vitomirov",
+      },
+      {
+        label: "Live Demo",
+        href: "https://shopifyanalyzer.dejanvitomirov.com/",
+      },
+    ],
+  },
+  aiCrateDigger: {
+    title: "AiCrateDigger",
 
-  technologiesSubtitle: "Technologies Used:",
+    description: [
+      "AiCrateDigger is an advanced full-stack application designed for intelligent, geo-aware discovery of physical music formats including vinyl, CDs, and cassettes.",
+      "The app utilizes natural language LLM parsing to extract precise musical entities and search intents from loose user queries, routing them through a dynamic local store discovery mechanism.",
+      "Operating through an end-to-end async pipeline, it enforces strict geographical pre-filtering and smart Redis caching to transform raw web snippets into structured, actionable listings with price hints and availability signals.",
+    ],
 
-  technologies: [
-    { label: "Frontend", tools: "Next.js 14 (App Router), TypeScript, Tailwind CSS 3" },
-    { label: "Backend", tools: "Python, FastAPI, Pydantic v2, PostgreSQL, Redis, Docker, Tavily API" }
-  ]
-},
+    technologiesSubtitle: "Technologies Used:",
+
+    technologies: [
+      { label: "Frontend", tools: "Next.js 14 (App Router), TypeScript, Tailwind CSS 3" },
+      { label: "Backend", tools: "Python, FastAPI, Pydantic v2, PostgreSQL, Redis, Docker, Tavily API" },
+    ],
+
+    links: [
+      {
+        label: "View on GitHub",
+        href: "https://github.com/Vitomirov/AiCrateDigger",
+      },
+      {
+        label: "Live Demo",
+        href: "https://aicratedigger.dejanvitomirov.com/",
+      },
+    ],
+  },
 };

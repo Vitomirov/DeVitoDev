@@ -39,6 +39,11 @@ export default function useHeader() {
 
   const toggleExpanded = () => setExpanded((prev) => !prev);
 
+  const handleBrandClick = () => {
+    setExpanded(false);
+    document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return {
     expanded,
     navbarRef,
@@ -46,5 +51,6 @@ export default function useHeader() {
     handleGitHubClick,
     handleLinkedinClick,
     toggleExpanded,
+    handleBrandClick,
   };
 }

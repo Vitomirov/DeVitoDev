@@ -11,6 +11,7 @@ function Header() {
     handleGitHubClick,
     handleLinkedinClick,
     toggleExpanded,
+    handleBrandClick,
   } = useHeader();
 
   return (
@@ -24,8 +25,8 @@ function Header() {
     >
       <Navbar.Brand
         as={Link}
-        to="/"
-        onClick={toggleExpanded}
+        to={{ pathname: "/", hash: "hero" }}
+        onClick={handleBrandClick}
         className="text-white fs-1 ps-md-5 fw-bold"
       >
         DeVitoDev

@@ -31,9 +31,6 @@ function MyWorks() {
           >
             {myWorks.title}
           </h2>
-          <p className="fs-5 mb-0 text-start paragraph-justify">
-            {myWorks.subtitle}
-          </p>
         </motion.header>
 
         <motion.ul
@@ -71,22 +68,6 @@ function MyWorks() {
             </motion.li>
           ))}
         </motion.ul>
-
-        <motion.footer variants={itemVariants} className="myWorks-footer">
-          <p className="fs-5 mb-0 text-start paragraph-justify">
-            {myWorks.githubLink.textBefore}
-            <a
-              href={myWorks.githubLink.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="fw-bold font-color"
-            >
-              {myWorks.githubLink.linkText}
-              <i className="bi bi-arrow-up-right ms-1" aria-hidden="true" />
-            </a>
-            {myWorks.githubLink.textAfter}
-          </p>
-        </motion.footer>
       </Container>
     </motion.section>
   );
