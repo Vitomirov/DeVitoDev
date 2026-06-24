@@ -33,13 +33,14 @@ export const portfolioContent = {
       { label: "Bootstrap" },
       { label: "Node.js" },
       { label: "Express.js" },
+      { label: "Python" },
+      { label: "FastAPI" },
       { label: "JWT" },
       { label: "MySQL" },
       { label: "PostgreSQL" },
       { label: "Git" },
       { label: "Docker" },
-      { label: "DigitalOcean" },
-      { label: "CI/CD" }
+      { label: "CI/CD" },
     ]
   },
   myJourney: {
@@ -73,7 +74,7 @@ export const portfolioContent = {
         slug: "AiCrateDigger",
         title: "AiCrateDigger",
         description:
-          "An AI-powered crate digger that scrapes crate data and delivers actionable insights across CRO, SEO, UX, and trust signals.",
+          "A simple AI search engine for discovering physical music albums available for purchase in local stores.",
       },
       {
         slug: "WarrantyWallet",
