@@ -751,9 +751,9 @@ body {
 /* Styling for the back-to-top arrow button */
 .arrow {
   position: fixed;
-  bottom: 55px;
-  right: 200px;
-  z-index: 1000;
+  bottom: clamp(1.25rem, 4vh, 3.5rem);
+  right: clamp(1rem, 3vw, 1.75rem);
+  z-index: 1090;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -786,18 +786,9 @@ body {
   transform: translateY(-5px);
 }
 
-/* Responsive adjustments for the arrow */
-/* Hide arrow on screens smaller than 768px */
 @media (max-width: 767.98px) {
   .arrow {
     display: none !important;
-  }
-}
-
-/* Show arrow on screens larger than 768px */
-@media (min-width: 768px) {
-  .arrow {
-    display: block;
   }
 }
 

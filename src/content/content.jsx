@@ -5,22 +5,22 @@ export const portfolioContent = {
     subtitleLeft: "My Skills",
 
     quoteLeft: [
-      "These are the tools and technologies I use regularly.",
-      "I'm confident working across the full stack, and always open to learning more."
+      "Technologies I reach for across real projects—from React and TypeScript UIs to Node.js and Python APIs, SQL databases, and Docker-based deployment. ",
+      "I choose the stack for the problem, not the trend, and keep expanding it as products demand."
     ],
 
     subtitleRight: "Get to know me!",
 
     quoteRight: [
-      "I am a Full-Stack Web Developer skilled in building and maintaining modern web applications.", " ",
-      "I work across the full development cycle to create efficient, user-friendly solutions aligned with business needs.", " ",
-      "I’m always learning and improving to keep up with new technologies.", " ",
+      "I'm a software engineer who ships web products end to end: thoughtful interfaces, reliable backends, and data that stays clear under real use.", " ",
+      "My approach is to understand the problem first, then design small, maintainable pieces—solid validation, sensible architecture, and performance where it matters.", " ",
+      "Recent work includes async pipelines, AI-assisted features, and the DevOps habits (Git, CI/CD, containers) to get them live with confidence.", " ",
       {
         type: "linkText",
-        textBefore: "Feel free to explore my work or ",
+        textBefore: "Browse my projects or ",
         linkText: "contact",
         href: "#contact",
-        textAfter: " me regarding new opportunities."
+        textAfter: " me if you'd like to collaborate."
       }
     ],
 
@@ -32,6 +32,8 @@ export const portfolioContent = {
       { label: "React" },
       { label: "Bootstrap" },
       { label: "Node.js" },
+      { label: "Fastify.js" },
+      { label: "Next.js" },
       { label: "Express.js" },
       { label: "Python" },
       { label: "FastAPI" },
@@ -47,13 +49,13 @@ export const portfolioContent = {
     title: "My Journey",
 
     p1: [
-      "As an archaeologist, I’ve spent years uncovering hidden patterns and organizing complex data—skills I now bring to crafting efficient, user-friendly web applications.",
+      "As an archaeologist, I’ve spent years uncovering hidden patterns and organizing complex data—skills I now bring to building thoughtful, user-friendly software.",
       "Later, while working in market research and mortgage loan processing, I often ran into outdated systems that needed smarter solutions.",
-      "Instead of accepting them, I looked for ways to improve, which eventually led me to fully commit to web development."
+      "Instead of accepting them, I looked for ways to improve, which eventually led me to fully commit to software engineering."
     ],
 
     quoteLeft: [
-      "It may seem that archaeology and web development are worlds apart, but both require analyzing complex information and solving problems—skills I now apply to building impactful, user-focused applications."
+      "It may seem that archaeology and software engineering are worlds apart, but both require analyzing complex information and solving problems—skills I now apply to building impactful, user-focused products."
     ],
 
     quoteRight: [
@@ -64,7 +66,7 @@ export const portfolioContent = {
       "I started coding out of curiosity, experimenting with ideas in the console just to see them work.",
       "Soon, I realized I wanted more.",
       "I wanted to build fully interactive projects that people could actually use.",
-      "This curiosity pushed me to dive into full-stack development, learning both frontend and backend to transform ideas into real-world applications."
+      "That curiosity led me to learn the full stack—interfaces, APIs, and data—so I could turn ideas into software people actually use."
     ]
   },
   myWorks: {

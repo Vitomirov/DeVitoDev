@@ -53,7 +53,7 @@ function Hero() {
               Dejan Vitomirov.
             </motion.h1>
             <motion.h2 variants={itemVariants} className="display-5 mb-4 pb-4">
-              Web Developer
+              Software Engineer
             </motion.h2>
 
             {/* Dugme + Social ikone */}

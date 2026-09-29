@@ -5,6 +5,7 @@ import Header from "./components/layout/Header";
 import HeroAboutLayout from "./components/layout/HeroAboutLayout";
 import ProjectPageLayout from "./components/layout/ProjectPageLayout";
 import MyWorks from "./sections/MyWorks";
+import BackToTopArrow from "./components/common/BackToTopArrow";
 
 // lazy load komponente
 const WarrantyWallet = lazy(() =>
@@ -14,8 +15,6 @@ const ShopifyAnalyzer = lazy(() => import("./components/projects/ShopifyAnalyzer
 const AiCrateDigger = lazy(() => import("./components/projects/AiCrateDigger"));
 const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./components/layout/Footer"));
-const BackToTopArrow = lazy(() => import("./components/common/BackToTopArrow"));
-
 function HashScrollHandler() {
   const { pathname, hash } = useLocation();
 
@@ -53,6 +52,7 @@ function App() {
   return (
     <>
       <HashScrollHandler />
+      <BackToTopArrow />
       <Routes>
       <Route
         path="/"
@@ -64,7 +64,6 @@ function App() {
               <HeroAboutLayout />
 
               <Suspense fallback={<div>Loading...</div>}>
-                <BackToTopArrow />
                 <MyWorks />
                 <Contact />
                 <Footer />

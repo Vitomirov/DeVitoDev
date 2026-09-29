@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+
+const SCROLL_SHOW_OFFSET = 320;
 
 const BackToTopArrow = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Proverava da li treba prikazati strelicu na osnovu pozicije skrola
   const toggleVisibility = () => {
+    const scrollY =
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+
     const heroSection = document.getElementById("hero");
-    if (!heroSection) return;
+    const threshold = heroSection
+      ? Math.max(SCROLL_SHOW_OFFSET, heroSection.offsetHeight * 0.35)
+      : SCROLL_SHOW_OFFSET;
 
-    const heroHeight = heroSection.offsetHeight;
-
-    // Strelica se prikazuje kad je skrol ispod hero sekcije (sa malim pomeranjem)
-    if (window.pageYOffset > heroHeight - 800) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+    setIsVisible(scrollY > threshold);
   };
 
-  // Skroluje stranicu na vrh glatko
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -26,24 +28,27 @@ const BackToTopArrow = () => {
     });
   };
 
-  // Dodaje i uklanja event listener za skrol
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
-    toggleVisibility(); // Provera odmah nakon rendera
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    window.addEventListener("resize", toggleVisibility);
+    toggleVisibility();
+
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("resize", toggleVisibility);
     };
   }, []);
 
-  // Prikazuje dugme strelice ako je isVisible true
-  return (
+  return createPortal(
     <button
       type="button"
       className={`arrow ${isVisible ? "arrow-visible" : ""}`}
       onClick={scrollToTop}
+      aria-label="Back to top"
     >
-      <i className={`bi bi-arrow-up back-to-top arrow-light`}></i>
-    </button>
+      <i className="bi bi-arrow-up back-to-top arrow-light" aria-hidden="true" />
+    </button>,
+    document.body
   );
 };
 
