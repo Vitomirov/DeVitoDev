@@ -13,6 +13,7 @@ const WarrantyWallet = lazy(() =>
 );
 const ShopifyAnalyzer = lazy(() => import("./components/projects/ShopifyAnalyzer"));
 const AiCrateDigger = lazy(() => import("./components/projects/AiCrateDigger"));
+const Rescope = lazy(() => import("./components/projects/Rescope"));
 const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./components/layout/Footer"));
 function HashScrollHandler() {
@@ -98,6 +99,16 @@ function App() {
           <ProjectPageLayout>
             <Suspense fallback={<div>Loading Project...</div>}>
               <AiCrateDigger />
+            </Suspense>
+          </ProjectPageLayout>
+        }
+      />
+      <Route
+        path="/projects/ReScopeSurveys"
+        element={
+          <ProjectPageLayout>
+            <Suspense fallback={<div>Loading Project...</div>}>
+              <Rescope />
             </Suspense>
           </ProjectPageLayout>
         }

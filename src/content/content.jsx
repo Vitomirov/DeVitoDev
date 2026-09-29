@@ -73,6 +73,12 @@ export const portfolioContent = {
     title: "My Works",
     projects: [
       {
+        slug: "ReScopeSurveys",
+        title: "ReScope Surveys",
+        description:
+          "A browser-based survey platform for market research and CX teams—visual builder, advanced logic, and multi-tenant delivery on PostgreSQL.",
+      },
+      {
         slug: "AiCrateDigger",
         title: "AiCrateDigger",
         description:
@@ -90,7 +96,6 @@ export const portfolioContent = {
         description:
           "An AI-powered Shopify storefront auditor that scrapes store data and delivers actionable insights across CRO, SEO, UX, and trust signals.",
       },
-
     ],
   },
   warrantyWallet: {
@@ -171,6 +176,39 @@ export const portfolioContent = {
       {
         label: "Live Demo",
         href: "https://aicratedigger.dejanvitomirov.com/",
+      },
+    ],
+  },
+  reScopeSurveys: {
+    title: "ReScope Surveys",
+
+    description: [
+      "ReScope Surveys is a browser-based authoring and delivery platform built for market research and customer experience teams.",
+      "In production, a React SPA talks to a Fastify API backed by Prisma and PostgreSQL—multi-tenant organizations, role-based access, and live respondent links on custom survey domains.",
+      "A drag-and-drop builder pairs with logic engines for visibility, branching, termination, piping, and validation; surveys autosave with revision locking and deploy via Docker, nginx, and Caddy with HTTPS on live infrastructure.",
+    ],
+
+    technologiesSubtitle: "Technologies Used:",
+
+    technologies: [
+      {
+        label: "Frontend",
+        tools: "React 18, Vite 5, Tailwind CSS 3, @dnd-kit, Lucide React",
+      },
+      {
+        label: "Backend",
+        tools: "Fastify 5, Prisma 6, PostgreSQL 16, JWT (HttpOnly cookies), Docker, nginx",
+      },
+    ],
+
+    links: [
+      {
+        label: "View on GitHub",
+        href: "https://github.com/Vitomirov/ReScopeSurveys",
+      },
+      {
+        label: "Live App",
+        href: "https://rescopesurveys.com/",
       },
     ],
   },

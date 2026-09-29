@@ -26,6 +26,7 @@ function ProjectDetail({ id, content, previewImage, modalMedia }) {
     (item) => typeof item === "string" && item.trim()
   );
 
+  const hasMedia = Boolean(previewImage && modalMedia);
   const isVideo = modalMedia?.type === "video";
 
   return (
@@ -44,7 +45,11 @@ function ProjectDetail({ id, content, previewImage, modalMedia }) {
           </motion.header>
 
           <Row className="project-detail-grid g-4 gx-lg-5 align-items-start">
-            <Col lg={7} md={12} className="project-detail-body order-last order-lg-0">
+            <Col
+              lg={hasMedia ? 7 : 12}
+              md={12}
+              className={`project-detail-body ${hasMedia ? "order-last order-lg-0" : ""}`}
+            >
               <motion.div variants={itemVariants}>
                 {paragraphs.map((paragraph, index) => (
                   <p
@@ -95,45 +100,48 @@ function ProjectDetail({ id, content, previewImage, modalMedia }) {
               </motion.div>
             </Col>
 
-            <Col
-              lg={5}
-              md={12}
-              className="project-media-col order-first order-lg-0"
-            >
-              <motion.div variants={itemVariants}>
-                <div
-                  className="project-media-preview"
-                  style={{ backgroundImage: `url(${previewImage})` }}
-                  onClick={openModal}
-                  onKeyDown={handleMediaKeyDown}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={
-                    isVideo
-                      ? `Play ${content.title} demo video`
-                      : `View ${content.title} screenshot`
-                  }
-                >
-                  {isVideo && (
-                    <BsPlayCircle
-                      size={52}
-                      className="project-media-preview__play"
-                      aria-hidden="true"
-                    />
-                  )}
-                  {!isVideo && (
-                    <span className="project-media-preview__hint">
-                      <i className="bi bi-arrows-fullscreen" aria-hidden="true" />
-                      <span>View full size</span>
-                    </span>
-                  )}
-                </div>
-              </motion.div>
-            </Col>
+            {hasMedia && (
+              <Col
+                lg={5}
+                md={12}
+                className="project-media-col order-first order-lg-0"
+              >
+                <motion.div variants={itemVariants}>
+                  <div
+                    className="project-media-preview"
+                    style={{ backgroundImage: `url(${previewImage})` }}
+                    onClick={openModal}
+                    onKeyDown={handleMediaKeyDown}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={
+                      isVideo
+                        ? `Play ${content.title} demo video`
+                        : `View ${content.title} screenshot`
+                    }
+                  >
+                    {isVideo && (
+                      <BsPlayCircle
+                        size={52}
+                        className="project-media-preview__play"
+                        aria-hidden="true"
+                      />
+                    )}
+                    {!isVideo && (
+                      <span className="project-media-preview__hint">
+                        <i className="bi bi-arrows-fullscreen" aria-hidden="true" />
+                        <span>View full size</span>
+                      </span>
+                    )}
+                  </div>
+                </motion.div>
+              </Col>
+            )}
           </Row>
         </motion.div>
       </Container>
 
+      {hasMedia && (
       <Modal
         show={showModal}
         onHide={closeModal}
@@ -165,6 +173,7 @@ function ProjectDetail({ id, content, previewImage, modalMedia }) {
           )}
         </Modal.Body>
       </Modal>
+      )}
     </section>
   );
 }
