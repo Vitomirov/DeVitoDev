@@ -96,14 +96,25 @@ function Contact() {
 
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID;
 
     if (!serviceId || !templateId) {
       showMessage("Email service configuration missing.", "danger");
       return;
     }
 
+    const sendAutoReply = () => {
+      if (!autoReplyTemplateId) return Promise.resolve();
+      return window.emailjs.sendForm(
+        serviceId,
+        autoReplyTemplateId,
+        form.current
+      );
+    };
+
     window.emailjs
       .sendForm(serviceId, templateId, form.current)
+      .then(sendAutoReply)
       .then(handleEmailSuccess, handleEmailError);
   };
 
